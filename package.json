@@ -1,0 +1,10 @@
+{
+    "name": "hexo-markmap",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "dependencies": {
+        "markdown-it": "^12.0.4",
+        "markdown-it-markmap": "^0.1.0"
+    }
+}
