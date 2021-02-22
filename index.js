@@ -14,10 +14,11 @@ hexo.extend.generator.register('markmap_asset', ()=>[
 ]);
 
 hexo.extend.tag.register("markmap", function (args, content) {
+  console.log(args[0]);
   var svg = creator(
     "\`\`\`mindmap\n" + content + "\n\`\`\`"
   );
-  return `<div class="markmap-container" >`+ svg + `</div>`;
+  return `<div class="markmap-container" style="height:`+args[0]+`;" >`+ svg + `</div>`;
 }, { ends: true });
 
 

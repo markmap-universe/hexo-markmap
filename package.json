@@ -1,10 +1,60 @@
 {
+  "_from": "hexo-markmap",
+  "_id": "hexo-markmap@0.0.2",
+  "_inBundle": false,
+  "_integrity": "sha512-icy27D2Fs2JZocEhBJelpDkzmAwujXnKgkhEyFfCOnTPL19exiwEyAjOzmQPVi2PR7rYGl1CRm19QqWM4bAqIw==",
+  "_location": "/hexo-markmap",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "hexo-markmap",
     "name": "hexo-markmap",
-    "version": "0.0.1",
-    "description": "",
-    "main": "index.js",
-    "dependencies": {
-        "markdown-it": "^12.0.4",
-        "markdown-it-markmap": "^0.1.0"
-    }
+    "escapedName": "hexo-markmap",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/hexo-markmap/-/hexo-markmap-0.0.2.tgz",
+  "_shasum": "f88356403a31d6c4ef397ab6903bb622894b179b",
+  "_spec": "hexo-markmap",
+  "_where": "F:\\Programmming\\BLOG",
+  "author": {
+    "name": "MaxC"
+  },
+  "bugs": {
+    "url": "https://github.com/MaxChang3/hexo-markmap/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "markdown-it": "^12.0.4",
+    "markdown-it-markmap": "^0.1.0"
+  },
+  "deprecated": false,
+  "description": "Depend on [markmap](https://github.com/deiv/markdown-it-markmap/) &  [markdown-it-markmap](https://github.com/deiv/markdown-it-markmap/).",
+  "devDependencies": {},
+  "directories": {
+    "lib": "lib"
+  },
+  "homepage": "https://github.com/MaxChang3/hexo-markmap#readme",
+  "keywords": [
+    "hexo",
+    "markmap",
+    "mindmap"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "hexo-markmap",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxChang3/hexo-markmap.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.2"
 }
