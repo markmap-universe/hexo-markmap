@@ -1,27 +1,27 @@
 {
-  "_from": "hexo-markmap",
-  "_id": "hexo-markmap@0.0.2",
+  "_from": "hexo-markmap@0.0.3",
+  "_id": "hexo-markmap@0.0.3",
   "_inBundle": false,
-  "_integrity": "sha512-icy27D2Fs2JZocEhBJelpDkzmAwujXnKgkhEyFfCOnTPL19exiwEyAjOzmQPVi2PR7rYGl1CRm19QqWM4bAqIw==",
+  "_integrity": "sha1-AOF2Ja1KkRt+DEGknwiHTQnTUU4=",
   "_location": "/hexo-markmap",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "hexo-markmap",
+    "raw": "hexo-markmap@0.0.3",
     "name": "hexo-markmap",
     "escapedName": "hexo-markmap",
-    "rawSpec": "",
+    "rawSpec": "0.0.3",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "0.0.3"
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/hexo-markmap/-/hexo-markmap-0.0.2.tgz",
-  "_shasum": "f88356403a31d6c4ef397ab6903bb622894b179b",
-  "_spec": "hexo-markmap",
+  "_resolved": "https://registry.npm.taobao.org/hexo-markmap/download/hexo-markmap-0.0.3.tgz",
+  "_shasum": "00e17625ad4a911b7e0c41a49f08874d09d3514e",
+  "_spec": "hexo-markmap@0.0.3",
   "_where": "F:\\Programmming\\BLOG",
   "author": {
     "name": "MaxC"
@@ -56,5 +56,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "0.0.2"
+  "version": "0.0.3"
 }

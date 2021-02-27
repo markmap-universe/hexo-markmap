@@ -14,7 +14,7 @@ hexo.extend.generator.register('markmap_asset', ()=>[
 ]);
 
 hexo.extend.tag.register("markmap", function (args, content) {
-  console.log(args[0]);
+  //console.log(args[0]);
   var svg = creator(
     "\`\`\`mindmap\n" + content + "\n\`\`\`"
   );
