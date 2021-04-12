@@ -1,7 +1,9 @@
 Depend on [markmap](https://github.com/deiv/markdown-it-markmap/) &  [markdown-it-markmap](https://github.com/deiv/markdown-it-markmap/).
 
 Inspired by [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap)
+
 [![NPM](https://nodei.co/npm/hexo-markmap.png)](https://nodei.co/npm/hexo-markmap/)
+
 # hexo-markmap
 Innsert a mindmap by markdown in your hexo blog by markmap.
 
