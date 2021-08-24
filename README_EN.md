@@ -23,6 +23,10 @@ More preview in [my blog](https://zhangmaimai.com/2021/02/23/hexo-mindmap-plugin
 ```
 npm install hexo-markmap
 ```
+或
+```
+yarn add hexo markmap
+```
 
 # Usage 
 ```
