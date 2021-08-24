@@ -1,60 +1,21 @@
 {
-  "_from": "hexo-markmap@0.0.3",
-  "_id": "hexo-markmap@0.0.3",
-  "_inBundle": false,
-  "_integrity": "sha1-AOF2Ja1KkRt+DEGknwiHTQnTUU4=",
-  "_location": "/hexo-markmap",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "hexo-markmap@0.0.3",
-    "name": "hexo-markmap",
-    "escapedName": "hexo-markmap",
-    "rawSpec": "0.0.3",
-    "saveSpec": null,
-    "fetchSpec": "0.0.3"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npm.taobao.org/hexo-markmap/download/hexo-markmap-0.0.3.tgz",
-  "_shasum": "00e17625ad4a911b7e0c41a49f08874d09d3514e",
-  "_spec": "hexo-markmap@0.0.3",
-  "_where": "F:\\Programmming\\BLOG",
-  "author": {
-    "name": "MaxC"
-  },
-  "bugs": {
-    "url": "https://github.com/MaxChang3/hexo-markmap/issues"
-  },
-  "bundleDependencies": false,
+  "name": "hexo-markmap",
+  "version": "1.0.0",
+  "description": "A hexo plugin insert mindmap in your hexo blog by markmap (new rebuild).",
+  "main": "index.js",
+  "author": "MaxChang3",
+  "license": "MIT",
   "dependencies": {
-    "markdown-it": "^12.0.4",
-    "markdown-it-markmap": "^0.1.0"
+    "markmap-lib": "^0.11.6"
   },
-  "deprecated": false,
-  "description": "Depend on [markmap](https://github.com/deiv/markdown-it-markmap/) &  [markdown-it-markmap](https://github.com/deiv/markdown-it-markmap/).",
-  "devDependencies": {},
-  "directories": {
-    "lib": "lib"
-  },
-  "homepage": "https://github.com/MaxChang3/hexo-markmap#readme",
   "keywords": [
     "hexo",
     "markmap",
     "mindmap"
   ],
-  "license": "ISC",
-  "main": "index.js",
-  "name": "hexo-markmap",
+  "homepage": "https://github.com/MaxChang3/hexo-markmap#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MaxChang3/hexo-markmap.git"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "version": "0.0.3"
+  }
 }
