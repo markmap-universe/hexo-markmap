@@ -22,7 +22,7 @@ npm install hexo-markmap
 ```
 或
 ```
-yarn add hexo markmap
+yarn add hexo-markmap
 ```
 
 # 使用
