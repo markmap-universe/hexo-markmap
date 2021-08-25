@@ -5,7 +5,7 @@ Depend on [markmap](https://github.com/gera2ld/markmap).
 
 Inspired by [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap)
 
-> 1.0 new version is published. I rebuild most of the code(though it's also not so much before-), also I remove arkdown-it&markdown-it-markmap highly recommend to update it.
+> 1.0 new version is published. I rebuild most of the code(though it's also not so much before-), also I remove arkdown-it&markdown-it-markmap. highly recommend to update it.
 
 [![NPM](https://nodei.co/npm/hexo-markmap.png)](https://nodei.co/npm/hexo-markmap/)
 
