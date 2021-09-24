@@ -10,8 +10,9 @@ hexo.extend.tag.register("markmap", function (args, content) {
 }, { ends: true });
 
 
-hexo.extend.injector.register('body_end', () => {
-  return `
+hexo.extend.filter.register('after_post_render', (data) => {
+  if(!(data.content.includes('markmap-container'))) {return data};
+  data.content+=`
   <style>.markmap-container{display:flex;justify-content:center;margin:0 auto;width:90%;height:500px}.markmap-container svg{width:100%;height:100%}@media(max-width:768px){.markmap-container{height:400px}}</style>
   <script src="https://cdn.jsdelivr.net/npm/d3@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.7.4/dist/browser/view.min.js"></script>
@@ -21,4 +22,5 @@ hexo.extend.injector.register('body_end', () => {
         markmap.markmap(mindmap, JSON.parse(mindmap.innerHTML));
     }
   </script> `
+  return data
 }, 'post');
