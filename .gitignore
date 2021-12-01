@@ -2,3 +2,5 @@ node_modules
 .vscode
 test.js
 test.html
+test
+.DS_Store
