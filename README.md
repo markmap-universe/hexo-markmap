@@ -28,11 +28,11 @@ yarn add hexo-markmap
 # 使用
 ```
 {% markmap 300px %}
-# Testa
-## test1
-## test2
-# Testb
-## test1
-## test2
+- Testa
+  - test1
+  - test2
+- Testb
+  - test1
+  - test2
 {%endmarkmap%}
 ```
