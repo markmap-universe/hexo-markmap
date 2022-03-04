@@ -10,10 +10,7 @@
 # hexo-markmap
 在你的博客中使用markdown插入思维导图，使用markmap。
 
-由于转义符号在markmap渲染中的操作，对于Katex、链接、代码块的暂时仍未支持（在旧版本中使用markdown-it-markmap也存在），希望有人可以帮我改进他。
-
-因为新版本中引入了最新的markmap，并且目前因为上述原因屏蔽掉了插件中的Katex，所以
-这为未来对上述问题的支持提供了可能性，尽管我还做不到。
+现已经支持 Katex、链接、代码块、markdown 语法的渲染！
 
 更多预览和说明见 [我的博客](https://zhangmaimai.com/2021/02/23/hexo-mindmap-plugin/).
 # 安装
