@@ -12,7 +12,7 @@ Inspired by [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mind
 # hexo-markmap
 A hexo plugin insert mindmap in your hexo blog by markmap (new rebuild).
 
-From now the render of html codes, Katex, links, code block, markdown is possible to use.
+From now the render of html codes, links, inline code, markdown is possible to use. ( Katex, Codeblocks not yet)
 
 More preview in [my blog](https://zhangmaimai.com/2021/02/23/hexo-mindmap-plugin/).
 
