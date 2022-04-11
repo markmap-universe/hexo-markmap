@@ -42,6 +42,13 @@ markmap-common@^0.1.5:
   dependencies:
     "@babel/runtime" "^7.12.1"
 
+markmap-common@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/markmap-common/-/markmap-common-0.1.6.tgz#11050562c23ae84b160e01e663478f29f1dd9ae6"
+  integrity sha512-fx4YUo6gZFFr08mi8qX8i6RH9xm5yieLKHr9hAdaTMP+CkPmgzB65F/+t39aFH5HcyEgs5vtTrRZ40lkhalETA==
+  dependencies:
+    "@babel/runtime" "^7.12.1"
+
 markmap-lib@^0.11.6:
   version "0.11.6"
   resolved "https://registry.nlark.com/markmap-lib/download/markmap-lib-0.11.6.tgz#f57883f9b70350ead94ed2d56926166b6d7ab2ef"
