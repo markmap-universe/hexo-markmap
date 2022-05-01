@@ -25,7 +25,16 @@ or
 yarn add hexo-markmap
 ```
 
-# Usage 
+# Usage
+```
+{% markmap height [depth] %}
+```
+
+## Options
+- `height`: mindmap canvas height
+- `depth`: optional, when specified, automatically fold nodes with level greater than `depth`
+
+# Example 
 ```
 {% markmap 300px %}
 # Testa

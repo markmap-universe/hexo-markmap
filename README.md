@@ -25,6 +25,15 @@ yarn add hexo-markmap
 
 # 使用
 ```
+{% markmap height [depth] %}
+```
+
+## 参数
+- `height`: 画布高度
+- `depth`: 可选，自动折叠层数深于`depth`的节点
+
+# 示例
+```
 {% markmap 300px %}
 - Testa
   - test1
