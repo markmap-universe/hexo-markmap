@@ -5,7 +5,11 @@ Depend on [markmap](https://github.com/gera2ld/markmap).
 
 Inspired by [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap)
 
-> 1.0 new version is published. I rebuild most of the code(though it's also not so much before-), also I remove arkdown-it&markdown-it-markmap. highly recommend to update it.
+> **⚠️Update version 1.0.5 to fix `undefined` bug**
+>
+> Our upstream package markmap-view released a new version, which makes the view show undefined, 'cause without locking its version in our code. This bug has been fixed in the latest version, We recommend updating it on time and cleaning the cache of hexo to fix it.
+>
+> Update according to the new version will be made in the future
 
 [![NPM](https://nodei.co/npm/hexo-markmap.png)](https://nodei.co/npm/hexo-markmap/)
 
