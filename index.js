@@ -1,5 +1,5 @@
-const { transfer } = require("./lib/transfer");
-const { escapeData, fold } = require("./lib/util");
+const { transfer } = require("./lib/transfer.js");
+const { escapeData, fold } = require("./lib/utils.js");
 
 hexo.extend.tag.register("markmap", function (args, content) {
   const { svgData } = transfer(content.trim());
