@@ -47,3 +47,14 @@ yarn add hexo-markmap
   - test2
 {%endmarkmap%}
 ```
+
+## 配置文件
+
+config.yml
+
+### pjax 修复
+```yaml
+hexo_markmap:
+  pjax: true
+```
+如果你的博客安装了 pjax 请开启此项配置。

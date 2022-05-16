@@ -49,3 +49,14 @@ yarn add hexo-markmap
 ## test2
 {%endmarkmap%}
 ```
+
+## Config
+
+config.yml
+
+### pjax fixing
+```yaml
+hexo_markmap:
+  pjax: true
+```
+if your blog install pjax, please turn it on.
