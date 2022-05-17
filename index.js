@@ -38,6 +38,7 @@ hexo.extend.tag.register("markmap", function (args, content) {
 }, { ends: true });
 
 hexo.extend.filter.register('after_render:html', (content) => {
+  // ref: https://blog.hvnobug.com/post/hexo-script#after_render
   if (!/<\/body>/gi.test(content) || !/<div class="[^"]*?markmap[^"]*?"/gi.test(content) ) return content;
   const innerData = getInnerData();
   let lastIndex = content.lastIndexOf('</body>');
