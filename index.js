@@ -10,19 +10,17 @@ const getInnerData = ()=> {
   const normalInit = `<script>document.querySelectorAll('.markmap-container>svg').forEach(mindmap => markmap.Markmap.create(mindmap, null, JSON.parse(mindmap.getAttribute('data'))))</script>`
   const pjaxInit = `
     <script>
-    function initMarkMap() {
-      document.querySelectorAll('.markmap-container>svg').forEach(mindmap => markmap.Markmap.create(mindmap, null, JSON.parse(mindmap.getAttribute('data'))))
-    }
-    initMarkMap()
-    let pushState = history.pushState
-    history.pushState = function () {
-      pushState.apply(history, arguments)
-      // re-init markmap after history.pushState invoking
+      function initMarkMap() {
+        document.querySelectorAll('.markmap-container>svg').forEach(mindmap => markmap.Markmap.create(mindmap, null, JSON.parse(mindmap.getAttribute('data'))))
+      }
       initMarkMap()
-    }
+      document.addEventListener("pjax:complete",()=>{            
+        window.initMarkMap()
+      })
     </script>
   `
-  return addonScript + ((config?.hexo_markmap?.pjax) ? pjaxInit : normalInit)
+  const isPjax = (config.hexo_markmap && config.hexo_markmap.pjax) || config.theme_config.pjax || false
+  return addonScript + (isPjax?pjaxInit:normalInit)
 }
 
 hexo.extend.tag.register("markmap", function (args, content) {
