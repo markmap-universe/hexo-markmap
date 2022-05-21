@@ -2,7 +2,7 @@ const { transfer } = require("./lib/transfer.js");
 const { escapeData, fold } = require("./lib/utils.js");
 const { config } = hexo;
 
-const getInnerData = ()=> {
+const getInnerData = () => {
   const addonScript = `
   <style>.markmap-container{display:flex;justify-content:center;margin:0 auto;width:90%;height:500px}.markmap-container svg{width:100%;height:100%}@media(max-width:768px){.markmap-container{height:400px}}</style>
   <script src="https://cdn.jsdelivr.net/npm/d3@6"></script>
@@ -19,8 +19,8 @@ const getInnerData = ()=> {
       })
     </script>
   `
-  const isPjax = (config.hexo_markmap && config.hexo_markmap.pjax) || config.theme_config.pjax || false
-  return addonScript + (isPjax?pjaxInit:normalInit)
+  const isPjax = (config?.hexo_markmap?.pjax) || config?.theme_config?.pjax
+  return addonScript + (isPjax ? pjaxInit : normalInit)
 }
 
 hexo.extend.tag.register("markmap", function (args, content) {
@@ -37,7 +37,7 @@ hexo.extend.tag.register("markmap", function (args, content) {
 
 hexo.extend.filter.register('after_render:html', (content) => {
   // ref: https://blog.hvnobug.com/post/hexo-script#after_render
-  if (!/<\/body>/gi.test(content) || !/<div class="[^"]*?markmap[^"]*?"/gi.test(content) ) return content;
+  if (!/<\/body>/gi.test(content) || !/<div class="[^"]*?markmap[^"]*?"/gi.test(content)) return content;
   const innerData = getInnerData();
   let lastIndex = content.lastIndexOf('</body>');
   return content.substring(0, lastIndex) + innerData + content.substring(lastIndex, content.length);
