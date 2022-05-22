@@ -14,8 +14,9 @@
 # hexo-markmap
 在你的博客中使用markdown插入思维导图，使用markmap。
 
-现已经支持 链接、代码块、markdown 语法的渲染！
-(Katex、多行代码暂不支持)
+现已经支持 链接、代码块、markdown、Katex、多行代码语法的渲染！
+
+> 多行代码仍有一定渲染问题，可能出现报错。
 
 更多预览和说明见 [我的博客](https://zhangmaimai.com/2021/02/23/hexo-mindmap-plugin/).
 # 安装
