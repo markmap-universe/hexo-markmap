@@ -14,8 +14,9 @@
 # hexo-markmap
 在你的博客中使用markdown插入思维导图，使用markmap。
 
-现已经支持 链接、代码块、markdown 语法的渲染！
-(Katex、多行代码暂不支持)
+现已经支持 链接、代码块、markdown、Katex、多行代码语法的渲染！
+
+> 多行代码仍有一定渲染问题，可能出现报错。
 
 更多预览和说明见 [我的博客](https://zhangmaimai.com/2021/02/23/hexo-mindmap-plugin/).
 # 安装
@@ -34,27 +35,42 @@ yarn add hexo-markmap
 
 ## 参数
 - `height`: 画布高度
-- `depth`: 可选，自动折叠层数深于`depth`的节点
+- `depth`: 可选，自动折叠层数深于 `depth` 的节点
 
-# 示例
-```
-{% markmap 300px %}
-- Testa
-  - test1
-  - test2
-- Testb
-  - test1
-  - test2
-{%endmarkmap%}
-```
+## 示例
+````
+{% markmap 400px %}
+- links
+- **inline** ~~text~~ *styles*
+- multiline
+  text
+- `inline code`
+- ```js
+  console.log('code block');
+  console.log('code block');
+  ```
+- Katex - $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
+{% endmarkmap %}
+````
 
 ## 配置文件
 
 config.yml
 
 ### pjax 修复
+
 ```yaml
 hexo_markmap:
   pjax: true
 ```
 如果你的博客安装了 pjax 请开启此项配置。
+
+### KaTeX
+```yaml
+hexo_markmap:
+  katex: true
+```
+
+如果你需要使用 KaTeX 请开启此项配置以插入 css 文件。如果博客本身已经通过其他方式配置 KaTeX 则无需开启.
+
+> 如果你同时装有 `mathjax`，也请打开此项。

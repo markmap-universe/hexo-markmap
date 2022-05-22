@@ -16,7 +16,9 @@ Inspired by [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mind
 # hexo-markmap
 A hexo plugin insert mindmap in your hexo blog by markmap (new rebuild).
 
-From now the render of html codes, links, inline code, markdown is possible to use. ( Katex, Codeblocks not yet)
+From now all the syntax like html codes, links, inline code, markdown  KaTeX, Codeblocks is possible to use.
+
+> Codeblocks still have some problems which may throw some errors.
 
 More preview in [my blog](https://zhangmaimai.com/2021/02/23/hexo-mindmap-plugin/).
 
@@ -38,17 +40,21 @@ yarn add hexo-markmap
 - `height`: mindmap canvas height
 - `depth`: optional, when specified, automatically fold nodes with level greater than `depth`
 
-# Example 
-```
-{% markmap 300px %}
-# Testa
-## test1
-## test2
-# Testb
-## test1
-## test2
-{%endmarkmap%}
-```
+## Example 
+````
+{% markmap 400px %}
+- links
+- **inline** ~~text~~ *styles*
+- multiline
+  text
+- `inline code`
+- ```js
+  console.log('code block');
+  console.log('code block');
+  ```
+- Katex - $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
+{% endmarkmap %}
+````
 
 ## Config
 
@@ -60,3 +66,13 @@ hexo_markmap:
   pjax: true
 ```
 if your blog install pjax, please turn it on.
+
+### KaTeX
+```yaml
+hexo_markmap:
+  katex: true
+```
+
+if you need to use KaTeX, please turn it on to insert the css links. or your KaTeX was already added in your blog by another way, then you needn't to do it.
+
+> turn it on if you've installed `mathjax`
