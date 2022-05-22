@@ -70,4 +70,4 @@ hexo_markmap:
   katex: true
 ```
 
-如果你需要使用 $\text{K\kern-.25em\raisebox{.45ex}{\scriptsize A}\kern-.15em\TeX}$ 请开启此项配置以插入 css 文件。如果博客本身已经通过其他方式配置 $\text{K\kern-.25em\raisebox{.45ex}{\scriptsize A}\kern-.15em\TeX}$ 则无需开启.
+如果你需要使用 KaTeX 请开启此项配置以插入 css 文件。如果博客本身已经通过其他方式配置 KaTeX 则无需开启.

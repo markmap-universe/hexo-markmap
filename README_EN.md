@@ -71,4 +71,4 @@ hexo_markmap:
   katex: true
 ```
 
-if you need to use $\text{K\kern-.25em\raisebox{.45ex}{\scriptsize A}\kern-.15em\TeX}$, please turn it on to insert the css links. or your $\text{K\kern-.25em\raisebox{.45ex}{\scriptsize A}\kern-.15em\TeX}$ was already added in your blog by another way, then you needn't to do it.
+if you need to use KaTeX, please turn it on to insert the css links. or your KaTeX was already added in your blog by another way, then you needn't to do it.
