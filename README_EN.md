@@ -72,3 +72,5 @@ hexo_markmap:
 ```
 
 if you need to use KaTeX, please turn it on to insert the css links. or your KaTeX was already added in your blog by another way, then you needn't to do it.
+
+> turn it on if you've installed `mathjax`
