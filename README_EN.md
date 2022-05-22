@@ -38,8 +38,8 @@ yarn add hexo-markmap
 - `height`: mindmap canvas height
 - `depth`: optional, when specified, automatically fold nodes with level greater than `depth`
 
-# Example 
-```
+## Example 
+````
 {% markmap 400px %}
 - links
 - **inline** ~~text~~ *styles*
@@ -52,7 +52,7 @@ yarn add hexo-markmap
   ```
 - Katex - $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
 {% endmarkmap %}
-```
+````
 
 ## Config
 
@@ -64,3 +64,11 @@ hexo_markmap:
   pjax: true
 ```
 if your blog install pjax, please turn it on.
+
+### KaTeX
+```yaml
+hexo_markmap:
+  katex: true
+```
+
+if you need to use $\text{K\kern-.25em\raisebox{.45ex}{\scriptsize A}\kern-.15em\TeX}$, please turn it on to insert the css links. or your $\text{K\kern-.25em\raisebox{.45ex}{\scriptsize A}\kern-.15em\TeX}$ was already added in your blog by another way, then you needn't to do it.

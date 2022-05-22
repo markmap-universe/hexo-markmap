@@ -34,10 +34,10 @@ yarn add hexo-markmap
 
 ## 参数
 - `height`: 画布高度
-- `depth`: 可选，自动折叠层数深于`depth`的节点
+- `depth`: 可选，自动折叠层数深于 `depth` 的节点
 
-# 示例
-```
+## 示例
+````
 {% markmap 400px %}
 - links
 - **inline** ~~text~~ *styles*
@@ -50,15 +50,24 @@ yarn add hexo-markmap
   ```
 - Katex - $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
 {% endmarkmap %}
-```
+````
 
 ## 配置文件
 
 config.yml
 
 ### pjax 修复
+
 ```yaml
 hexo_markmap:
   pjax: true
 ```
 如果你的博客安装了 pjax 请开启此项配置。
+
+### KaTeX
+```yaml
+hexo_markmap:
+  katex: true
+```
+
+如果你需要使用 $\text{K\kern-.25em\raisebox{.45ex}{\scriptsize A}\kern-.15em\TeX}$ 请开启此项配置以插入 css 文件。如果博客本身已经通过其他方式配置 $\text{K\kern-.25em\raisebox{.45ex}{\scriptsize A}\kern-.15em\TeX}$ 则无需开启.
