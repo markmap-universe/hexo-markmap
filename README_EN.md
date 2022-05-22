@@ -40,14 +40,18 @@ yarn add hexo-markmap
 
 # Example 
 ```
-{% markmap 300px %}
-# Testa
-## test1
-## test2
-# Testb
-## test1
-## test2
-{%endmarkmap%}
+{% markmap 400px %}
+- links
+- **inline** ~~text~~ *styles*
+- multiline
+  text
+- `inline code`
+- ```js
+  console.log('code block');
+  console.log('code block');
+  ```
+- Katex - $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
+{% endmarkmap %}
 ```
 
 ## Config
