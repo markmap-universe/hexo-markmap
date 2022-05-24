@@ -73,6 +73,6 @@ hexo_markmap:
   katex: true
 ```
 
-if you need to use KaTeX, please turn it on to insert the css links. or your KaTeX was already added in your blog by another way, then you needn't to do it.
+if you need to use $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$, please turn it on to insert the css links. or your $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$ was already added in your blog by another way, then you needn't to do it.
 
 > turn it on if you've installed `mathjax`

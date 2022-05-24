@@ -71,6 +71,6 @@ hexo_markmap:
   katex: true
 ```
 
-如果你需要使用 KaTeX 请开启此项配置以插入 css 文件。如果博客本身已经通过其他方式配置 KaTeX 则无需开启.
+如果你需要使用 $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$ 请开启此项配置以插入 css 文件。如果博客本身已经通过其他方式配置 $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$ 则无需开启.
 
 > 如果你同时装有 `mathjax`，也请打开此项。
