@@ -3,7 +3,7 @@
 
 依赖于 [markmap](https://github.com/gera2ld/markmap)，灵感来自 [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap)
 
-> **⚠️更新 1.0.5 版本修复 `undefined` 错误**
+> **⚠️更新 1.0.5+ 版本修复 `undefined` 错误**
 >
 > 前不久上游 markmap-view 进行了一次[大的版本更新](https://github.com/gera2ld/markmap/commit/963b0f47f78be88a06ff50bed97a7ce0597cf392)，由于我之前的代码中未锁定版本导致视图显示错误，目前已经在最新版本修复，建议立刻更新并清理 hexo 缓存以修复此问题。
 >
@@ -57,8 +57,10 @@ yarn add hexo-markmap
 
 config.yml
 
-### pjax 修复
+约定大于配置，如果你不需要以下功能，那么无需添加该配置项。
 
+### pjax 修复
+默认值 `false`
 ```yaml
 hexo_markmap:
   pjax: true
@@ -66,6 +68,7 @@ hexo_markmap:
 如果你的博客安装了 pjax 请开启此项配置。
 
 ### KaTeX
+默认值 `false`
 ```yaml
 hexo_markmap:
   katex: true
@@ -74,3 +77,13 @@ hexo_markmap:
 如果你需要使用 $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$ 请开启此项配置以插入 css 文件。如果博客本身已经通过其他方式配置 $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$ 则无需开启.
 
 > 如果你同时装有 `mathjax`，也请打开此项。
+
+### 自定义 CDN
+```yaml
+hexo_markmap:
+  CDN:
+    d3_js: https://fastly.jsdelivr.net/npm/d3@6
+    markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
+    katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
+    prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
+```
