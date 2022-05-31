@@ -5,7 +5,7 @@ Depend on [markmap](https://github.com/gera2ld/markmap).
 
 Inspired by [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap)
 
-> **⚠️Update version 1.0.5 to fix `undefined` bug**
+> **⚠️Update version 1.0.5+ to fix `undefined` bug**
 >
 > Our upstream package markmap-view released a new version, which makes the view show undefined, 'cause without locking its version in our code. This bug has been fixed in the latest version, We recommend updating it on time and cleaning the cache of hexo to fix it.
 >
@@ -60,7 +60,10 @@ yarn add hexo-markmap
 
 config.yml
 
+convention over configuration, if you don't need any following feature, then you needn't to add these configs.
+
 ### pjax fixing
+default value `false`
 ```yaml
 hexo_markmap:
   pjax: true
@@ -68,6 +71,7 @@ hexo_markmap:
 if your blog install pjax, please turn it on.
 
 ### KaTeX
+default value `false`
 ```yaml
 hexo_markmap:
   katex: true
@@ -76,3 +80,13 @@ hexo_markmap:
 if you need to use $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$, please turn it on to insert the css links. or your $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$ was already added in your blog by another way, then you needn't to do it.
 
 > turn it on if you've installed `mathjax`
+
+### CUSTOM CDN
+```yaml
+hexo_markmap:
+  CDN:
+    d3_js: https://fastly.jsdelivr.net/npm/d3@6
+    markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
+    katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
+    prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
+```

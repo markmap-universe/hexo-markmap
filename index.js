@@ -13,5 +13,7 @@ hexo.extend.filter.register('after_render:html', (content) =>
   afterRender(content, mainTemplate({
     pjaxEnable: config?.hexo_markmap?.pjax || config?.theme_config?.pjax,
     katexEnable: config?.hexo_markmap?.katex
-  }))
+  },
+    config?.hexo_markmap?.CDN
+  ))
 )
