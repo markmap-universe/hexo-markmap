@@ -82,7 +82,7 @@ hexo_markmap:
 默认值 `false`
 ```yaml
 hexo_markmap:
-  katex: true
+  prism: true
 ```
 
 如果需要插入代码块，请开启此项配置以插入 css 文件。如果博客本身已经通过其他方式配置 prism 则无需开启.
