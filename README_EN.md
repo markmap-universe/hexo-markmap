@@ -81,6 +81,14 @@ if you need to use $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$, p
 
 > turn it on if you've installed `mathjax`
 
+### Prism
+default value `false`
+```yaml
+hexo_markmap:
+  katex: true
+```
+if you need to inner code block,  please turn it on to insert the css links. or prism.css was already added in your blog by another way, then you needn't to do it.
+
 ### CUSTOM CDN
 ```yaml
 hexo_markmap:

@@ -57,7 +57,7 @@ yarn add hexo-markmap
 
 config.yml
 
-约定大于配置，如果你不需要以下功能，那么无需添加该配置项。
+约定大于配置，如果你不需要以下某个功能，那么无需添加该配置项。
 
 ### pjax 修复
 默认值 `false`
@@ -77,6 +77,15 @@ hexo_markmap:
 如果你需要使用 $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$ 请开启此项配置以插入 css 文件。如果博客本身已经通过其他方式配置 $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$ 则无需开启.
 
 > 如果你同时装有 `mathjax`，也请打开此项。
+
+### Prism
+默认值 `false`
+```yaml
+hexo_markmap:
+  katex: true
+```
+
+如果需要插入代码块，请开启此项配置以插入 css 文件。如果博客本身已经通过其他方式配置 prism 则无需开启.
 
 ### 自定义 CDN
 ```yaml
