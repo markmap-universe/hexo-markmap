@@ -1,4 +1,5 @@
 const { Transformer } = require('markmap-lib')
+const get = require('lodash.get')
 const { mainTemplate, containerTemplate, afterRender } = require('./lib/template')
 const { fold } = require('./lib/extension')
 const { config } = hexo
@@ -12,24 +13,14 @@ hexo.extend.tag.register(
   },
   { ends: true }
 )
+const fget = (path) => get(config, path, false)
 
 hexo.extend.filter.register('after_render:html', (content) =>
-  // 可选操作符不支持 nodejs 14 以下，改成通用
-  afterRender(
-    content,
-    mainTemplate(
-      {
-        katexEnable:
-          config && config.hexo_markmap && config.hexo_markmap.katex
-            ? true
-            : false,
-        prismEnable:
-          config && config.hexo_markmap && config.hexo_markmap.prism
-            ? true
-            : false
-      }
-      // 使用着不应知道要用哪些包，而应给他们选择需要什么功能
-      // config?.hexo_markmap?.CDN
-    )
-  )
+  afterRender(content, mainTemplate({
+    pjaxEnable:  fget("hexo_markmap.pjax") || fget("theme_config.pjax"),
+    katexEnable: fget("hexo_markmap.katex"),
+    prismEnable: fget("hexo_markmap.prism"),
+  },
+    fget("hexo_markmap.CDN")
+  ))
 )
