@@ -1,9 +1,5 @@
 const { Transformer } = require('markmap-lib')
-const {
-  mainTemplate,
-  containerTemplate,
-  afterRender
-} = require('./lib/template')
+const { mainTemplate, containerTemplate, afterRender } = require('./lib/template')
 const { fold } = require('./lib/extension')
 const { config } = hexo
 const transformer = new Transformer()
