@@ -2,6 +2,7 @@ const { Transformer } = require('markmap-lib')
 const get = require('lodash.get')
 const { mainTemplate, containerTemplate, afterRender, scriptTemplate } = require('./lib/template')
 const { fold } = require('./lib/extension')
+const fget = (path) => get(config, path, false)
 
 const { config } = hexo
 const transformer = new Transformer()
@@ -11,7 +12,6 @@ const options = {
   prismEnable: fget("hexo_markmap.prism"),
   userCDN: fget("hexo_markmap.userCDN")
 }
-const fget = (path) => get(config, path, false)
 
 hexo.extend.tag.register('markmap', ([height, depth], markdown) => {
   const { root: svgData } = transformer.transform(markdown)
