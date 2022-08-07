@@ -7,7 +7,7 @@ const fget = (path) => get(config, path, false)
 const { config } = hexo
 const transformer = new Transformer()
 const options = {
-  pjaxEnable: fget("hexo_markmap.pjax") || fget("theme_config.pjax"),
+  pjaxEnable: fget("hexo_markmap.pjax"),
   katexEnable: fget("hexo_markmap.katex"),
   prismEnable: fget("hexo_markmap.prism"),
   userCDN: fget("hexo_markmap.userCDN")
