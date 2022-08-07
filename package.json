@@ -6,6 +6,7 @@
   "author": "MaxChang3",
   "license": "MIT",
   "dependencies": {
+    "lodash.get": "^4.4.2",
     "markmap-common": "^0.1.6",
     "markmap-lib": "^0.11.6"
   },

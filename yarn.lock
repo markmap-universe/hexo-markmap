@@ -35,6 +35,11 @@ katex@^0.12.0:
   dependencies:
     commander "^2.19.0"
 
+lodash.get@^4.4.2:
+  version "4.4.2"
+  resolved "https://registry.npmmirror.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
+  integrity sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==
+
 markmap-common@^0.1.5:
   version "0.1.5"
   resolved "https://registry.nlark.com/markmap-common/download/markmap-common-0.1.5.tgz#f48e7abac5790c72d5ab55429a214acbe1670922"

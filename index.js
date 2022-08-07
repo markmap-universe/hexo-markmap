@@ -1,20 +1,33 @@
-const { Transformer } = require('markmap-lib');
-const { mainTemplate, containerTemplate, afterRender } = require("./lib/template");
-const { fold } = require("./lib/extension");
-const { config } = hexo
-const transformer = new Transformer();
+const { Transformer } = require('markmap-lib')
+const get = require('lodash.get')
+const { mainTemplate, containerTemplate, afterRender, scriptTemplate } = require('./lib/template')
+const { fold } = require('./lib/extension')
+const fget = (path) => get(config, path, false)
 
-hexo.extend.tag.register("markmap", ([height, depth], markdown) => {
-  const { root: svgData } = transformer.transform(markdown);
+const { config } = hexo
+const transformer = new Transformer()
+const options = {
+  pjaxEnable: fget("hexo_markmap.pjax"),
+  katexEnable: fget("hexo_markmap.katex"),
+  prismEnable: fget("hexo_markmap.prism"),
+  userCDN: fget("hexo_markmap.userCDN")
+}
+
+hexo.extend.tag.register('markmap', ([height, depth], markdown) => {
+  const { root: svgData } = transformer.transform(markdown)
   return containerTemplate(fold(svgData, depth), { height })
-}, { ends: true });
+},
+  { ends: true }
+)
+
+hexo.extend.generator.register('markmap_asset', () => [{
+  path: 'js/markmap.js',
+  data: () => mainTemplate(options)
+}]
+)
 
 hexo.extend.filter.register('after_render:html', (content) =>
-  afterRender(content, mainTemplate({
-    pjaxEnable: config?.hexo_markmap?.pjax || config?.theme_config?.pjax,
-    katexEnable: config?.hexo_markmap?.katex,
-    prismEnable: config?.hexo_markmap?.prism,
-  },
-    config?.hexo_markmap?.CDN
-  ))
+  afterRender(content, scriptTemplate(), {
+    pjaxEnable: options.pjaxEnable,
+  })
 )
