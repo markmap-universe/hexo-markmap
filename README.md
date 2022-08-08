@@ -8,6 +8,7 @@
 > 前不久上游 markmap-view 进行了一次[大的版本更新](https://github.com/gera2ld/markmap/commit/963b0f47f78be88a06ff50bed97a7ce0597cf392)，由于我之前的代码中未锁定版本导致视图显示错误，目前已经在最新版本修复，建议立刻更新并清理 hexo 缓存以修复此问题。
 >
 > 后续将对根据新版本更新调整。
+
 [![NPM](https://nodei.co/npm/hexo-markmap.png)](https://nodei.co/npm/hexo-markmap/)
 
 # hexo-markmap
@@ -16,6 +17,7 @@
 现已经支持 链接、代码块、markdown、Katex、多行代码语法的渲染！
 
 > 多行代码仍有一定渲染问题，可能出现报错。
+
 更多预览和说明见 [我的博客](https://zhangmaimai.com/2021/02/23/hexo-mindmap-plugin/).
 # 安装
 ```
