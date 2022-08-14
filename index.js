@@ -1,7 +1,7 @@
 const { Transformer } = require('markmap-lib')
-const get = require('lodash.get')
 const { mainTemplate, containerTemplate, afterRender, scriptTemplate } = require('./lib/template')
 const { fold } = require('./lib/extension')
+const get = require('lodash.get')
 const fget = (path) => get(config, path, false)
 
 const { config } = hexo
