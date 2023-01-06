@@ -27,7 +27,7 @@ hexo.extend.generator.register('markmap_asset', () => [{
 )
 
 hexo.extend.filter.register('after_render:html', (content) =>
-  afterRender(content, scriptTemplate(), {
+  afterRender(content, scriptTemplate(fget('root')), {
     pjaxEnable: options.pjaxEnable,
   })
 )
