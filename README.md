@@ -3,8 +3,6 @@
 
 依赖于 [markmap](https://github.com/gera2ld/markmap)，灵感来自 [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap)
 
-> **⚠️更新 1.1.3+ 版本更好的适配开启 pjax 的站点**
-
 [![NPM](https://nodei.co/npm/hexo-markmap.png)](https://nodei.co/npm/hexo-markmap/)
 
 # hexo-markmap

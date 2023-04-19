@@ -5,8 +5,6 @@ Depend on [markmap](https://github.com/gera2ld/markmap).
 
 Inspired by [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap)
 
-> **⚠️Update version to 1.0.5+ to have a better compatibility with pjax**
-
 [![NPM](https://nodei.co/npm/hexo-markmap.png)](https://nodei.co/npm/hexo-markmap/)
 
 # hexo-markmap
