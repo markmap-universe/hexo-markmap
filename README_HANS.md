@@ -10,7 +10,7 @@
 # hexo-markmap
 在你的博客中使用 markdown 插入思维导图，使用 markmap。
 
-现已经支持 链接、代码块、markdown、Katex、多行代码语法的渲染！
+现已经支持 链接、代码块、markdown、KaTeX、多行代码语法的渲染！
 
 > 多行代码仍有一定渲染问题，可能出现报错。
 
@@ -49,7 +49,7 @@ yarn add hexo-markmap
   console.log('code block');
   console.log('code block');
   ```
-- Katex - $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
+- KaTeX - $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
 {% endmarkmap %}
 ````
 
