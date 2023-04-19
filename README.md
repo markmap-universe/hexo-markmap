@@ -10,7 +10,7 @@ Inspired by [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mind
 [![NPM](https://nodei.co/npm/hexo-markmap.png)](https://nodei.co/npm/hexo-markmap/)
 
 # hexo-markmap
-A hexo plugin insert mindmap in your hexo blog by markmap (new rebuild).
+Insert mindmap in your hexo blog by markmap.
 
 From now all the syntax like html codes, links, inline code, markdown  KaTeX, Codeblocks is possible to use.
 
@@ -58,7 +58,7 @@ yarn add hexo-markmap
 
 ## Config
 
-add your optionss to config.yml
+Add your options to config.yml
 
 convention over configuration, if you don't need any following feature, then you needn't to add these configs.
 
