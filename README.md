@@ -6,7 +6,7 @@
 [![NPM](https://nodei.co/npm/hexo-markmap.png)](https://nodei.co/npm/hexo-markmap/)
 
 # hexo-markmap
-在你的博客中使用markdown插入思维导图，使用markmap。
+在你的博客中使用 markdown 插入思维导图，使用 markmap。
 
 现已经支持 链接、代码块、markdown、Katex、多行代码语法的渲染！
 
