@@ -1,5 +1,7 @@
-[English](https://github.com/MaxChang3/hexo-markmap/blob/main/README.md)
-| 简体中文 |
+| [English](https://github.com/MaxChang3/hexo-markmap/blob/main/README.md)
+| [简体中文](https://github.com/MaxChang3/hexo-markmap/blob/main/README_HANS.md)
+| [繁体中文](https://github.com/MaxChang3/hexo-markmap/blob/main/README_HANT.md)
+|
 
 依赖于 [markmap](https://github.com/gera2ld/markmap)，灵感来自 [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap)
 

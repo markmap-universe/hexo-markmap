@@ -1,5 +1,7 @@
-English
-| [简体中文](https://github.com/MaxChang3/hexo-markmap/blob/main/README_CN.md) |
+| [English](https://github.com/MaxChang3/hexo-markmap/blob/main/README.md)
+| [简体中文](https://github.com/MaxChang3/hexo-markmap/blob/main/README_HANS.md)
+| [繁体中文](https://github.com/MaxChang3/hexo-markmap/blob/main/README_HANT.md)
+|
 
 Depend on [markmap](https://github.com/gera2ld/markmap).
 

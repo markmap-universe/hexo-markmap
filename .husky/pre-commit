@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+git diff --cached --name-only | grep -E 'README_HANS.md' || exit 0
+
+npm run precommit
