@@ -1,19 +1,21 @@
-[English](https://github.com/MaxChang3/hexo-markmap/blob/main/README_EN.md)
-| 简体中文 |
+English
+| [简体中文](https://github.com/MaxChang3/hexo-markmap/blob/main/README_CN.md) |
 
-依赖于 [markmap](https://github.com/gera2ld/markmap)，灵感来自 [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap)
+Depend on [markmap](https://github.com/gera2ld/markmap).
+
+Inspired by [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap)
 
 [![NPM](https://nodei.co/npm/hexo-markmap.png)](https://nodei.co/npm/hexo-markmap/)
 
 # hexo-markmap
-在你的博客中使用 markdown 插入思维导图，使用 markmap。
+A hexo plugin insert mindmap in your hexo blog by markmap (new rebuild).
 
-现已经支持 链接、代码块、markdown、Katex、多行代码语法的渲染！
+From now all the syntax like html codes, links, inline code, markdown  KaTeX, Codeblocks is possible to use.
 
-> 多行代码仍有一定渲染问题，可能出现报错。
+> Codeblocks still have some problems which may throw some errors.
+More preview in [my blog](https://zhangmaimai.com/2021/02/23/hexo-mindmap-plugin/).
 
-更多预览和说明见 [我的博客](https://zhangmaimai.com/2021/02/23/hexo-mindmap-plugin/).
-# 安装
+# Install
 ```
 pnpm add hexo-markmap
 ```
@@ -22,20 +24,21 @@ pnpm add hexo-markmap
 npm install hexo-markmap
 ```
 
+
 ```
 yarn add hexo-markmap
 ```
 
-# 使用
+# Usage
 ```
 {% markmap height [depth] %}
 ```
 
-## 参数
-- `height`: 画布高度
-- `depth`: 可选，自动折叠层数深于 `depth` 的节点
+## Options
+- `height`: mindmap canvas height
+- `depth`: optional, when specified, automatically fold nodes with level greater than `depth`
 
-## 示例
+## Example 
 ````
 {% markmap 400px %}
 - links
@@ -51,42 +54,43 @@ yarn add hexo-markmap
 {% endmarkmap %}
 ````
 
-## 配置文件
+## Config
 
-将相应内容追加到 config.yml 中。
+add your optionss to config.yml
 
-约定大于配置，如果你不需要以下某个功能，那么无需添加该配置项。 
+convention over configuration, if you don't need any following feature, then you needn't to add these configs.
 
-默认情况下，他可以很好的正常工作。每个选项都有缺省项。
+By default, it works well. Each option has a default value.
 
-### pjax 修复
-默认值 `false`
+
+
+### pjax fixing
+default value `false`
 ```yaml
 hexo_markmap:
   pjax: true
 ```
-如果你的博客安装了 pjax 请开启此项配置。
+if your blog install pjax, please turn it on.
 
 ### KaTeX
-默认值 `false`
+default value `false`
 ```yaml
 hexo_markmap:
   katex: true
 ```
 
-如果你需要使用 $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$ 请开启此项配置以插入 css 文件。如果博客本身已经通过其他方式配置 $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$ 则无需开启.
+if you need to use $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$, please turn it on to insert the css links. or your $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$ was already added in your blog by another way, then you needn't to do it.
 
-> 如果你同时装有 `mathjax`，也请打开此项。
+> turn it on if you've installed `mathjax`
 ### Prism
-默认值 `false`
+default value `false`
 ```yaml
 hexo_markmap:
   prism: true
 ```
+if you need to inner code block,  please turn it on to insert the css links. or prism.css was already added in your blog by another way, then you needn't to do it.
 
-如果需要插入代码块，请开启此项配置以插入 css 文件。如果博客本身已经通过其他方式配置 prism 则无需开启.
-
-### 自定义 CDN
+### Custom CDN
 ```yaml
 hexo_markmap:
   CDN:
@@ -96,7 +100,7 @@ hexo_markmap:
     prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
 ```
 
-### 缺省项
+### default option
 ```yaml
 hexo_markmap:
   pjax: false
