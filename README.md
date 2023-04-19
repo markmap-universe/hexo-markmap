@@ -52,7 +52,7 @@ yarn add hexo-markmap
   console.log('code block');
   console.log('code block');
   ```
-- Katex - $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
+- KaTeX - $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
 {% endmarkmap %}
 ````
 
