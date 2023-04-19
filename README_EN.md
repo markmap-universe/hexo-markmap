@@ -17,9 +17,14 @@ More preview in [my blog](https://zhangmaimai.com/2021/02/23/hexo-mindmap-plugin
 
 # Install
 ```
+pnpm add hexo-markmap
+```
+
+```
 npm install hexo-markmap
 ```
-or
+
+
 ```
 yarn add hexo-markmap
 ```

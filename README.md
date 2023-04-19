@@ -15,9 +15,13 @@
 更多预览和说明见 [我的博客](https://zhangmaimai.com/2021/02/23/hexo-mindmap-plugin/).
 # 安装
 ```
+pnpm add hexo-markmap
+```
+
+```
 npm install hexo-markmap
 ```
-或
+
 ```
 yarn add hexo-markmap
 ```
