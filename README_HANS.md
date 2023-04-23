@@ -37,7 +37,7 @@ yarn add hexo-markmap
 {% markmap height [depth] %}
 - Markdown
 - Syntax
-{% endmarkmap%}
+{% endmarkmap %}
 ```
 
 ## 参数
