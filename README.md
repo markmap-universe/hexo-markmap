@@ -10,14 +10,16 @@ Inspired by [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mind
 [![NPM](https://nodei.co/npm/hexo-markmap.png)](https://nodei.co/npm/hexo-markmap/)
 
 # hexo-markmap
+
 Insert mindmap in your hexo blog by markmap.
 
-From now all the syntax like html codes, links, inline code, markdown  KaTeX, Codeblocks is possible to use.
+From now all the syntax like HTML codes, links, inline code, markdown KaTeX, and Codeblocks are possible to use.
 
 > Codeblocks still have some problems which may throw some errors.
 More preview in [my blog](https://zhangmaimai.com/2021/02/23/hexo-mindmap-plugin/).
 
 # Install
+
 ```
 pnpm add hexo-markmap
 ```
@@ -32,15 +34,21 @@ yarn add hexo-markmap
 ```
 
 # Usage
+
 ```
 {% markmap height [depth] %}
+- Markdown
+- Syntax
+{% endmarkmap%}
 ```
 
 ## Options
+
 - `height`: mindmap canvas height
 - `depth`: optional, when specified, automatically fold nodes with level greater than `depth`
 
 ## Example 
+
 ````
 {% markmap 400px %}
 - links
@@ -58,21 +66,23 @@ yarn add hexo-markmap
 
 ## Config
 
-Add your options to config.yml
+Add your options to config.yml.
 
-convention over configuration, if you don't need any following feature, then you needn't to add these configs.
+Convention over configuration, if you don’t need any of the following features, then you don’t need to add these configs.
 
 By default, it works well. Each option has a default value.
 
 
-
 ### pjax fixing
+
 default value `false`
+
 ```yaml
 hexo_markmap:
   pjax: true
 ```
-if your blog install pjax, please turn it on.
+
+If your blog has pjax installed, please turn it on.
 
 ### KaTeX
 default value `false`
@@ -81,16 +91,19 @@ hexo_markmap:
   katex: true
 ```
 
-if you need to use $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$, please turn it on to insert the css links. or your $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$ was already added in your blog by another way, then you needn't to do it.
+If you need to use $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$, please turn it on to insert the CSS links. If your $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$ was already added in your blog by another way, then you needn't to do it.
 
-> turn it on if you've installed `mathjax`
+> If your blog has MathJax installed, please turn it on.
+
+
 ### Prism
 default value `false`
 ```yaml
 hexo_markmap:
   prism: true
 ```
-if you need to inner code block,  please turn it on to insert the css links. or prism.css was already added in your blog by another way, then you needn't to do it.
+
+If you need to use code blocks, please turn it on to insert the CSS links. If prism.css has already been added to your blog by another way, then you don’t need to do it.
 
 ### Custom CDN
 ```yaml

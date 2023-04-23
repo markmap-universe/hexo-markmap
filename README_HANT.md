@@ -8,6 +8,7 @@
 [![NPM](https://nodei.co/npm/hexo-markmap.png)](https://nodei.co/npm/hexo-markmap/)
 
 # hexo-markmap
+
 在你的部落格中使用 markdown 插入思維導圖，使用 markmap。
 
 現已經支援 連結、程式碼塊、markdown、KaTeX、多行程式碼語法的渲染！
@@ -15,7 +16,9 @@
 > 多行程式碼仍有一定渲染問題，可能出現報錯。
 
 更多預覽和說明見 [我的部落格](https://zhangmaimai.com/2021/02/23/hexo-mindmap-plugin/).
+
 # 安裝
+
 ```
 pnpm add hexo-markmap
 ```
@@ -29,15 +32,21 @@ yarn add hexo-markmap
 ```
 
 # 使用
+
 ```
 {% markmap height [depth] %}
+- Markdown
+- Syntax
+{% endmarkmap%}
 ```
 
 ## 引數
+
 - `height`: 畫布高度
 - `depth`: 可選，自動摺疊層數深於 `depth` 的節點
 
 ## 示例
+
 ````
 {% markmap 400px %}
 - links
@@ -62,7 +71,9 @@ yarn add hexo-markmap
 預設情況下，他可以很好的正常工作。每個選項都有預設項。
 
 ### pjax 修復
+
 預設值 `false`
+
 ```yaml
 hexo_markmap:
   pjax: true
@@ -76,19 +87,22 @@ hexo_markmap:
   katex: true
 ```
 
-如果你需要使用 $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$ 請開啟此項配置以插入 css 檔案。如果部落格本身已經透過其他方式配置 $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$ 則無需開啟.
+如果你需要使用 $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$ 請開啟此項配置以插入 CSS 檔案。如果部落格本身已經透過其他方式配置 $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$ 則無需開啟.
 
 > 如果你同時裝有 `mathjax`，也請開啟此項。
+
 ### Prism
+
 預設值 `false`
 ```yaml
 hexo_markmap:
   prism: true
 ```
 
-如果需要插入程式碼塊，請開啟此項配置以插入 css 檔案。如果部落格本身已經透過其他方式配置 prism 則無需開啟.
+如果需要插入程式碼塊，請開啟此項配置以插入 CSS 檔案。如果部落格本身已經透過其他方式配置 prism 則無需開啟.
 
 ### 自定義 CDN
+
 ```yaml
 hexo_markmap:
   CDN:
@@ -99,6 +113,7 @@ hexo_markmap:
 ```
 
 ### 預設項
+
 ```yaml
 hexo_markmap:
   pjax: false
