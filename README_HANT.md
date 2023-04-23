@@ -20,15 +20,15 @@
 # 安裝
 
 ```
-pnpm add hexo-markmap
+pnpm add hexo-markmap -D
 ```
 
 ```
-npm install hexo-markmap
+npm install hexo-markmap  --save
 ```
 
 ```
-yarn add hexo-markmap
+yarn add hexo-markmap -D
 ```
 
 # 使用

@@ -21,16 +21,16 @@ More preview in [my blog](https://zhangmaimai.com/2021/02/23/hexo-mindmap-plugin
 # Install
 
 ```
-pnpm add hexo-markmap
+pnpm add hexo-markmap -D
 ```
 
 ```
-npm install hexo-markmap
+npm install hexo-markmap  --save
 ```
 
 
 ```
-yarn add hexo-markmap
+yarn add hexo-markmap --dev
 ```
 
 # Usage
