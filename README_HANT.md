@@ -3,11 +3,9 @@
 | [繁體中文](https://github.com/MaxChang3/hexo-markmap/blob/main/README_HANT.md)
 |
 
-依賴於 [markmap](https://github.com/gera2ld/markmap)，靈感來自 [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap)
+依賴於 [markmap](https://github.com/gera2ld/markmap)，靈感來自 [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap)。
 
-[![NPM](https://nodei.co/npm/hexo-markmap.png)](https://nodei.co/npm/hexo-markmap/)
-
-# hexo-markmap
+# hexo-markmap  <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/v/hexo-markmap"></a> <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/dm/hexo-markmap"></a>
 
 在你的部落格中使用 markdown 插入思維導圖，使用 markmap。
 

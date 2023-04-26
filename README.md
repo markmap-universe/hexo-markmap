@@ -3,13 +3,9 @@
 | [繁体中文](https://github.com/MaxChang3/hexo-markmap/blob/main/README_HANT.md)
 |
 
-Depend on [markmap](https://github.com/gera2ld/markmap).
+Depend on [markmap](https://github.com/gera2ld/markmap). Inspired by [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap).
 
-Inspired by [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap)
-
-[![NPM](https://nodei.co/npm/hexo-markmap.png)](https://nodei.co/npm/hexo-markmap/)
-
-# hexo-markmap
+# hexo-markmap <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/v/hexo-markmap"></a> <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/dm/hexo-markmap"></a>
 
 Insert mindmap in your hexo blog by markmap.
 
