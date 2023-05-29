@@ -81,7 +81,9 @@ hexo_markmap:
 If your blog has pjax installed, please turn it on.
 
 ### KaTeX
+
 default value `false`
+
 ```yaml
 hexo_markmap:
   katex: true
@@ -93,7 +95,9 @@ If you need to use $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$, p
 
 
 ### Prism
+
 default value `false`
+
 ```yaml
 hexo_markmap:
   prism: true
@@ -102,6 +106,7 @@ hexo_markmap:
 If you need to use code blocks, please turn it on to insert the CSS links. If prism.css has already been added to your blog by another way, then you don’t need to do it.
 
 ### Custom CDN
+
 ```yaml
 hexo_markmap:
   CDN:
@@ -109,6 +114,17 @@ hexo_markmap:
     markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
     katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
     prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
+```
+
+### Lock view
+
+default value `false`
+
+Disable the zoom and pan of the view. ()
+
+```yaml
+hexo_markmap:
+  lock: true
 ```
 
 ### default option
@@ -122,4 +138,5 @@ hexo_markmap:
     markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
     katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
     prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
+  lock: false
 ```

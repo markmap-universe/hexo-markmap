@@ -10,7 +10,8 @@ const options = {
   pjaxEnable: fget("hexo_markmap.pjax"),
   katexEnable: fget("hexo_markmap.katex"),
   prismEnable: fget("hexo_markmap.prism"),
-  userCDN: fget("hexo_markmap.userCDN")
+  userCDN: fget("hexo_markmap.userCDN"),
+  lockView: fget("hexo_markmap.lockView")
 }
 
 hexo.extend.tag.register('markmap', ([height, depth], markdown) => {
