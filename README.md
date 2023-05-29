@@ -120,7 +120,7 @@ hexo_markmap:
 
 default value `false`
 
-Disable the zoom and pan of the view. ()
+Disable the zoom and pan of the view.
 
 ```yaml
 hexo_markmap:
