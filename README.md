@@ -138,5 +138,5 @@ hexo_markmap:
     markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
     katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
     prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
-  lock: false
+  lockView: false
 ```
