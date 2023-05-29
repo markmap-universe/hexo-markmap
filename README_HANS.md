@@ -79,7 +79,9 @@ hexo_markmap:
 如果你的博客安装了 pjax 请开启此项配置。
 
 ### KaTeX
+
 默认值 `false`
+
 ```yaml
 hexo_markmap:
   katex: true
@@ -92,6 +94,7 @@ hexo_markmap:
 ### Prism
 
 默认值 `false`
+
 ```yaml
 hexo_markmap:
   prism: true
@@ -110,6 +113,17 @@ hexo_markmap:
     prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
 ```
 
+### 锁定视图
+
+默认值 `false`
+
+关闭视图的放缩（zoom）、平移（pan）功能。
+
+```yaml
+hexo_markmap:
+  lockView: true
+```
+
 ### 缺省项
 
 ```yaml
@@ -122,4 +136,5 @@ hexo_markmap:
     markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
     katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
     prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
+  lockView: false
 ```
