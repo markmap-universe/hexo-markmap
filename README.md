@@ -109,7 +109,7 @@ If you need to use code blocks, please turn it on to insert the CSS links. If pr
 
 ```yaml
 hexo_markmap:
-  CDN:
+  userCDN:
     d3_js: https://fastly.jsdelivr.net/npm/d3@6
     markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
     katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
@@ -133,7 +133,7 @@ hexo_markmap:
   pjax: false
   katex: false
   prism: false
-  CDN:
+  userCDN:
     d3_js: https://fastly.jsdelivr.net/npm/d3@6
     markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
     katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
