@@ -127,6 +127,14 @@ hexo_markmap:
   lock: true
 ```
 
+### Fix SVG attribute errors caused by location
+
+Default value `false`
+
+Due to unknown reasons, in some hexo themes (such as [hexo-theme-volantis](https://github.com/volantis-x/hexo-theme-volantis/)), during the process of loading the page, markmap will report an error `Error: <g> attribute transform: Expected number, "translate(NaN,NaN) scale(N…".`.
+
+This is because the zoom event of d3.js returns x, y, k attributes with `NaN` values. As this is an upstream issue and the reason is currently unknown, this problem is fixed by a rather dirty patch method. This problem will not affect normal use whether it is turned on or off.
+
 ### default option
 ```yaml
 hexo_markmap:
@@ -139,4 +147,5 @@ hexo_markmap:
     katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
     prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
   lockView: false
+  fixSVGAttrNaN: false
 ```

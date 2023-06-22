@@ -11,7 +11,8 @@ const options = {
   katexEnable: fget("hexo_markmap.katex"),
   prismEnable: fget("hexo_markmap.prism"),
   userCDN: fget("hexo_markmap.userCDN"),
-  lockView: fget("hexo_markmap.lockView")
+  lockView: fget("hexo_markmap.lockView"),
+  fixSVGAttrNaN: fget("hexo_markmap.fixSVGAttrNaN")
 }
 
 hexo.extend.tag.register('markmap', ([height, depth], markdown) => {

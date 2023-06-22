@@ -124,6 +124,19 @@ hexo_markmap:
   lockView: true
 ```
 
+### 修復位置原因導致的 SVG 屬性錯誤
+
+預設值 `false`
+
+由於未知原因，在一些 hexo 主題下（如 [hexo-theme-volantis](https://github.com/volantis-x/hexo-theme-volantis/)），載入頁面的過程中， markmap 會報錯 `Error: <g> attribute transform: Expected number, "translate(NaN,NaN) scale(N…".` 。
+
+這是由於 d3.js 的 zoom 事件返回了 `NaN` 值的 x, y, k 屬性。由於這是一個上游問題，原因暫時未知，目前透過比較髒的補丁方法來修復此問題，無論開啟與否，該問題均不會影響正常使用。
+
+```yaml
+hexo_markmap:
+  fixSVGAttrNaN: true
+```
+
 ### 預設項
 
 ```yaml
@@ -137,4 +150,5 @@ hexo_markmap:
     katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
     prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
   lockView: false
+  fixSVGAttrNaN: false
 ```
