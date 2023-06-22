@@ -124,7 +124,7 @@ Disable the zoom and pan of the view.
 
 ```yaml
 hexo_markmap:
-  lock: true
+  lockView: true
 ```
 
 ### Fix SVG attribute errors caused by unknown reasons
