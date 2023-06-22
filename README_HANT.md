@@ -152,3 +152,11 @@ hexo_markmap:
   lockView: false
   fixSVGAttrNaN: false
 ```
+
+# 貢獻者
+
+感謝所有的貢獻者🥰！
+
+<a href="https://github.com/maxchang3/hexo-markmap/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=maxchang3/hexo-markmap" />
+</a>
