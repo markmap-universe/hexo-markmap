@@ -124,7 +124,7 @@ hexo_markmap:
   lockView: true
 ```
 
-### 修復位置原因導致的 SVG 屬性錯誤
+### 修復未知原因導致的 SVG 屬性錯誤
 
 預設值 `false`
 

@@ -124,7 +124,7 @@ hexo_markmap:
   lockView: true
 ```
 
-### 修复位置原因导致的 SVG 属性错误
+### 修复未知原因导致的 SVG 属性错误
 
 默认值 `false`
 

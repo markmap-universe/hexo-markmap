@@ -127,7 +127,7 @@ hexo_markmap:
   lock: true
 ```
 
-### Fix SVG attribute errors caused by location
+### Fix SVG attribute errors caused by unknown reasons
 
 Default value `false`
 
