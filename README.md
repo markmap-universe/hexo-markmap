@@ -21,7 +21,7 @@ pnpm add hexo-markmap -D
 ```
 
 ```
-npm install hexo-markmap  --save
+npm install hexo-markmap --save-dev
 ```
 
 
