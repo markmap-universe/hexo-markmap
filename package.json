@@ -16,7 +16,7 @@
     "url": "git+https://github.com/MaxChang3/hexo-markmap.git"
   },
   "scripts": {
-    "update-hooks": "pnpm dlx simple-git-hooks"
+    "update-hooks": "pnpm simple-git-hooks"
   },
   "simple-git-hooks": {
     "pre-commit": "((git diff --cached --name-only | grep -E 'README_HANS.md') && node scripts/convert-hans.js && git add README_HANT.md) || exit 0"
