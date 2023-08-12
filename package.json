@@ -16,8 +16,10 @@
     "url": "git+https://github.com/MaxChang3/hexo-markmap.git"
   },
   "scripts": {
-    "prepare": "husky install",
-    "precommit": "node scripts/convert-hans.js && git add README_HANT.md"
+    "update-hooks": "pnpm dlx simple-git-hooks"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "((git diff --cached --name-only | grep -E 'README_HANS.md') && node scripts/convert-hans.js && git add README_HANT.md) || exit 0"
   },
   "dependencies": {
     "lodash.get": "^4.4.2",
@@ -26,6 +28,6 @@
   },
   "devDependencies": {
     "opencc": "^1.1.3",
-    "husky": "^8.0.0"
+    "simple-git-hooks": "^2.9.0"
   }
 }
