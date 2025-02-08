@@ -1,8 +1,16 @@
 {
   "name": "hexo-markmap",
-  "version": "1.2.5",
+  "version": "2.0.0-beta",
   "description": "A hexo plugin insert mindmap in your hexo blog by markmap (new rebuild).",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
   "author": "MaxChang3",
   "license": "MIT",
   "keywords": [
@@ -15,19 +23,15 @@
     "type": "git",
     "url": "git+https://github.com/MaxChang3/hexo-markmap.git"
   },
-  "scripts": {
-    "update-hooks": "pnpm simple-git-hooks"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "((git diff --cached --name-only | grep -E 'README_HANS.md') && node scripts/convert-hans.js && git add README_HANT.md) || exit 0"
-  },
   "dependencies": {
-    "lodash.get": "^4.4.2",
-    "markmap-common": "^0.1.6",
-    "markmap-lib": "^0.11.6"
+    "gray-matter": "^4.0.3",
+    "markmap-common": "^0.18.9",
+    "markmap-lib": "^0.18.9"
   },
   "devDependencies": {
-    "opencc": "^1.1.3",
-    "simple-git-hooks": "^2.9.0"
+    "hexo": "^7.3.0",
+    "markmap-toolbar": "^0.18.9",
+    "markmap-view": "^0.18.9",
+    "typescript": "^5.7.3"
   }
 }
