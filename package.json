@@ -11,7 +11,7 @@
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",
-    "release": "pnpm typecheck && bumpp"
+    "release": "pnpm typecheck && bumpp && pnpm publish"
   },
   "author": "MaxChang3",
   "license": "MIT",
