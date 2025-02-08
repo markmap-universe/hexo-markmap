@@ -1,4 +1,4 @@
-import Hexo from 'hexo'
+/// <reference types="hexo" />
 import matter from 'gray-matter'
 import { Transformer, type IMarkmapJSONOptions } from 'markmap-lib'
 import { persistCSS, persistJS } from 'markmap-common'
