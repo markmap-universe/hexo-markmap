@@ -16,14 +16,14 @@ const transformer = new Transformer()
 // register tag
 hexo.extend.tag.register('markmap', function (_args: string[], _content: string) {
 	// params
-  const { data: frontmatter, content } = matter(_content)
-	const { id, style, jsonOptions } = Object.assign({...frontmatter},{
+	const { data: frontmatter, content } = matter(_content)
+	const { id, style, jsonOptions } = Object.assign({ ...frontmatter }, {
 		id: frontmatter['id'] ?? Date.now().toString(36) + Math.floor(Math.random() * 10000).toString(36),
 		jsonOptions: frontmatter['options'] as IMarkmapJSONOptions
 	})
 	// transform
 	const { root, features } = transformer.transform(content)
-	const { styles=[], scripts=[] } = transformer.getUsedAssets(features)
+	const { styles = [], scripts = [] } = transformer.getUsedAssets(features)
 	const wrapHtml = `
 		<div class="markmap-wrap" id="${id}">
 			<script type="application/json">${JSON.stringify(root)}</script>
@@ -32,7 +32,7 @@ hexo.extend.tag.register('markmap', function (_args: string[], _content: string)
 	`
 	const assetsHtmls = [
 		...persistCSS([
-			{ type: 'style', data: template(style,{id}) },
+			{ type: 'style', data: template(style, { id }) },
 			...styles
 		]),
 		...persistJS(scripts, {
@@ -64,8 +64,8 @@ hexo.extend.filter.register('after_post_render', function (data) {
 })
 
 function template(template: string, props?: {}) {
-  return !props
-   ? template
-   : new Function(...Object.keys(props), `return \`${template}\`;`)(...Object.values(props))
+	return !props
+		? template
+		: new Function(...Object.keys(props), `return \`${template}\`;`)(...Object.values(props))
 }
 
