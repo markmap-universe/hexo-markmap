@@ -25,9 +25,9 @@ export default (darkThemeCssSelector: string) =>
     bottom: .5em;
   }
   `
-  
+
   +
-  
+
   /* 
     Override of the default markmap styles.
     https://github.com/markmap/markmap/blob/master/packages/markmap-view/src/style.css
