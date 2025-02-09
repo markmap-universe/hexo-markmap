@@ -45,3 +45,4 @@ jobs:
           clean: true
           clean-exclude: |
             .nojekyll
+            CNAME
