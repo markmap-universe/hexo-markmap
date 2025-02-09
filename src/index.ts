@@ -27,7 +27,7 @@ hexo.extend.tag.register('markmap', function (_args: string[], _content: string)
     const { data: frontmatter, content } = matter(_content)
     const { id, style, jsonOptions } = Object.assign({ ...frontmatter }, {
         id: frontmatter['id'] ?? Date.now().toString(36) + Math.floor(Math.random() * 10000).toString(36),
-        jsonOptions: frontmatter['options'] as IMarkmapJSONOptions
+        jsonOptions: frontmatter['options'] ?? {} as IMarkmapJSONOptions
     })
     // transform
     const { root, features } = transformer.transform(content)
@@ -59,16 +59,23 @@ hexo.extend.tag.register('markmap', function (_args: string[], _content: string)
 hexo.extend.filter.register('after_post_render', function (data) {
     const { slug } = data
     //@ts-ignore
-    const assetsHtmlsSet = assetsHtmlsMap[slug]
-    assetsHtmlsSet && (data.content += [
-        `<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>`,
-        `<script src="https://cdn.jsdelivr.net/npm/markmap-view"></script>`,
-        `<script src="https://cdn.jsdelivr.net/npm/markmap-toolbar"></script>`,
-        `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar/dist/style.css"></link>`,
-        ...assetsHtmlsSet,
-        `<style>${markmapStyle(userConfig.darkThemeCssSelector)}</style>`,
-        `<script>(${markmapInit.toString()})();</script>`,
-    ].join(''))
+    const assetsHTMLsSet = assetsHtmlsMap[slug]
+    const assetsHTMLsArray = []
+    if (assetsHTMLsSet) {
+        assetsHTMLsArray.push(
+            `<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>`,
+            `<script src="https://cdn.jsdelivr.net/npm/markmap-view"></script>`,
+            `<script src="https://cdn.jsdelivr.net/npm/markmap-toolbar"></script>`,
+            `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar/dist/style.css"></link>`,
+            ...assetsHTMLsSet,
+            `<style>${markmapStyle(userConfig.darkThemeCssSelector)}</style>`,
+            `<script>
+                const hexoMarkmap = (${markmapInit.toString()})();
+                hexoMarkmap.init();
+            </script>`
+        )
+    }
+    data.content += assetsHTMLsArray.join('')
 })
 
 function template(template: string, props?: {}) {
