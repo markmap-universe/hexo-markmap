@@ -18,7 +18,7 @@ const userConfig = {
     ...hexo.config['hexo_markmap']
 }
 
-const assetsHtmlsMap = {} as Record<string, Set<string>>
+const assetsHTMLsMap: Record<string, Set<string> | undefined> = {}
 const transformer = new Transformer()
 
 // register tag
@@ -32,13 +32,13 @@ hexo.extend.tag.register('markmap', function (_args: string[], _content: string)
     // transform
     const { root, features } = transformer.transform(content)
     const { styles = [], scripts = [] } = transformer.getUsedAssets(features)
-    const wrapHtml = `
+    const wrapHTML = `
     <div class="markmap-wrap" id="${id}">
       <script type="application/json">${JSON.stringify(root)}</script>
       <script type="application/json">${JSON.stringify(jsonOptions)}</script>
     </div>
   `
-    const assetsHtmls = [
+    const assetsHTMLs = [
         ...persistCSS([
             { type: 'style', data: template(style, { id }) },
             ...styles
@@ -48,19 +48,18 @@ hexo.extend.tag.register('markmap', function (_args: string[], _content: string)
             root,
         })
     ]
-    // save assetsHtmls
-    //@ts-ignore
+    // save assetsHTMLs
+    // @ts-ignore
     const { slug } = this
-    assetsHtmlsMap[slug] = new Set([...(assetsHtmlsMap[slug] ?? []), ...assetsHtmls])
+    assetsHTMLsMap[slug] = new Set([...(assetsHTMLsMap[slug] ?? []), ...assetsHTMLs])
     // replace node
-    return wrapHtml.trim()
+    return wrapHTML.trim()
 }, { ends: true })
 
-hexo.extend.filter.register('after_post_render', function (data) {
+hexo.extend.filter.register('after_post_render', function (data: { content: string, slug: string }) {
     const { slug } = data
-    //@ts-ignore
-    const assetsHTMLsSet = assetsHtmlsMap[slug]
-    const assetsHTMLsArray = []
+    const assetsHTMLsSet = assetsHTMLsMap[slug]
+    const assetsHTMLsArray: string[] = []
     if (assetsHTMLsSet) {
         assetsHTMLsArray.push(
             `<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>`,
