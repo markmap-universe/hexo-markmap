@@ -9,8 +9,8 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "allowJs": true,
-    "declaration": true
+    "declaration": false
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "include": [ "src/**/*" ],
+  "exclude": [ "node_modules" ]
 }
