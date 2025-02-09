@@ -6,8 +6,8 @@ import markmapInit from './markmap-init.js'
 import markmapStyle from './markmap-style.js'
 
 const options = {
-	...hexo.config['hexo_markmap'],
-	darkThemeCssSelector: '.dark'
+	darkThemeCssSelector: '.dark',
+	...hexo.config['hexo_markmap']
 }
 
 const assetsHtmlsMap = {} as Record<string, Set<string>>
