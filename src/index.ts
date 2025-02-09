@@ -5,8 +5,16 @@ import { persistCSS, persistJS } from 'markmap-common'
 import markmapInit from './markmap-init.js'
 import markmapStyle from './markmap-style.js'
 
-const options = {
+interface HexoMarkmapConfig {
+	darkThemeCssSelector: string
+}
+
+const defaultConfig: HexoMarkmapConfig = {
 	darkThemeCssSelector: '.dark',
+}
+
+const userConfig = {
+	...defaultConfig,
 	...hexo.config['hexo_markmap']
 }
 
@@ -25,11 +33,11 @@ hexo.extend.tag.register('markmap', function (_args: string[], _content: string)
 	const { root, features } = transformer.transform(content)
 	const { styles = [], scripts = [] } = transformer.getUsedAssets(features)
 	const wrapHtml = `
-		<div class="markmap-wrap" id="${id}">
-			<script type="application/json">${JSON.stringify(root)}</script>
-			<script type="application/json">${JSON.stringify(jsonOptions)}</script>
-		</div>
-	`
+    <div class="markmap-wrap" id="${id}">
+      <script type="application/json">${JSON.stringify(root)}</script>
+      <script type="application/json">${JSON.stringify(jsonOptions)}</script>
+    </div>
+  `
 	const assetsHtmls = [
 		...persistCSS([
 			{ type: 'style', data: template(style, { id }) },
@@ -58,7 +66,7 @@ hexo.extend.filter.register('after_post_render', function (data) {
 		`<script src="https://cdn.jsdelivr.net/npm/markmap-toolbar"></script>`,
 		`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar/dist/style.css"></link>`,
 		...assetsHtmlsSet,
-		`<style>${markmapStyle(options.darkThemeCssSelector)}</style>`,
+		`<style>${markmapStyle(userConfig.darkThemeCssSelector)}</style>`,
 		`<script>(${markmapInit.toString()})();</script>`,
 	].join(''))
 })
