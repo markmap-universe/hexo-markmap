@@ -16,7 +16,7 @@ const defaultConfig: HexoMarkmapConfig = {
     darkThemeCssSelector: '.dark',
 }
 
-const userConfig = {
+const userConfig: HexoMarkmapConfig = {
     ...defaultConfig,
     ...hexo.config['hexo_markmap']
 }
