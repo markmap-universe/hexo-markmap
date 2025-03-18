@@ -1,9 +1,10 @@
 /// <reference types="hexo" />
 import matter from 'gray-matter'
-import { Transformer, type IMarkmapJSONOptions } from 'markmap-lib'
+import { Transformer } from 'markmap-lib'
 import { persistCSS, persistJS } from 'markmap-common'
 import markmapInit from './markmap-init.js'
 import markmapStyle from './markmap-style.js'
+import { parseFrontmatter, template } from './utils.js'
 
 interface HexoMarkmapConfig {
     darkThemeCssSelector: string
@@ -24,11 +25,9 @@ const transformer = new Transformer()
 // register tag
 hexo.extend.tag.register('markmap', function (_args: string[], _content: string) {
     // params
-    const { data: frontmatter, content } = matter(_content)
-    const { id, style, jsonOptions } = Object.assign({ ...frontmatter }, {
-        id: frontmatter['id'] ?? Date.now().toString(36) + Math.floor(Math.random() * 10000).toString(36),
-        jsonOptions: frontmatter['options'] ?? {} as IMarkmapJSONOptions
-    })
+    const { data: rawFrontmatter, content } = matter(_content)
+    const frontmatter = parseFrontmatter(rawFrontmatter)
+    const { id, style, options: jsonOptions } = frontmatter
     // transform
     const { root, features } = transformer.transform(content)
     const { styles = [], scripts = [] } = transformer.getUsedAssets(features)
@@ -37,7 +36,7 @@ hexo.extend.tag.register('markmap', function (_args: string[], _content: string)
       <script type="application/json">${JSON.stringify(root)}</script>
       <script type="application/json">${JSON.stringify(jsonOptions)}</script>
     </div>
-  `
+    `
     const assetsHTMLs = [
         ...persistCSS([
             { type: 'style', data: template(style, { id }) },
@@ -76,10 +75,3 @@ hexo.extend.filter.register('after_post_render', function (data: { content: stri
     }
     data.content += assetsHTMLsArray.join('')
 })
-
-function template(template: string, props?: {}) {
-    return !props
-        ? template
-        : new Function(...Object.keys(props), `return \`${template}\`;`)(...Object.values(props))
-}
-

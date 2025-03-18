@@ -8,7 +8,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsup",
     "typecheck": "tsc --noEmit",
     "release": "pnpm typecheck && bumpp && pnpm publish"
   },
@@ -27,18 +27,26 @@
   "dependencies": {
     "gray-matter": "^4.0.3",
     "markmap-common": "^0.18.9",
-    "markmap-lib": "^0.18.9"
+    "markmap-lib": "^0.18.9",
+    "uuid": "^11.1.0",
+    "zod": "^3.24.2",
+    "zod-validation-error": "^3.4.0"
   },
   "devDependencies": {
+    "@types/node": "^22.13.10",
     "bumpp": "^10.0.2",
     "hexo": "^7.3.0",
     "markmap-toolbar": "^0.18.9",
     "markmap-view": "^0.18.9",
-    "typescript": "^5.7.3"
+    "radashi": "^12.4.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.3",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.0.9"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "hexo-util"
+      "esbuild"
     ]
   }
 }

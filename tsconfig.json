@@ -7,10 +7,13 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "outDir": "./dist",
-    "rootDir": "./src",
     "allowJs": true,
-    "declaration": false
+    "declaration": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [ "src/*" ]
+    }
   },
-  "include": [ "src/**/*" ],
+  "include": [ "src/**/*", "test/**/*" ],
   "exclude": [ "node_modules" ]
 }
