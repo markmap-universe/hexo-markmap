@@ -37,7 +37,7 @@ describe("parseFrontmatter", () => {
         const data = {}
         expect(parseFrontmatter(data, 'test')).toMatchInlineSnapshot(`
           {
-            "id": "4fdcca5d",
+            "id": "hmm-4fdcca5d",
             "options": {},
             "style": "",
           }
