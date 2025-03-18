@@ -1,6 +1,6 @@
 node_modules
 test.js
 test.html
-test
 .DS_Store
 dist
+demo
