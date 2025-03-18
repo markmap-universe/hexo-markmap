@@ -1,4 +1,6 @@
 /// <reference types="hexo" />
+import type { PostSchema } from 'hexo/dist/types.d.ts'
+
 import matter from 'gray-matter'
 import { Transformer } from 'markmap-lib'
 import { persistCSS, persistJS } from 'markmap-common'
@@ -22,13 +24,15 @@ const userConfig = {
 const assetsHTMLsMap: Record<string, Set<string> | undefined> = {}
 const transformer = new Transformer()
 
-// register tag
-hexo.extend.tag.register('markmap', function (_args: string[], _content: string) {
-    // params
+/**
+ * Register a tag for Hexo to render Markmap.
+ */
+hexo.extend.tag.register('markmap', function (this: PostSchema, _args: string[], _content: string) {
+    // parse frontmatter
     const { data: rawFrontmatter, content } = matter(_content)
     const frontmatter = parseFrontmatter(rawFrontmatter)
     const { id, style, options: jsonOptions } = frontmatter
-    // transform
+    // transform content
     const { root, features } = transformer.transform(content)
     const { styles = [], scripts = [] } = transformer.getUsedAssets(features)
     const wrapHTML = `
@@ -48,14 +52,15 @@ hexo.extend.tag.register('markmap', function (_args: string[], _content: string)
         })
     ]
     // save assetsHTMLs
-    // @ts-ignore
     const { slug } = this
-    assetsHTMLsMap[slug] = new Set([...(assetsHTMLsMap[slug] ?? []), ...assetsHTMLs])
-    // replace node
+    if (slug) assetsHTMLsMap[slug] = new Set([...(assetsHTMLsMap[slug] ?? []), ...assetsHTMLs])
     return wrapHTML.trim()
 }, { ends: true })
 
-hexo.extend.filter.register('after_post_render', function (data: { content: string, slug: string }) {
+/**
+ * Inject Markmap assets into the post.
+ */
+hexo.extend.filter.register('after_post_render', function (this: PostSchema, data: { content: string, slug: string }) {
     const { slug } = data
     const assetsHTMLsSet = assetsHTMLsMap[slug]
     const assetsHTMLsArray: string[] = []
