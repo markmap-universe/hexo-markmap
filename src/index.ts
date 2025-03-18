@@ -6,7 +6,7 @@ import { Transformer } from 'markmap-lib'
 import { persistCSS, persistJS } from 'markmap-common'
 import markmapInit from '@/markmap-init'
 import markmapStyle from '@/markmap-style'
-import { parseFrontmatter, template } from '@/utils'
+import { parseFrontmatter, template, ExtendedMap } from '@/utils'
 
 interface HexoMarkmapConfig {
     darkThemeCssSelector: string
@@ -21,7 +21,7 @@ const userConfig: HexoMarkmapConfig = {
     ...hexo.config['hexo_markmap']
 }
 
-const assetsHTMLsMap: Record<string, Set<string> | undefined> = {}
+const assetsHTMLMap: ExtendedMap<string, Set<string>> = new ExtendedMap()
 const transformer = new Transformer()
 
 /**
@@ -30,7 +30,7 @@ const transformer = new Transformer()
 hexo.extend.tag.register('markmap', function (this: PostSchema, _args: string[], _content: string) {
     // parse frontmatter
     const { data: rawFrontmatter, content } = matter(_content)
-    const frontmatter = parseFrontmatter(rawFrontmatter)
+    const frontmatter = parseFrontmatter(rawFrontmatter, content)
     const { id, style, options: jsonOptions } = frontmatter
     // transform content
     const { root, features } = transformer.transform(content)
@@ -41,7 +41,7 @@ hexo.extend.tag.register('markmap', function (this: PostSchema, _args: string[],
       <script type="application/json">${JSON.stringify(jsonOptions)}</script>
     </div>
     `
-    const assetsHTMLs = [
+    const assetsHTML = [
         ...persistCSS([
             { type: 'style', data: template(style, { id }) },
             ...styles
@@ -51,9 +51,11 @@ hexo.extend.tag.register('markmap', function (this: PostSchema, _args: string[],
             root,
         })
     ]
-    // save assetsHTMLs
+    // save assetsHTML
     const { slug } = this
-    if (slug) assetsHTMLsMap[slug] = new Set([...(assetsHTMLsMap[slug] ?? []), ...assetsHTMLs])
+    slug && assetsHTMLMap.entry(slug)
+        .and(set => assetsHTML.forEach(set.add, set))
+        .or_insert(() => new Set(assetsHTML))
     return wrapHTML.trim()
 }, { ends: true })
 
@@ -62,15 +64,15 @@ hexo.extend.tag.register('markmap', function (this: PostSchema, _args: string[],
  */
 hexo.extend.filter.register('after_post_render', function (this: PostSchema, data: { content: string, slug: string }) {
     const { slug } = data
-    const assetsHTMLsSet = assetsHTMLsMap[slug]
-    const assetsHTMLsArray: string[] = []
-    if (assetsHTMLsSet) {
-        assetsHTMLsArray.push(
+    const assetsHTMLSet = assetsHTMLMap.get(slug)
+    const assetsHTMLArray: string[] = []
+    if (assetsHTMLSet) {
+        assetsHTMLArray.push(
             `<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>`,
             `<script src="https://cdn.jsdelivr.net/npm/markmap-view"></script>`,
             `<script src="https://cdn.jsdelivr.net/npm/markmap-toolbar"></script>`,
             `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar/dist/style.css"></link>`,
-            ...assetsHTMLsSet,
+            ...assetsHTMLSet,
             `<style>${markmapStyle(userConfig.darkThemeCssSelector)}</style>`,
             `<script>
                 const hexoMarkmap = (${markmapInit.toString()})();
@@ -78,5 +80,5 @@ hexo.extend.filter.register('after_post_render', function (this: PostSchema, dat
             </script>`
         )
     }
-    data.content += assetsHTMLsArray.join('')
+    data.content += assetsHTMLArray.join('')
 })

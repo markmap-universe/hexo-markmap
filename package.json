@@ -26,10 +26,10 @@
     "url": "git+https://github.com/MaxChang3/hexo-markmap.git"
   },
   "dependencies": {
+    "@node-rs/xxhash": "^1.7.6",
     "gray-matter": "^4.0.3",
     "markmap-common": "^0.18.9",
     "markmap-lib": "^0.18.9",
-    "uuid": "^11.1.0",
     "zod": "^3.24.2",
     "zod-validation-error": "^3.4.0"
   },

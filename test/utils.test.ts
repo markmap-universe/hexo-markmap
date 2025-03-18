@@ -1,12 +1,5 @@
 import { describe, expect, it } from "vitest"
 import { template, parseFrontmatter } from "@/utils"
-import { vi } from 'vitest'
-
-vi.mock('uuid', () => {
-    return {
-        v7: () => '0195aa9e-f1d8-74a1-aaad-362c9be73d61'
-    }
-})
 
 describe("template", () => {
     it("should return a string with the template values replaced", () => {
@@ -42,9 +35,9 @@ describe("template", () => {
 describe("parseFrontmatter", () => {
     it("should return the parsed frontmatter with the default values", () => {
         const data = {}
-        expect(parseFrontmatter(data)).toMatchInlineSnapshot(`
+        expect(parseFrontmatter(data, 'test')).toMatchInlineSnapshot(`
           {
-            "id": "0195aa9e-f1d8-74a1-aaad-362c9be73d61",
+            "id": "4fdcca5d",
             "options": {},
             "style": "",
           }
@@ -59,7 +52,7 @@ describe("parseFrontmatter", () => {
                 key: 'value'
             }
         }
-        expect(parseFrontmatter(data)).toMatchInlineSnapshot(`
+        expect(parseFrontmatter(data, 'test')).toMatchInlineSnapshot(`
           {
             "id": "my-id",
             "options": {
