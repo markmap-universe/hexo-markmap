@@ -4,9 +4,9 @@ import type { PostSchema } from 'hexo/dist/types.d.ts'
 import matter from 'gray-matter'
 import { Transformer } from 'markmap-lib'
 import { persistCSS, persistJS } from 'markmap-common'
-import markmapInit from './markmap-init.js'
-import markmapStyle from './markmap-style.js'
-import { parseFrontmatter, template } from './utils.js'
+import markmapInit from '@/markmap-init'
+import markmapStyle from '@/markmap-style'
+import { parseFrontmatter, template } from '@/utils'
 
 interface HexoMarkmapConfig {
     darkThemeCssSelector: string
