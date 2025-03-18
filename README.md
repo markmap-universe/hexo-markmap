@@ -3,6 +3,12 @@
 | [繁体中文](https://github.com/MaxChang3/hexo-markmap/blob/main/README_HANT.md)
 |
 
+> [!WARNING]
+> Due to an operational mistake, we incorrectly marked the Beta version as the official release, which may have led some users to install the Beta version. However, the Beta version contains an unresolved issue that was not properly updated and fixed. This version has now been withdrawn. If you are experiencing related issues, please reinstall the stable 1.x version.
+> 
+> 由于操作失误，我们错误地将 Beta 版标记为正式版发布，可能导致部分用户安装了 Beta 版。然而，Beta 版中存在一个尚未同步修复的问题。目前，该版本已被撤回。对于遇到相关问题的用户，请重新安装稳定的 1.x 版本。
+> 
+
 Depend on [markmap](https://github.com/gera2ld/markmap). Inspired by [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap).
 
 # hexo-markmap <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/v/hexo-markmap"></a> <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/dm/hexo-markmap"></a>
