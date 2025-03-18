@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "build": "tsup",
+    "test": "vitest",
     "typecheck": "tsc --noEmit",
     "release": "pnpm typecheck && bumpp && pnpm publish"
   },
