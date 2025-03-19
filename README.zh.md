@@ -1,16 +1,15 @@
 [**English**](https://github.com/maxchang3/hexo-markmap/blob/2.0.0-beta/README.md)
 
-依赖于 [markmap](https://github.com/gera2ld/markmap)，灵感来自 [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap)。
+> 依赖于 [markmap](https://github.com/gera2ld/markmap)，灵感来自 [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap)。
+
+> [!WARNING]
+> 这是 `hexo-markmap@2` 的文档。如果你正在使用 `hexo-markmap@1`，请查看 [这里](https://github.com/markmap-universe/hexo-markmap/tree/legacy)。
+>
+> 目前 `hexo-markmap@2` 对 `hexo-markmap@1` 的配置文件**不兼容**。且拥有更严格的类型校验。
 
 # hexo-markmap  <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/v/hexo-markmap"></a> <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/dm/hexo-markmap"></a>
 
-在你的博客中使用 markdown 插入思维导图，使用 markmap。
-
-现已经支持 链接、代码块、markdown、KaTeX、多行代码语法的渲染！
-
-> 多行代码仍有一定渲染问题，可能出现报错。
-
-更多预览和说明见 [我的博客](https://zhangmaimai.com/2021/02/23/hexo-mindmap-plugin/).
+使用 Markmap 在你的博客中使用 Markdown 插入思维导图。
 
 # 安装
 
@@ -39,9 +38,10 @@ options:
 {% endmarkmap %}
 ```
 
-## Frontmatter选项
+## Frontmatter 选项
 
-Frontmatter 集成了 style 和 jsonOptions。
+就像你在 Hexo 中的 Markdown 文件中使用 Frontmatter 一样，你可以在 `markmap` 标签中使用 Frontmatter 来自定义你的思维导图！
+
 ```yaml
 id: markmap-example
 style: |
@@ -58,12 +58,11 @@ options:
   colorFreezeLevel: 2
 ```
   
-- **`style`** : Used to define custom CSS styles for the mindmap.  
-The `${id}` placeholder can be used in the style field. During rendering, it will be replaced with the actual ID of the `markmap-wrap`, ensuring each mindmap element on the page has unique styles and behaviors.
+- **`style`** : 用于为思维导图定义自定义 CSS 样式。  
+`${id}` 占位符可用于样式字段。在渲染期间，它将被替换为 `markmap-wrap` 的实际 ID，确保页面上的每个思维导图元素都具有唯一的样式和行为。
+
   
-- **`options`** : Correspond to the [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html) in the markmap project. For more details, please refer to [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
-
-
+- **`options`** : 对应 markmap 项目中 [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html)。有关更多详细信息，请参阅 [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
 
 ## 示例
 
@@ -119,9 +118,9 @@ console.log('hello, JavaScript')
 ```
 
 | Products | Price |
-|-|-|
-| Apple | 4 |
-| Banana | 2 |
+| -------- | ----- |
+| Apple    | 4     |
+| Banana   | 2     |
 
 ![](https://markmap.js.org/favicon.png)
 {% endmarkmap %}
@@ -140,8 +139,10 @@ console.log('hello, JavaScript')
 ```yaml
 hexo_markmap:
   darkThemeCssSelector: '.dark'
+  CDN: 'fastly'
 ```
 - **`darkThemeCssSelector`** : 用于指定暗黑主题的CSS选择器。
+- **`CDN`** : 用于指定 Markmap 的 CDN。目前支持的值有 `fastly` 、 `jsdelivr`、 `unpkg`。
 
 # 贡献者
 
@@ -150,3 +151,5 @@ hexo_markmap:
 <a href="https://github.com/maxchang3/hexo-markmap/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=maxchang3/hexo-markmap" />
 </a>
+
+**感谢 [@coderxi1](https://github.com/coderxi1/) 对 v2 版本的构想与最初实现！**
