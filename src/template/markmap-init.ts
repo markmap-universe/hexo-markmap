@@ -1,4 +1,4 @@
-export default function () {
+export default () => `window.hexoMarkmap = (() => {
   const { Markmap, Toolbar, deriveOptions } = window.markmap
   const resize = {
     event: new Event('resize'),
@@ -37,5 +37,7 @@ export default function () {
     wrap.append(toolbar(markmapInstance, { fullscreenElement: wrap }))
     resize.observe(wrap, debounce(() => markmapInstance.fit(), 100))
   })
-  return { resize, init }
-}
+  return { init, resize }
+})()
+window.hexoMarkmap.init()
+`

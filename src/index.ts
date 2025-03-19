@@ -1,10 +1,8 @@
 /// <reference types="hexo" />
 import type { PostSchema } from 'hexo/dist/types.d.ts'
-
 import matter from 'gray-matter'
 import { persistCSS, persistJS } from 'markmap-common'
-import markmapInit from '@/markmap-init'
-import markmapStyle from '@/markmap-style'
+import { markmapInit, markmapStyle } from '@/template'
 import { parseFrontmatter, template, ExtendedMap, getTransformer } from '@/utils'
 
 interface HexoMarkmapConfig {
@@ -23,6 +21,9 @@ const userConfig: HexoMarkmapConfig = {
 const assetsHTMLMap: ExtendedMap<string, Set<string>> = new ExtendedMap()
 const transformer = getTransformer()
 const { urlBuilder } = transformer
+
+const js = hexo.extend.helper.get("js").bind(hexo)
+const css = hexo.extend.helper.get("css").bind(hexo)
 
 /**
  * Register a tag for Hexo to render Markmap.
@@ -60,30 +61,50 @@ hexo.extend.tag.register('markmap', function (this: PostSchema, _args: string[],
 }, { ends: true })
 
 /**
+ * Generate Markmap assets.
+ */
+hexo.extend.generator.register('markmap_asset', () => [{
+    path: 'js/markmap.js',
+    data: () => markmapInit(),
+}, {
+    path: 'css/markmap.css',
+    data: () => markmapStyle(userConfig.darkThemeCssSelector)
+}])
+
+/**
  * Inject Markmap assets into the post.
  */
 hexo.extend.filter.register('after_post_render', function (this: PostSchema, data: { content: string, slug: string }) {
     const { slug } = data
-    const assetsHTMLSet = assetsHTMLMap.get(slug) ?? []
+
+    const pageAssets = assetsHTMLMap.get(slug) ?? []
+
     const VIEW_VERSION = process.env.VIEW_VERSION
     const TOOLBAR_VERSION = process.env.TOOLBAR_VERSION
+
     const basePackages = [
         'd3@7',
         `markmap-view@${VIEW_VERSION}`,
         `markmap-toolbar@${TOOLBAR_VERSION}`,
-        `markmap-toolbar@${TOOLBAR_VERSION}/dist/style.css`
     ]
-    const basePackagesHTML = basePackages.map(name =>
+
+    const basePackageScripts = basePackages.map(name =>
         `<script src="${urlBuilder.getFullUrl(name)}"></script>`
     )
-    const assetsHTMLArray: string[] = [
-        ...basePackagesHTML,
-        ...assetsHTMLSet,
-        `<style>${markmapStyle(userConfig.darkThemeCssSelector)}</style>`,
-        `<script>
-            const hexoMarkmap = (${markmapInit.toString()})();
-            hexoMarkmap.init();
-        </script>`
+
+    const basePackageStyles = [
+        urlBuilder.getFullUrl(
+            `markmap-toolbar@${TOOLBAR_VERSION}/dist/style.css`
+        ),
+    ].map(path => `<link rel="stylesheet" href="${path}">`)
+
+    const combinedAssetHTML: string[] = [
+        ...basePackageStyles,
+        ...basePackageScripts,
+        ...pageAssets,
+        css('/css/markmap.css'),
+        js('/js/markmap.js'),
+        
     ]
-    data.content += assetsHTMLArray.join('')
+    data.content += combinedAssetHTML.join('')
 })
