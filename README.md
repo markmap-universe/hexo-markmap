@@ -1,15 +1,15 @@
 [**简体中文**](https://github.com/maxchang3/hexo-markmap/blob/2.0.0-beta/README.zh.md)
 
-Depend on [markmap](https://github.com/gera2ld/markmap). Inspired by [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap).
+> Depend on [markmap](https://github.com/gera2ld/markmap). Inspired by [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap).
+
+> [!WARNING]
+> This is the documentation for `hexo-markmap@2`. If you are using `hexo-markmap@1`, please check [here](https://github.com/markmap-universe/hexo-markmap/tree/legacy).
+>
+> The configuration files of `hexo-markmap@2` are **incompatible** with `hexo-markmap@1`. And it has more strict type checking.
 
 # hexo-markmap <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/v/hexo-markmap"></a> <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/dm/hexo-markmap"></a>
 
-Insert mindmap in your hexo blog by markmap.
-
-From now all the syntax like HTML codes, links, inline code, markdown KaTeX, and Codeblocks are possible to use.
-
-> Codeblocks still have some problems which may throw some errors.
-More preview in [my blog](https://zhangmaimai.com/2021/02/23/hexo-mindmap-plugin/).
+Insert mindmap in your hexo blog by Markmap.
 
 # Install
 
@@ -41,7 +41,8 @@ options:
 
 ## Frontmatter Options
 
-The frontmatter integrates style and jsonOptions.
+Just like you use Frontmatter in your Markdown files in Hexo, you can use Frontmatter in the `markmap` tag to customize your mindmap!
+
 ```yaml
 id: markmap-example
 style: |
@@ -139,8 +140,10 @@ By default, it works well. Each option has a default value.
 ```yaml
 hexo_markmap:
   darkThemeCssSelector: '.dark'
+  CDN: 'fastly'
 ```
-- **`darkThemeCssSelector`** : Used to specify the CSS selector for the dark theme.
+- **`darkThemeCssSelector`** : Used to specify the CSS selector for the dark theme.  
+- **`CDN`** : Used to specify the CDN for Markmap. The supported values are `fastly`, `jsdelivr`, and `unpkg`.
 
 # Contributors
 
@@ -149,3 +152,5 @@ Thanks to all contributors🥰!
 <a href="https://github.com/maxchang3/hexo-markmap/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=maxchang3/hexo-markmap" />
 </a>
+
+**Thanks to [@coderxi1](https://github.com/coderxi1/) for the conception and initial implementation of version 2!**
