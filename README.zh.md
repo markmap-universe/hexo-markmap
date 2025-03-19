@@ -27,9 +27,13 @@ yarn add hexo-markmap -D
 
 # 使用
 
-```
+```markdown
 {% markmap %}
 ---
+style: |
+  #${id} {
+    height: 300px; /* 等价于 {% markmap 300px %} */
+  }
 options:
   colorFreezeLevel: 2
 ---
@@ -38,7 +42,9 @@ options:
 {% endmarkmap %}
 ```
 
-## Frontmatter 选项
+## 选项
+
+### Frontmatter 选项
 
 就像你在 Hexo 中的 Markdown 文件中使用 Frontmatter 一样，你可以在 `markmap` 标签中使用 Frontmatter 来自定义你的思维导图！
 
@@ -63,6 +69,19 @@ options:
 
   
 - **`options`** : 对应 markmap 项目中 [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html)。有关更多详细信息，请参阅 [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
+
+### 标签选项
+
+你也可以直接在标签中指定高度。
+
+```markdown
+{% markmap 300px %}
+# Markdown
+# Syntax
+{% endmarkmap %}
+```
+
+- **`height`** : 用于指定思维导图的高度。
 
 ## 示例
 

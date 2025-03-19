@@ -28,9 +28,13 @@ yarn add hexo-markmap --dev
 
 # Usage
 
-```
+```markdown
 {% markmap %}
 ---
+style: |
+  #${id} {
+    height: 300px; /* Equivalent to {% markmap 300px %} */
+  }
 options:
   colorFreezeLevel: 2
 ---
@@ -39,7 +43,9 @@ options:
 {% endmarkmap %}
 ```
 
-## Frontmatter Options
+## Options
+
+### Frontmatter Options
 
 Just like you use Frontmatter in your Markdown files in Hexo, you can use Frontmatter in the `markmap` tag to customize your mindmap!
 
@@ -65,6 +71,16 @@ The `${id}` placeholder can be used in the style field. During rendering, it wil
 - **`options`** : Correspond to the [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html) in the markmap project. For more details, please refer to [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
 
 
+### Tag Options
+
+You can also specify the height of the mindmap directly in the tag.
+
+```markdown
+{% markmap 300px %}
+# Markdown
+# Syntax
+{% endmarkmap %}
+```
 
 ## Example 
 
