@@ -27,7 +27,6 @@ const frontmatterSchema = z.object({
 export const generateShortId = (identifier: string) =>
     `hmm-${xxh64(identifier).toString(16).slice(0, 8)}`
 
-
 /**
  * Parse frontmatter with default values.
  * @param data The frontmatter data to parse.
@@ -37,7 +36,7 @@ export const parseFrontmatter = (data: Record<string, any>, identifier: string) 
     const parsedData = frontmatterSchema.safeParse(data)
     if (!parsedData.success) {
         const validationError = fromError(parsedData.error)
-        console.error(validationError.message)
+        throw new Error(validationError.message)
     }
     if (parsedData.data && !parsedData.data.id) {
         parsedData.data.id = generateShortId(identifier)
@@ -75,6 +74,9 @@ type DefaultProviders = typeof DEFAULT_PROVIDERS
 
 const DEFAULT_PROVIDER: keyof DefaultProviders = 'fastly'
 
+/**
+ * Get a URL builder with a specified default provider.
+ */
 const getURLBuilder = (defaultProvider: keyof DefaultProviders = DEFAULT_PROVIDER) => {
     type IURLBuilder<P extends string> = UrlBuilder & {
         setProvider(name: P, factory: Parameters<UrlBuilder['setProvider']>[1]): void
@@ -94,6 +96,9 @@ const getURLBuilder = (defaultProvider: keyof DefaultProviders = DEFAULT_PROVIDE
     return urlBuilder
 }
 
+/**
+ * Get a transformer with a specified default provider.
+ */
 export const getTransformer = (defaultProvider?: keyof DefaultProviders) => {
     const urlBuilder = getURLBuilder(defaultProvider)
 
@@ -105,4 +110,3 @@ export const getTransformer = (defaultProvider?: keyof DefaultProviders) => {
 
     return transformer
 }
-
