@@ -13,7 +13,7 @@ urlBuilder.provider = userConfig.CDN
 const js = hexo.extend.helper.get("js").bind(hexo)
 const css = hexo.extend.helper.get("css").bind(hexo)
 
-const assetsHTMLMap: ExtendedMap<string, Set<string>> = new ExtendedMap()
+const pageAssetsMap: ExtendedMap<string, Set<string>> = new ExtendedMap()
 
 /**
  * Register a tag for Hexo to render Markmap.
@@ -44,7 +44,7 @@ hexo.extend.tag.register('markmap', function (this: PostSchema, _args: string[],
     ]
     // save assetsHTML
     const { slug } = this
-    slug && assetsHTMLMap.entry(slug)
+    slug && pageAssetsMap.entry(slug)
         .and(set => assetsHTML.forEach(set.add, set))
         .or_insert(() => new Set(assetsHTML))
     return wrapHTML.trim()
@@ -67,7 +67,7 @@ hexo.extend.generator.register('markmap_asset', () => [{
 hexo.extend.filter.register('after_post_render', function (this: PostSchema, data: { content: string, slug: string }) {
     const { slug } = data
 
-    const pageAssets = assetsHTMLMap.get(slug) ?? []
+    const pageAssets = pageAssetsMap.get(slug) ?? []
 
     const VIEW_VERSION = process.env.VIEW_VERSION
     const TOOLBAR_VERSION = process.env.TOOLBAR_VERSION
