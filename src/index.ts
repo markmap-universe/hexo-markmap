@@ -2,7 +2,7 @@
 import type { PostSchema } from 'hexo/dist/types.d.ts'
 import matter from 'gray-matter'
 import { persistCSS, persistJS } from 'markmap-common'
-import { markmapInit, markmapStyle } from '@/template'
+import { markmapInit, markmapStyle, markmapWrapper } from '@/template'
 import { parseFrontmatter, template, ExtendedMap, getTransformer, parseConfig } from '@/utils'
 
 const userConfig = parseConfig(hexo.config['hexo_markmap'])
@@ -18,21 +18,16 @@ const pageAssetsMap: ExtendedMap<string, Set<string>> = new ExtendedMap()
 /**
  * Register a tag for Hexo to render Markmap.
  */
-hexo.extend.tag.register('markmap', function (this: PostSchema, _args: string[], _content: string) {
+hexo.extend.tag.register('markmap', function (this: PostSchema, [height]: string | undefined[], _content: string) {
     // parse frontmatter
     const { data: rawFrontmatter, content } = matter(_content)
     const frontmatter = parseFrontmatter(rawFrontmatter, content)
-    const { id, style, options: jsonOptions } = frontmatter
+    const { id, style, options } = frontmatter
 
     // transform content
     const { root, features } = transformer.transform(content)
     const { styles = [], scripts = [] } = transformer.getUsedAssets(features)
-    const wrapHTML = `
-    <div class="markmap-wrap" id="${id}">
-      <script type="application/json">${JSON.stringify(root)}</script>
-      <script type="application/json">${JSON.stringify(jsonOptions)}</script>
-    </div>
-    `
+    const wrapHTML = markmapWrapper(id, JSON.stringify(root), JSON.stringify(options), height)
 
     const assetsHTML = [
         ...persistCSS([
