@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest"
-import { template, parseFrontmatter } from "@/utils"
+import { template, parseFrontmatter, getTransformer } from "@/utils"
+import { beforeEach } from "node:test"
 
 describe("template", () => {
     it("should return a string with the template values replaced", () => {
@@ -32,7 +33,7 @@ describe("template", () => {
     })
 })
 
-describe("parseFrontmatter", () => {
+describe("parse frontmatter", () => {
     it("should return the parsed frontmatter with the default values", () => {
         const data = {}
         expect(parseFrontmatter(data, 'test')).toMatchInlineSnapshot(`
@@ -62,4 +63,23 @@ describe("parseFrontmatter", () => {
           }
         `)
     })
+})
+
+describe("URL Builder", () => {
+    const transformer = getTransformer()
+    const { urlBuilder } = transformer
+
+    beforeEach(() => {
+        urlBuilder.provider = 'jsdelivr'
+    })
+
+    it("should build correct url", () => {
+        expect(urlBuilder.getFullUrl('d3@7')).toMatchInlineSnapshot(`"https://fastly.jsdelivr.net/npm/d3@7"`)
+    })
+
+    it("should build correct url with custom provider", () => {
+        urlBuilder.provider = 'fastly'
+        expect(urlBuilder.getFullUrl('d3@7')).toMatchInlineSnapshot(`"https://fastly.jsdelivr.net/npm/d3@7"`)
+    })
+
 })
