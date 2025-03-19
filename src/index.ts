@@ -23,6 +23,7 @@ hexo.extend.tag.register('markmap', function (this: PostSchema, _args: string[],
     const { data: rawFrontmatter, content } = matter(_content)
     const frontmatter = parseFrontmatter(rawFrontmatter, content)
     const { id, style, options: jsonOptions } = frontmatter
+
     // transform content
     const { root, features } = transformer.transform(content)
     const { styles = [], scripts = [] } = transformer.getUsedAssets(features)
@@ -32,6 +33,7 @@ hexo.extend.tag.register('markmap', function (this: PostSchema, _args: string[],
       <script type="application/json">${JSON.stringify(jsonOptions)}</script>
     </div>
     `
+
     const assetsHTML = [
         ...persistCSS([
             { type: 'style', data: template(style, { id }) },
@@ -42,11 +44,13 @@ hexo.extend.tag.register('markmap', function (this: PostSchema, _args: string[],
             root,
         })
     ]
+
     // save assetsHTML
     const { slug } = this
     slug && pageAssetsMap.entry(slug)
         .and(set => assetsHTML.forEach(set.add, set))
         .or_insert(() => new Set(assetsHTML))
+
     return wrapHTML.trim()
 }, { ends: true })
 
