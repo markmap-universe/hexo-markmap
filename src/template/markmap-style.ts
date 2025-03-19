@@ -1,8 +1,7 @@
-export default (darkThemeCssSelector: string) =>
-  /*
-    Plugin self-use style.
-  */
-  `
+/*
+  Plugin self-use style.
+*/
+export default (darkThemeCssSelector: string) => /* css */`
   .markmap-wrap {
     position: relative;
     height: 500px;
@@ -28,12 +27,12 @@ export default (darkThemeCssSelector: string) =>
 
   +
 
-  /* 
+  /**
     Override of the default markmap styles.
     https://github.com/markmap/markmap/blob/master/packages/markmap-view/src/style.css
     https://cdn.jsdelivr.net/npm/markmap-toolbar/dist/style.css
   */
-  `
+  /* css */ `
   ${darkThemeCssSelector} .markmap {
     --markmap-code-bg: #1a1b26;
     --markmap-code-color: #ddd;

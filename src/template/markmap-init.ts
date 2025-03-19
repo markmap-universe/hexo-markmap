@@ -1,4 +1,4 @@
-export default () => `window.hexoMarkmap = (() => {
+export default () => /* javascript */`window.hexoMarkmap = (() => {
   const { Markmap, Toolbar, deriveOptions } = window.markmap
   const resize = {
     event: new Event('resize'),
