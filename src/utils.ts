@@ -42,6 +42,9 @@ export const parseFrontmatter = (data: Record<string, any>, identifier: string) 
     return parsedData.data as Required<z.infer<typeof frontmatterSchema>>
 }
 
+/**
+ * Extended Map with entry method, helps to write more readable code.
+ */
 export class ExtendedMap<K, V> extends Map<K, V> {
     entry(key: K) {
         const entryContext = {
