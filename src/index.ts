@@ -3,24 +3,13 @@ import type { PostSchema } from 'hexo/dist/types.d.ts'
 import matter from 'gray-matter'
 import { persistCSS, persistJS } from 'markmap-common'
 import { markmapInit, markmapStyle } from '@/template'
-import { parseFrontmatter, template, ExtendedMap, getTransformer } from '@/utils'
+import { parseFrontmatter, template, ExtendedMap, getTransformer, parseConfig } from '@/utils'
 
-interface HexoMarkmapConfig {
-    darkThemeCssSelector: string
-}
-
-const defaultConfig: HexoMarkmapConfig = {
-    darkThemeCssSelector: '.dark',
-}
-
-const userConfig: HexoMarkmapConfig = {
-    ...defaultConfig,
-    ...hexo.config['hexo_markmap']
-}
-
+const userConfig = parseConfig(hexo.config['hexo_markmap'])
 const assetsHTMLMap: ExtendedMap<string, Set<string>> = new ExtendedMap()
 const transformer = getTransformer()
 const { urlBuilder } = transformer
+urlBuilder.provider = userConfig.CDN
 
 const js = hexo.extend.helper.get("js").bind(hexo)
 const css = hexo.extend.helper.get("css").bind(hexo)

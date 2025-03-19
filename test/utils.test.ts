@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest"
-import { template, parseFrontmatter, getTransformer } from "@/utils"
+import { template, parseFrontmatter, getTransformer, parseConfig } from "@/utils"
 import { beforeEach } from "node:test"
 
 describe("template", () => {
@@ -82,4 +82,29 @@ describe("URL Builder", () => {
         expect(urlBuilder.getFullUrl('d3@7')).toMatchInlineSnapshot(`"https://fastly.jsdelivr.net/npm/d3@7"`)
     })
 
+})
+
+describe('Config', ()=> {
+    it('should return the default config', () => {
+        const config = parseConfig({})
+        expect(config).toMatchInlineSnapshot(`
+          {
+            "CDN": "fastly",
+            "darkThemeCssSelector": ".dark",
+          }
+        `)
+    })
+
+    it('should return the config with the provided values', () => {
+        const config = parseConfig({
+            CDN: 'jsdelivr',
+            darkThemeCssSelector: '.my-dark'
+        })
+        expect(config).toMatchInlineSnapshot(`
+          {
+            "CDN": "jsdelivr",
+            "darkThemeCssSelector": ".my-dark",
+          }
+        `)
+    })
 })

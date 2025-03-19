@@ -32,7 +32,7 @@ export const generateShortId = (identifier: string) =>
  * @param data The frontmatter data to parse.
  * @param identifier The identifier to generate a default id.
  */
-export const parseFrontmatter = (data: Record<string, any>, identifier: string) => {
+export const parseFrontmatter = (data: Record<string, any> = {}, identifier: string) => {
     const parsedData = frontmatterSchema.safeParse(data)
     if (!parsedData.success) {
         const validationError = fromError(parsedData.error)
@@ -63,21 +63,22 @@ export class ExtendedMap<K, V> extends Map<K, V> {
     }
 }
 
+const availableProviders = ['jsdelivr', 'fastly', 'unpkg'] as const
+
+type AvailableProviders = typeof availableProviders[number]
 
 const DEFAULT_PROVIDERS = {
     jsdelivr: (path: string) => `https://cdn.jsdelivr.net/npm/${path}`,
     fastly: (path: string) => `https://fastly.jsdelivr.net/npm/${path}`,
     unpkg: (path: string) => `https://unpkg.com/${path}`,
-} satisfies Record<string, (path: string) => string>
+} satisfies Record<AvailableProviders, (path: string) => string>
 
-type DefaultProviders = typeof DEFAULT_PROVIDERS
-
-const DEFAULT_PROVIDER: keyof DefaultProviders = 'fastly'
+const DEFAULT_PROVIDER: AvailableProviders = 'fastly'
 
 /**
  * Get a URL builder with a specified default provider.
  */
-const getURLBuilder = (defaultProvider: keyof DefaultProviders = DEFAULT_PROVIDER) => {
+const getURLBuilder = (defaultProvider: AvailableProviders = DEFAULT_PROVIDER) => {
     type IURLBuilder<P extends string> = UrlBuilder & {
         setProvider(name: P, factory: Parameters<UrlBuilder['setProvider']>[1]): void
         getFullUrl(path: Parameters<UrlBuilder['getFullUrl']>[0], provider?: P): string
@@ -85,9 +86,9 @@ const getURLBuilder = (defaultProvider: keyof DefaultProviders = DEFAULT_PROVIDE
         providers: Record<P, (path: string) => string>
     }
 
-    const urlBuilder = new UrlBuilder() as IURLBuilder<keyof DefaultProviders>
+    const urlBuilder = new UrlBuilder() as IURLBuilder<AvailableProviders>
 
-    for (const key of Object.keys(DEFAULT_PROVIDERS) as Array<keyof DefaultProviders>) {
+    for (const key of availableProviders) {
         urlBuilder.setProvider(key, DEFAULT_PROVIDERS[key])
     }
 
@@ -99,7 +100,7 @@ const getURLBuilder = (defaultProvider: keyof DefaultProviders = DEFAULT_PROVIDE
 /**
  * Get a transformer with a specified default provider.
  */
-export const getTransformer = (defaultProvider?: keyof DefaultProviders) => {
+export const getTransformer = (defaultProvider?: AvailableProviders) => {
     const urlBuilder = getURLBuilder(defaultProvider)
 
     const transformer = new Transformer() as Transformer & {
@@ -110,3 +111,23 @@ export const getTransformer = (defaultProvider?: keyof DefaultProviders) => {
 
     return transformer
 }
+
+const configSchema = z.object({
+    CDN: z.enum(availableProviders).optional().default(DEFAULT_PROVIDER),
+    darkThemeCssSelector: z.string().optional().default('.dark'),
+})
+
+export type HexoMarkmapConfig = z.infer<typeof configSchema>
+
+/**
+ * Parse the configuration object and validate it against the schema.
+ */
+export const parseConfig = (config: Record<string, any> = {}) => {
+    const parsedConfig = configSchema.safeParse(config)
+    if (!parsedConfig.success) {
+        const validationError = fromError(parsedConfig.error)
+        throw new Error(validationError.message)
+    }
+    return parsedConfig.data as Required<HexoMarkmapConfig>
+}
+
