@@ -68,7 +68,9 @@ The `${id}` placeholder can be used in the style field. During rendering, it wil
 
 ## Example 
 
-````
+<details>
+
+````markdown
 {% markmap %}
 ---
 id: markmap-example
@@ -127,6 +129,8 @@ console.log('hello, JavaScript')
 ![](https://markmap.js.org/favicon.png)
 {% endmarkmap %}
 ````
+
+</details>
 
 ## Config
 

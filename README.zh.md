@@ -66,7 +66,9 @@ options:
 
 ## 示例
 
-````
+<details>
+
+````markdown
 {% markmap %}
 ---
 id: markmap-example
@@ -125,6 +127,7 @@ console.log('hello, JavaScript')
 ![](https://markmap.js.org/favicon.png)
 {% endmarkmap %}
 ````
+</details>
 
 ## 配置
 
