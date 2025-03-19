@@ -20,12 +20,13 @@ const frontmatterSchema = z.object({
     options: z.object({}).passthrough().optional().default({}),
 })
 
+let counter = 0x39
 /**
  * Generate a short id from an identifier.
  * @param identifier The identifier to generate a short id.
  */
 export const generateShortId = (identifier: string) =>
-    `hmm-${xxh64(identifier).toString(16).slice(0, 8)}`
+    `hmm-${counter++}${xxh64(identifier).toString(16).slice(0, 8)}`
 
 /**
  * Parse frontmatter with default values.
