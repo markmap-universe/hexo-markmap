@@ -6,7 +6,7 @@ import { UrlBuilder } from "markmap-common"
 import { Transformer } from 'markmap-lib'
 
 /**
- * Replace data by name in template strings. The default expression looks for {name} to identify names.
+ * Replace data by name in template strings. 
  */
 export const template = (
     str: string = "",
@@ -22,7 +22,7 @@ const frontmatterSchema = z.object({
 
 /**
  * Generate a short id from an identifier.
- * @param identifier 
+ * @param identifier The identifier to generate a short id.
  */
 export const generateShortId = (identifier: string) =>
     `hmm-${xxh64(identifier).toString(16).slice(0, 8)}`
