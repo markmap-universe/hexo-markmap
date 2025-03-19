@@ -65,11 +65,13 @@ hexo.extend.tag.register('markmap', function (this: PostSchema, _args: string[],
 hexo.extend.filter.register('after_post_render', function (this: PostSchema, data: { content: string, slug: string }) {
     const { slug } = data
     const assetsHTMLSet = assetsHTMLMap.get(slug) ?? []
+    const VIEW_VERSION = process.env.VIEW_VERSION
+    const TOOLBAR_VERSION = process.env.TOOLBAR_VERSION
     const basePackages = [
         'd3@7',
-        'markmap-view',
-        'markmap-toolbar',
-        `markmap-toolbar/dist/style.css`
+        `markmap-view@${VIEW_VERSION}`,
+        `markmap-toolbar@${TOOLBAR_VERSION}`,
+        `markmap-toolbar@${TOOLBAR_VERSION}/dist/style.css`
     ]
     const basePackagesHTML = basePackages.map(name =>
         `<script src="${urlBuilder.getFullUrl(name)}"></script>`

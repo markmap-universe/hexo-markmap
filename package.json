@@ -37,6 +37,7 @@
     "@types/node": "^22.13.10",
     "bumpp": "^10.0.2",
     "hexo": "^7.3.0",
+    "local-pkg": "^1.1.1",
     "markmap-toolbar": "^0.18.9",
     "markmap-view": "^0.18.9",
     "radashi": "^12.4.0",
