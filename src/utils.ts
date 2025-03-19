@@ -2,6 +2,9 @@ import * as _ from 'radashi'
 import { z } from 'zod'
 import { fromError } from 'zod-validation-error'
 import { xxh64 } from "@node-rs/xxhash"
+import { UrlBuilder } from "markmap-common"
+import { Transformer } from 'markmap-lib'
+
 /**
  * Replace data by name in template strings. The default expression looks for {name} to identify names.
  */
@@ -60,3 +63,46 @@ export class ExtendedMap<K, V> extends Map<K, V> {
         return entryContext
     }
 }
+
+
+const DEFAULT_PROVIDERS = {
+    jsdelivr: (path: string) => `https://cdn.jsdelivr.net/npm/${path}`,
+    fastly: (path: string) => `https://fastly.jsdelivr.net/npm/${path}`,
+    unpkg: (path: string) => `https://unpkg.com/${path}`,
+} satisfies Record<string, (path: string) => string>
+
+type DefaultProviders = typeof DEFAULT_PROVIDERS
+
+const DEFAULT_PROVIDER: keyof DefaultProviders = 'fastly'
+
+const getURLBuilder = (defaultProvider: keyof DefaultProviders = DEFAULT_PROVIDER) => {
+    type IURLBuilder<P extends string> = UrlBuilder & {
+        setProvider(name: P, factory: Parameters<UrlBuilder['setProvider']>[1]): void
+        getFullUrl(path: Parameters<UrlBuilder['getFullUrl']>[0], provider?: P): string
+        provider: P,
+        providers: Record<P, (path: string) => string>
+    }
+
+    const urlBuilder = new UrlBuilder() as IURLBuilder<keyof DefaultProviders>
+
+    for (const key of Object.keys(DEFAULT_PROVIDERS) as Array<keyof DefaultProviders>) {
+        urlBuilder.setProvider(key, DEFAULT_PROVIDERS[key])
+    }
+
+    urlBuilder.provider = defaultProvider
+
+    return urlBuilder
+}
+
+export const getTransformer = (defaultProvider?: keyof DefaultProviders) => {
+    const urlBuilder = getURLBuilder(defaultProvider)
+
+    const transformer = new Transformer() as Transformer & {
+        urlBuilder: typeof urlBuilder
+    }
+
+    transformer.urlBuilder = urlBuilder
+
+    return transformer
+}
+
