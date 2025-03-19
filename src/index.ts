@@ -104,7 +104,7 @@ hexo.extend.filter.register('after_post_render', function (this: PostSchema, dat
         ...pageAssets,
         css('/css/markmap.css'),
         js('/js/markmap.js'),
-        
     ]
+
     data.content += combinedAssetHTML.join('')
 })
