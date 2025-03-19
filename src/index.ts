@@ -6,13 +6,14 @@ import { markmapInit, markmapStyle } from '@/template'
 import { parseFrontmatter, template, ExtendedMap, getTransformer, parseConfig } from '@/utils'
 
 const userConfig = parseConfig(hexo.config['hexo_markmap'])
-const assetsHTMLMap: ExtendedMap<string, Set<string>> = new ExtendedMap()
 const transformer = getTransformer()
 const { urlBuilder } = transformer
 urlBuilder.provider = userConfig.CDN
 
 const js = hexo.extend.helper.get("js").bind(hexo)
 const css = hexo.extend.helper.get("css").bind(hexo)
+
+const assetsHTMLMap: ExtendedMap<string, Set<string>> = new ExtendedMap()
 
 /**
  * Register a tag for Hexo to render Markmap.
