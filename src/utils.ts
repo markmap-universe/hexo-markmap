@@ -24,8 +24,8 @@ const frontmatterSchema = z.object({
  * Generate a short id from an identifier.
  * @param identifier 
  */
-export const generateShortId = (identifier: string) => 
-        `hmm-${xxh64(identifier).toString(16).slice(0, 8)}`
+export const generateShortId = (identifier: string) =>
+    `hmm-${xxh64(identifier).toString(16).slice(0, 8)}`
 
 
 /**
