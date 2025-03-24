@@ -28,11 +28,14 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: lts/*
           cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Test
+        run: pnpm test
 
       - name: Build the package
         run: pnpm build
