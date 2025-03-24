@@ -6,6 +6,8 @@
 > This is the documentation for `hexo-markmap@2`. If you are using `hexo-markmap@1`, please check [here](https://github.com/markmap-universe/hexo-markmap/tree/legacy).
 >
 > The configuration files of `hexo-markmap@2` are **incompatible** with `hexo-markmap@1`.
+>
+> If you want to upgrade to `hexo-markmap@2`, please check [here](#upgrade-to-hexo-markmap-v2).
 
 # hexo-markmap <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/v/hexo-markmap"></a> <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/dm/hexo-markmap"></a>
 
@@ -170,6 +172,68 @@ hexo_markmap:
 - **`CDN`** : Used to specify the CDN for Markmap. The supported values are `fastly`, `jsdelivr`, `unpkg`, and `custom`.
   - If set to `custom`, the `customCDN` value will be used as the CDN prefix.
 - **`customCDN`** : Defines a custom CDN URL for Markmap. This must be a valid URL.
+
+# Upgrade to `hexo-markmap` v2
+
+`hexo-markmap@2` is a completely refactored version by [@coderxi1](https://github.com/coderxi1/) and [@maxchang3](https://github.com/maxchang3/). This version upgrades to the latest Markmap and introduces more customization options, including:
+
+- Customization within a single Markmap tag using Frontmatter:
+  - CSS styles (custom height, width, responsive layout, etc.)
+  - Markmap's [JSON Options](https://markmap.js.org/docs/json-options#option-list)
+- Automatic CDN URL generation using Markmap’s built-in URL Builder
+- Automatic generation of corresponding CDN tags based on syntax
+- Support for dark mode and fullscreen button
+- Refactored in TypeScript with test coverage
+
+Note that some implementation details differ from `hexo-markmap@1`. If you do not require these new features, you may continue using `hexo-markmap@1`.
+
+To upgrade to `hexo-markmap@2`, follow these steps:
+
+1. Install `hexo-markmap@2` using your preferred package manager:
+
+    ```bash
+    pnpm add hexo-markmap@2 -D
+    ```
+    ```bash
+    npm install hexo-markmap@2 --save-dev
+    ```
+    ```bash
+    yarn add hexo-markmap@2 -D
+    ```
+
+2. Modify your `config.yml` as needed:
+
+   - The following configuration options are **no longer supported**:
+      ```diff
+      hexo_markmap:
+      -  pjax: false
+      -  katex: false
+      -  prism: false
+      -  lockView: false
+      -  fixSVGAttrNaN: false
+      ```
+      - The new version no longer supports `pjax` compatibility;
+      - KaTeX and Prism.js are now automatically detected and generate corresponding CDN tags;
+      - You can disable `pan` and `zoom` in the Frontmatter `options` to achieve the `lockView` effect.
+
+   - `CDN` configuration logic has also changed:
+      ```diff
+      hexo_markmap:
+      -  - userCDN:
+      -      d3_js: https://fastly.jsdelivr.net/npm/d3@6
+      -      markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
+      -      katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
+      -      prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
+      + CDN: 'custom'
+      + customCDN: 'https://fastly.jsdelivr.net/npm/'
+      ```
+      - The new `CDN` setting supports `fastly`, `jsdelivr`, `unpkg`, and a `custom` option;
+      - If you choose `custom`, the `customCDN` value will be used as the CDN prefix.
+
+   - Additionally, the previous `depth` parameter for setting fold levels has been removed. Instead, you can use the `initialExpandLevel` option in Frontmatter.
+
+3. Finally, regenerate your blog.
+
 
 # Contributors
 
