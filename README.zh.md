@@ -49,6 +49,7 @@ options:
 就像你在 Hexo 中的 Markdown 文件中使用 Frontmatter 一样，你可以在 `markmap` 标签中使用 Frontmatter 来自定义你的思维导图！
 
 ```yaml
+# 可选，如果不设置，将生成一个随机 ID
 id: markmap-example
 style: |
   #${id} {
