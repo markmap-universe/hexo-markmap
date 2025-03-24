@@ -11,10 +11,37 @@ const configSchema = z.object({
 export type HexoMarkmapConfig = z.infer<typeof configSchema>
 
 /**
+ * Check and filter out deprecated configuration keys
+ */
+export const checkOldConfig = (config: Record<string, any> = {}): Record<string, any> => {
+    const deprecatedKeys = [
+        'pjax',
+        'katex',
+        'prism',
+        'userCDN',
+        'lockView',
+        'fixSVGAttrNaN'
+    ]
+
+    const hasDeprecatedKeys = deprecatedKeys.some(key => key in config)
+
+    if (hasDeprecatedKeys) {
+        console.warn('Deprecated configuration options detected. These options will be ignored.')
+
+        return Object.fromEntries(
+            Object.entries(config).filter(([key]) => !deprecatedKeys.includes(key))
+        )
+    }
+
+    return config
+}
+
+/**
  * Parse the configuration object and validate it against the schema.
  */
 export const parseConfig = (config: Record<string, any> = {}) => {
-    const parsedConfig = configSchema.safeParse(config)
+    const filteredConfig = checkOldConfig(config)
+    const parsedConfig = configSchema.safeParse(filteredConfig)
     if (!parsedConfig.success) {
         const validationError = fromError(parsedConfig.error)
         throw new Error(validationError.message)
