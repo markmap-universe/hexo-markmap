@@ -152,18 +152,23 @@ console.log('hello, JavaScript')
 
 Add your options to `config.yml`.
 
-Convention over configuration, if you don’t need any of the following features, then you don’t need to add these configs.
+Convention over configuration, if you don't need any of the following features, then you don't need to add these configs.
 
 By default, it works well. Each option has a default value.
 
 ### Default options
+
 ```yaml
 hexo_markmap:
   darkThemeCssSelector: '.dark'
-  CDN: 'fastly'
+  CDN: 'fastly' 
+  customCDN: 'https://fastly.jsdelivr.net/npm/'
 ```
+
 - **`darkThemeCssSelector`** : Used to specify the CSS selector for the dark theme.  
-- **`CDN`** : Used to specify the CDN for Markmap. The supported values are `fastly`, `jsdelivr`, and `unpkg`.
+- **`CDN`** : Used to specify the CDN for Markmap. The supported values are `fastly`, `jsdelivr`, `unpkg`, and `custom`.
+  - If set to `custom`, the `customCDN` value will be used as the CDN prefix.
+- **`customCDN`** : Defines a custom CDN URL for Markmap. This must be a valid URL.
 
 # Contributors
 

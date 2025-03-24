@@ -154,7 +154,7 @@ console.log('hello, JavaScript')
 
 约定大于配置，如果你不需要以下某个功能，那么无需添加该配置项。 
 
-默认情况下，他可以很好的正常工作。每个选项都有默认值。
+默认情况下即可正常工作。每个选项都有默认值。
 
 ### 默认配置
 
@@ -162,9 +162,13 @@ console.log('hello, JavaScript')
 hexo_markmap:
   darkThemeCssSelector: '.dark'
   CDN: 'fastly'
+  customCDN: 'https://fastly.jsdelivr.net/npm/'
 ```
+
 - **`darkThemeCssSelector`** : 用于指定暗黑主题的CSS选择器。
 - **`CDN`** : 用于指定 Markmap 的 CDN。目前支持的值有 `fastly` 、 `jsdelivr`、 `unpkg`。
+  - 如果设置为 `custom`，则 `customCDN` 的值将被用作 CDN 的前缀。
+- **`customCDN`** : 为 Markmap 定义自定义 CDN URL。这必须是一个有效的 URL。
 
 # 贡献者
 
