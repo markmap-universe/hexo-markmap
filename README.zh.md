@@ -5,7 +5,7 @@
 > [!WARNING]
 > 这是 `hexo-markmap@2` 的文档。如果你正在使用 `hexo-markmap@1`，请查看 [这里](https://github.com/markmap-universe/hexo-markmap/tree/legacy)。
 >
-> 目前 `hexo-markmap@2` 对 `hexo-markmap@1` 的配置文件**不兼容**。且拥有更严格的类型校验。
+> 目前 `hexo-markmap@2` 对 `hexo-markmap@1` 的配置文件**不兼容**。
 
 # hexo-markmap  <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/v/hexo-markmap"></a> <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/dm/hexo-markmap"></a>
 

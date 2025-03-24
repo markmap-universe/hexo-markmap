@@ -5,7 +5,7 @@
 > [!WARNING]
 > This is the documentation for `hexo-markmap@2`. If you are using `hexo-markmap@1`, please check [here](https://github.com/markmap-universe/hexo-markmap/tree/legacy).
 >
-> The configuration files of `hexo-markmap@2` are **incompatible** with `hexo-markmap@1`. And it has more strict type checking.
+> The configuration files of `hexo-markmap@2` are **incompatible** with `hexo-markmap@1`.
 
 # hexo-markmap <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/v/hexo-markmap"></a> <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/dm/hexo-markmap"></a>
 
