@@ -1,7 +1,7 @@
 import { UrlBuilder } from "markmap-common"
 import { Transformer } from 'markmap-lib'
 
-export const AVAILABLE_PROVIDERS = ['jsdelivr', 'fastly', 'unpkg'] as const
+export const AVAILABLE_PROVIDERS = ['jsdelivr', 'fastly', 'unpkg', 'custom'] as const
 
 type AvailableProviders = typeof AVAILABLE_PROVIDERS[number]
 
@@ -9,6 +9,7 @@ export const DEFAULT_PROVIDER_FACTORIES = {
     jsdelivr: (path: string) => `https://cdn.jsdelivr.net/npm/${path}`,
     fastly: (path: string) => `https://fastly.jsdelivr.net/npm/${path}`,
     unpkg: (path: string) => `https://unpkg.com/${path}`,
+    custom: (path: string) => `https://fastly.jsdelivr.net/npm/${path}`,
 } satisfies Record<AvailableProviders, (path: string) => string>
 
 export const DEFAULT_PROVIDER_NAME: AvailableProviders = 'fastly'

@@ -5,6 +5,7 @@ import { fromError } from 'zod-validation-error'
 
 const configSchema = z.object({
     CDN: z.enum(AVAILABLE_PROVIDERS).optional().default(DEFAULT_PROVIDER_NAME),
+    customCDN: z.string().url().optional(),
     darkThemeCssSelector: z.string().optional().default('.dark'),
 })
 

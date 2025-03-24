@@ -7,8 +7,13 @@ import { parseFrontmatter, template, ExtendedMap, getTransformer, parseConfig } 
 
 const userConfig = parseConfig(hexo.config['hexo_markmap'])
 const transformer = getTransformer()
+
 const { urlBuilder } = transformer
+// Configure the URL builder by the user's configuration
 urlBuilder.provider = userConfig.CDN
+if (userConfig.customCDN) {
+    urlBuilder.setProvider('custom', (path) => `${userConfig.customCDN}${path}`)
+}
 
 const js = hexo.extend.helper.get("js").bind(hexo)
 const css = hexo.extend.helper.get("css").bind(hexo)

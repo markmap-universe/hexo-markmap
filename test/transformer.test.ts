@@ -18,4 +18,10 @@ describe("Wrapped transformer and its urlBuilder", () => {
         expect(urlBuilder.getFullUrl('d3@7')).toMatchInlineSnapshot(`"https://fastly.jsdelivr.net/npm/d3@7"`)
     })
 
+    it("should build correct url with custom provider", () => {
+        urlBuilder.setProvider('custom', (path) => `https://cdn.example.com/${path}`)
+        urlBuilder.provider = 'custom'
+        expect(urlBuilder.getFullUrl('d3@7')).toMatchInlineSnapshot(`"https://cdn.example.com/d3@7"`)
+    })
+
 })
