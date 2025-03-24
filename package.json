@@ -1,6 +1,6 @@
 {
   "name": "hexo-markmap",
-  "version": "2.0.0-beta.2",
+  "version": "2.0.0-beta.3",
   "description": "A hexo plugin insert mindmap in your hexo blog by markmap (new rebuild).",
   "main": "dist/index.js",
   "files": [
