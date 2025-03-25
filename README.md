@@ -219,11 +219,11 @@ To upgrade to `hexo-markmap@2`, follow these steps:
    - `CDN` configuration logic has also changed:
       ```diff
       hexo_markmap:
-      -  - userCDN:
-      -      d3_js: https://fastly.jsdelivr.net/npm/d3@6
-      -      markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
-      -      katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
-      -      prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
+      -  userCDN:
+      -    d3_js: https://fastly.jsdelivr.net/npm/d3@6
+      -    markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
+      -    katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
+      -    prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
       + CDN: 'custom'
       + customCDN: 'https://fastly.jsdelivr.net/npm/'
       ```

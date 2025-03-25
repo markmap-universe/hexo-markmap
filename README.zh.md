@@ -217,14 +217,14 @@ hexo_markmap:
    - `CDN` 配置逻辑也有所调整：
       ```diff
       hexo_markmap:
-      -  - userCDN:
-      -      d3_js: https://fastly.jsdelivr.net/npm/d3@6
-      -      markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
-      -      katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
-      -      prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
-      + CDN: 'custom'
-      + customCDN: 'https://fastly.jsdelivr.net/npm/'
-      ```   
+      -  userCDN:
+      -    d3_js: https://fastly.jsdelivr.net/npm/d3@6
+      -    markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
+      -    katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
+      -    prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
+      +  CDN: 'custom'
+      +  customCDN: 'https://fastly.jsdelivr.net/npm/'
+      ```
       - 现在的 `CDN` 配置支持 `fastly`、`jsdelivr`、`unpkg` 三个选项以及 `custom` 自定义选项；
       - 如果选择 `custom`，则 `customCDN` 的值将作为 CDN 前缀使用。
 
