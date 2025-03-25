@@ -135,17 +135,17 @@ Note that if blocks and lists appear at the same level, the lists will be ignore
   2. item 2
 
 ### Blocks
+<!-- To avoid hexo treat the following as code block, we need to use a list -->
+- ```js 
+  console.log('hello, JavaScript')
+  ```
 
-```js
-console.log('hello, JavaScript')
-```
+- | Products | Price |
+  |-|-|
+  | Apple | 4 |
+  | Banana | 2 |
 
-| Products | Price |
-|-|-|
-| Apple | 4 |
-| Banana | 2 |
-
-![](https://markmap.js.org/favicon.png)
+- ![](https://markmap.js.org/favicon.png)
 {% endmarkmap %}
 ````
 
