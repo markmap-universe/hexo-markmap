@@ -49,7 +49,7 @@ options:
 
 ### Frontmatter Options
 
-Just like you use Frontmatter in your Markdown files in Hexo, you can use Frontmatter in the `markmap` tag to customize your mindmap!
+Just like you use frontmatter in your Markdown files in Hexo, you can use frontmatter in the `markmap` tag to customize your mindmap!
 
 ```yaml
 # Optional, if not set, a random ID will be generated
@@ -177,7 +177,7 @@ hexo_markmap:
 
 `hexo-markmap@2` is a completely refactored version by [@coderxi1](https://github.com/coderxi1/) and [@maxchang3](https://github.com/maxchang3/). This version upgrades to the latest Markmap and introduces more customization options, including:
 
-- Customization within a single Markmap tag using Frontmatter:
+- Customization within a single Markmap tag using frontmatter:
   - CSS styles (custom height, width, responsive layout, etc.)
   - Markmap's [JSON Options](https://markmap.js.org/docs/json-options#option-list)
 - Automatic CDN URL generation using Markmap’s built-in URL Builder
@@ -214,7 +214,7 @@ To upgrade to `hexo-markmap@2`, follow these steps:
       ```
       - The new version no longer supports `pjax` compatibility;
       - KaTeX and Prism.js are now automatically detected and generate corresponding CDN tags;
-      - You can disable `pan` and `zoom` in the Frontmatter `options` to achieve the `lockView` effect.
+      - You can disable `pan` and `zoom` in the frontmatter `options` to achieve the `lockView` effect.
 
    - `CDN` configuration logic has also changed:
       ```diff
@@ -230,7 +230,7 @@ To upgrade to `hexo-markmap@2`, follow these steps:
       - The new `CDN` setting supports `fastly`, `jsdelivr`, `unpkg`, and a `custom` option;
       - If you choose `custom`, the `customCDN` value will be used as the CDN prefix.
 
-   - Additionally, the previous `depth` parameter for setting fold levels has been removed. Instead, you can use the `initialExpandLevel` option in Frontmatter.
+   - Additionally, the previous `depth` parameter for setting fold levels has been removed. Instead, you can use the `initialExpandLevel` option in frontmatter.
 
 3. Finally, regenerate your blog.
 

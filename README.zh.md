@@ -48,7 +48,7 @@ options:
 
 ### Frontmatter 选项
 
-就像你在 Hexo 中的 Markdown 文件中使用 Frontmatter 一样，你可以在 `markmap` 标签中使用 Frontmatter 来自定义你的思维导图！
+就像你在 Hexo 中的 Markdown 文件中使用 frontmatter 一样，你可以在 `markmap` 标签中使用 frontmatter 来自定义你的思维导图！
 
 ```yaml
 # 可选，如果不设置，将生成一个随机 ID
@@ -177,7 +177,7 @@ hexo_markmap:
 
 `hexo-markmap@2` 是由 [@coderxi1](https://github.com/coderxi1/) 与 [@maxchang3](https://github.com/maxchang3/) 全新重构的版本。该版本升级至最新的 Markmap，引入了更多自定义选项，具体改进包括：
 
-- 可在单个 Markmap 标签中，通过 Frontmatter 自定义：
+- 可在单个 Markmap 标签中，通过 frontmatter 自定义：
   - CSS 样式（实现自定义高度、宽度、响应式布局等）
   - Markmap 的 [JSON Options](https://markmap.js.org/docs/json-options#option-list)
 - 利用 Markmap 内置的 URL Builder 自动生成 CDN 地址
@@ -212,7 +212,7 @@ hexo_markmap:
       ```
       - 当前版本已放弃对 `pjax` 的兼容性；
       - KaTeX 与 Prism.js 现可自动检测并生成相应的 CDN 标签；
-      - 通过 Frontmatter 中的 `options` 设置 `pan` 与 `zoom` 为 `false` 即可实现 `lockView` 效果。
+      - 通过 frontmatter 中的 `options` 设置 `pan` 与 `zoom` 为 `false` 即可实现 `lockView` 效果。
 
    - `CDN` 配置逻辑也有所调整：
       ```diff
@@ -228,7 +228,7 @@ hexo_markmap:
       - 现在的 `CDN` 配置支持 `fastly`、`jsdelivr`、`unpkg` 三个选项以及 `custom` 自定义选项；
       - 如果选择 `custom`，则 `customCDN` 的值将作为 CDN 前缀使用。
 
-   - 此外，之前可传入的 `depth` 参数以指定折叠深度已移除，你可以在 Frontmatter 中使用 `options` 配置 `initialExpandLevel`。
+   - 此外，之前可传入的 `depth` 参数以指定折叠深度已移除，你可以在 frontmatter 中使用 `options` 配置 `initialExpandLevel`。
 
 3. 最后，重新生成你的博客。
 
