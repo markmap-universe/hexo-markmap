@@ -224,8 +224,8 @@ To upgrade to `hexo-markmap@2`, follow these steps:
       -    markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
       -    katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
       -    prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
-      + CDN: 'custom'
-      + customCDN: 'https://fastly.jsdelivr.net/npm/'
+      +  CDN: 'custom'
+      +  customCDN: 'https://fastly.jsdelivr.net/npm/'
       ```
       - The new `CDN` setting supports `fastly`, `jsdelivr`, `unpkg`, and a `custom` option;
       - If you choose `custom`, the `customCDN` value will be used as the CDN prefix.
