@@ -9,6 +9,8 @@
 >
 > If you want to upgrade to `hexo-markmap@2`, please check [here](#upgrade-to-hexo-markmap-v2).
 
+<img src="https://raw.githubusercontent.com/markmap-universe/logo/master/hexo-markmap-logo.png" alt="Hexo logo" width="100" height="100" align="right" />
+
 # hexo-markmap <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/v/hexo-markmap"></a> <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/dm/hexo-markmap"></a>
 
 Insert mindmap in your hexo blog by Markmap.
