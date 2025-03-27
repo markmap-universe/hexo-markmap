@@ -53,8 +53,9 @@ options:
 
 Just like you use frontmatter in your Markdown files in Hexo, you can use frontmatter in the `markmap` tag to customize your mindmap!
 
+All frontmatter options are optional.
+
 ```yaml
-# Optional, if not set, a random ID will be generated
 id: markmap-example
 style: |
   #${id} {
@@ -69,7 +70,10 @@ style: |
 options:
   colorFreezeLevel: 2
 ```
-  
+
+- **`id`** : Used to define the ID of the `markmap-wrap` element.  
+  - If not specified, an unique ID will be generated.
+
 - **`style`** : Used to define custom CSS styles for the mindmap.
   The `${id}` placeholder can be used in the style field. During rendering, it will be replaced with the actual ID of the `markmap-wrap`, ensuring each mindmap element on the page has unique styles and behaviors.
   

@@ -52,8 +52,9 @@ options:
 
 就像你在 Hexo 中的 Markdown 文件中使用 frontmatter 一样，你可以在 `markmap` 标签中使用 frontmatter 来自定义你的思维导图！
 
+所有 frontmatter 选项都是可选的。
+
 ```yaml
-# 可选，如果不设置，将生成一个随机 ID
 id: markmap-example
 style: |
   #${id} {
@@ -68,10 +69,12 @@ style: |
 options:
   colorFreezeLevel: 2
 ```
-  
+
+- **`id`** : 用于定义 `markmap-wrap` 元素的 ID。  
+  - 如果未指定，将生成一个唯一的 ID。
+
 - **`style`** : 用于为思维导图定义自定义 CSS 样式。  
 `${id}` 占位符可用于样式字段。在渲染期间，它将被替换为 `markmap-wrap` 的实际 ID，确保页面上的每个思维导图元素都具有唯一的样式和行为。
-
   
 - **`options`** : 对应 markmap 项目中 [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html)。有关更多详细信息，请参阅 [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
 
