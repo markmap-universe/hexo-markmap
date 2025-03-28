@@ -124,8 +124,8 @@ hexo_markmap:
 - Customization within a single Markmap tag using frontmatter:
   - CSS styles (custom height, width, responsive layout, etc.)
   - Markmap's [JSON Options](https://markmap.js.org/docs/json-options#option-list)
-- Automatic CDN URL generation using Markmap’s built-in URL Builder
-- Automatic generation of corresponding CDN tags based on syntax
+- Automatic CDN URL generation using Markmap's built-in URL builder
+- On-demand CDN resource insertion based on syntax usage
 - Support for dark mode and fullscreen button
 - Refactored in TypeScript with test coverage
 
