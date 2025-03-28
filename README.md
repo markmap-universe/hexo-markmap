@@ -30,6 +30,10 @@ npm install hexo-markmap --save-dev
 yarn add hexo-markmap --dev
 ```
 
+
+> [!TIP]
+> Try our new VS Code extension, [markmap-universe](https://marketplace.visualstudio.com/items?itemName=maxchang.vscode-markmap-universe), to directly preview your `hexo-markmap` mindmaps.
+
 # Usage
 
 ```markdown

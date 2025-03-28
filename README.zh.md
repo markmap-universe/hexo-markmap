@@ -29,6 +29,9 @@ npm install hexo-markmap --save-dev
 yarn add hexo-markmap -D
 ```
 
+> [!TIP]
+> 试试我们的新 VS Code 扩展 [markmap-universe](https://marketplace.visualstudio.com/items?itemName=maxchang.vscode-markmap-universe)，直接预览你的 `hexo-markmap` 思维导图。
+
 # 使用
 
 ```markdown
