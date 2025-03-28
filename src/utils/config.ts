@@ -4,6 +4,7 @@ import { fromError } from 'zod-validation-error'
 
 
 const configSchema = z.object({
+    globalOptions: z.object({}).passthrough().optional().default({}),
     CDN: z.enum(AVAILABLE_PROVIDERS).optional().default(DEFAULT_PROVIDER_NAME),
     customCDN: z.string().url().optional(),
     darkThemeCssSelector: z.string().optional().default('.dark'),
@@ -35,7 +36,6 @@ export const checkOldConfig = (config: Record<string, any> = {}): Record<string,
     if ('userCDN' in config) {
         console.warn(`${WARN_PREFIX} The userCDN option is deprecated. Please set the CDN option to 'custom' and use the \`customCDN\` option instead.`)
     }
-    
 
     if ('lockView' in config) {
         console.warn(`${WARN_PREFIX} The lockView option is deprecated and will be ignored.`)

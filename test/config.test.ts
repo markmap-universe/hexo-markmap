@@ -8,6 +8,7 @@ describe('Config', ()=> {
           {
             "CDN": "fastly",
             "darkThemeCssSelector": ".dark",
+            "globalOptions": {},
           }
         `)
     })
@@ -21,6 +22,7 @@ describe('Config', ()=> {
           {
             "CDN": "jsdelivr",
             "darkThemeCssSelector": ".my-dark",
+            "globalOptions": {},
           }
         `)
     })
@@ -43,6 +45,7 @@ describe('Config', ()=> {
           {
             "CDN": "fastly",
             "darkThemeCssSelector": ".dark",
+            "globalOptions": {},
           }
         `)
     })

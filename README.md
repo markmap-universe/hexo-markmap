@@ -114,6 +114,8 @@ hexo_markmap:
 - **`CDN`** : Used to specify the CDN for Markmap. The supported values are `fastly`, `jsdelivr`, `unpkg`, and `custom`.
   - If set to `custom`, the `customCDN` value will be used as the CDN prefix.
 - **`customCDN`** : Defines a custom CDN URL for Markmap. This must be a valid URL.
+- **`globalOptions`** : Used to define global options for all mindmaps.    
+  - Correspond to the [`options`](#frontmatter-options) in the frontmatter.
 
 # Upgrade to `hexo-markmap` v2
 

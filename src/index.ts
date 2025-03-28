@@ -28,11 +28,12 @@ hexo.extend.tag.register('markmap', function (this: PostSchema, [height]: string
     const { data: rawFrontmatter, content } = matter(_content)
     const frontmatter = parseFrontmatter(rawFrontmatter, content)
     const { id, style, options } = frontmatter
+    const mergedOptions = { ...userConfig.globalOptions, ...options }
 
     // transform content
     const { root, features } = transformer.transform(content)
     const { styles = [], scripts = [] } = transformer.getUsedAssets(features)
-    const wrapHTML = markmapWrapper(id, JSON.stringify(root), JSON.stringify(options), height)
+    const wrapHTML = markmapWrapper(id, JSON.stringify(root), JSON.stringify(mergedOptions), height)
 
     const assetsHTML = [
         ...persistCSS([
