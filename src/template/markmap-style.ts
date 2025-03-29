@@ -4,18 +4,24 @@
 export default (darkThemeCssSelector: string) => /* css */`
   .markmap-wrap {
     position: relative;
-    height: 500px;
     width: 100%;
-    background: #FFFFFF;
+    height: 100%;
+    display: flex;
+    justify-content: center;
   }
-  
+
   ${darkThemeCssSelector} .markmap-wrap {
     background: #1a1a1a;
   }
   
-  .markmap-wrap > svg {
+  .markmap-wrap>svg {
+    display: block;
     width: 100%;
-    height: 100%;
+    max-height: 100%;
+    height: auto;
+    min-height: 150px;
+    margin: 0;
+    padding: 0;
   }
   
   .mm-toolbar {

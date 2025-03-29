@@ -37,10 +37,6 @@ yarn add hexo-markmap -D
 ```markdown
 {% markmap %}
 ---
-style: |
-  #${id} {
-    height: 300px; /* 等价于 {% markmap 300px %} */
-  }
 options:
   colorFreezeLevel: 2
 ---
@@ -59,33 +55,19 @@ options:
 
 所有 frontmatter 选项都是可选的。
 
-```yaml
-id: markmap-example
-style: |
-  #${id} {
-    height: 300px;
-    width: 100%;
-  }
-  @media (min-width: 1280px) {
-    #${id} {
-      height: 600px;
-    }
-  }
-options:
-  colorFreezeLevel: 2
-```
 
 - **`id`** : 用于定义 `markmap-wrap` 元素的 ID。  
   - 如果未指定，将生成一个唯一的 ID。
 
-- **`style`** : 用于为思维导图定义自定义 CSS 样式。  
-`${id}` 占位符可用于样式字段。在渲染期间，它将被替换为 `markmap-wrap` 的实际 ID，确保页面上的每个思维导图元素都具有唯一的样式和行为。
+- **`style`**：用于定义思维导图的自定义 CSS 样式。  
+  - 在 `style` 字段中可以使用占位符 `${id}`，渲染时会被替换为实际的 `markmap-wrap` ID，以确保页面上的每个思维导图元素拥有独特的样式和行为。  
+    > 在旧版本中，需要手动设置思维导图的高度。但在当前版本中，高度会根据内容自动计算，因此无需手动调整。不过，你仍然可以使用 `style` 字段自定义字体、颜色等其他样式。  
   
 - **`options`** : 对应 markmap 项目中 [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html)。有关更多详细信息，请参阅 [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
 
 ### 标签选项
 
-你也可以直接在标签中指定高度。
+你还可以直接在标签中指定思维导图的高度，默认情况下会根据内容进行计算。
 
 ```markdown
 {% markmap 300px %}

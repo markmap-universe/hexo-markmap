@@ -36,6 +36,12 @@ export default () => /* javascript */`window.hexoMarkmap = (() => {
     toolbar.setItems([...toolbar.items, 'fullScreen'])
     return toolbar.el
   }
+  const updateMarkmapSize = (markmapInstance) => {
+    const svg = markmapInstance.svg.node()
+    const { y2: height } = markmapInstance.state.rect
+    svg.style.height = String(height)
+    markmapInstance.fit()
+  }
   const init = () => {
     document.querySelectorAll('.markmap-wrap').forEach((wrapper) => {
       if (wrapper.children.length < 2) return
@@ -49,11 +55,10 @@ export default () => /* javascript */`window.hexoMarkmap = (() => {
       })
       if (!root || !jsonOptions) return
       const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-      const elements = [svg]
+      wrapper.replaceChildren(svg)
       const markmapInstance = Markmap.create(svg, deriveOptions(jsonOptions), root)
-      elements.push(toolbar(markmapInstance, { fullscreenElement: wrapper }))
-      wrapper.replaceChildren(...elements)
-      resize.observe(wrapper, debounce(() => markmapInstance.fit(), 100))
+      wrapper.appendChild(toolbar(markmapInstance, { fullscreenElement: wrapper }))
+      resize.observe(wrapper, debounce(() => updateMarkmapSize(markmapInstance), 100))
     })
   }
   return { init, resize }
