@@ -2,12 +2,19 @@ export default () => /* javascript */`window.hexoMarkmap = (() => {
   const { Markmap, Toolbar, deriveOptions } = window.markmap
   const resize = {
     event: new Event('resize'),
-    observer: new ResizeObserver((entries) =>
-      entries.forEach((entry) => entry.target.dispatchEvent(resize.event))
-    ),
+    observer: new ResizeObserver((entries) => {
+      entries.forEach((entry) => {
+        entry.target.dispatchEvent(resize.event)
+      })
+    }),
+    listeners: new WeakMap(),
     observe: (el, func) => {
-      resize.observer.observe(el)
-      el.addEventListener('resize', func)
+      if (!(el instanceof Element) || typeof func !== "function") return
+      if (!resize.listeners.has(el)) {
+        resize.listeners.set(el, func)
+        el.addEventListener("resize", func)
+        resize.observer.observe(el)
+      }
     },
   }
   const debounce = (callback, wait) => {
@@ -29,14 +36,26 @@ export default () => /* javascript */`window.hexoMarkmap = (() => {
     toolbar.setItems([...toolbar.items, 'fullScreen'])
     return toolbar.el
   }
-  const init = () => document.querySelectorAll('.markmap-wrap').forEach((wrap) => {
-    const [root, jsonOptions] = [].slice.call(wrap.children).map(el => JSON.parse(el.innerHTML))
-    wrap.innerHTML = '<svg></svg>'
-    const svg = wrap.querySelector('svg')
-    const markmapInstance = Markmap.create(svg, deriveOptions(jsonOptions), root)
-    wrap.append(toolbar(markmapInstance, { fullscreenElement: wrap }))
-    resize.observe(wrap, debounce(() => markmapInstance.fit(), 100))
-  })
+  const init = () => {
+    document.querySelectorAll('.markmap-wrap').forEach((wrapper) => {
+      if (wrapper.children.length < 2) return
+      const [root, jsonOptions] = Array.from(wrapper.children, (el) => {
+        try {
+          return JSON.parse(el.innerHTML)
+        } catch {
+          console.warn('Failed to parse JSON:', el.innerHTML)
+          return null
+        }
+      })
+      if (!root || !jsonOptions) return
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+      const elements = [svg]
+      const markmapInstance = Markmap.create(svg, deriveOptions(jsonOptions), root)
+      elements.push(toolbar(markmapInstance, { fullscreenElement: wrapper }))
+      wrapper.replaceChildren(...elements)
+      resize.observe(wrapper, debounce(() => markmapInstance.fit(), 100))
+    })
+  }
   return { init, resize }
 })()
 window.hexoMarkmap.init()
