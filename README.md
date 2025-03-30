@@ -173,6 +173,7 @@ To upgrade to `hexo-markmap@2`, follow these steps:
    - You can still customize the height of the mindmap directly in the tag, by default it will be calculated based on the content:
       ```diff
       - {% markmap 300px %}
+      + {% markmap %}
       # Markdown
       # Syntax
       {% endmarkmap %}

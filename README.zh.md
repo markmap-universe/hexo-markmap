@@ -170,6 +170,7 @@ hexo_markmap:
   - 你仍然可以直接在标签中自定义思维导图的高度，但默认情况下会根据内容进行计算：
     ```diff
     - {% markmap 300px %}
+    + {% markmap %}
     # Markdown
     # Syntax
     {% endmarkmap %}
