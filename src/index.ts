@@ -3,7 +3,7 @@ import type { PostSchema } from 'hexo/dist/types.d.ts'
 import matter from 'gray-matter'
 import { persistCSS, persistJS } from 'markmap-common'
 import { markmapInit, markmapStyle, markmapWrapper } from '@/template'
-import { parseFrontmatter, template, ExtendedMap, getTransformer, parseConfig } from '@/utils'
+import { parseFrontmatter, ExtendedMap, getTransformer, parseConfig } from '@/utils'
 
 const userConfig = parseConfig(hexo.config['hexo_markmap'])
 const transformer = getTransformer()
@@ -27,19 +27,21 @@ hexo.extend.tag.register('markmap', function (this: PostSchema, [height]: string
     // parse frontmatter
     const { data: rawFrontmatter, content } = matter(_content)
     const frontmatter = parseFrontmatter(rawFrontmatter, content)
-    const { id, style, options } = frontmatter
-    const mergedOptions = { ...userConfig.globalOptions, ...options }
+    const { id, markmap, options } = frontmatter
+    const mergedOptions = {
+        ...userConfig.globalOptions,
+        ...options,
+        ...markmap
+    }
+
 
     // transform content
     const { root, features } = transformer.transform(content)
     const { styles = [], scripts = [] } = transformer.getUsedAssets(features)
-    const wrapHTML = markmapWrapper(id, JSON.stringify(root), JSON.stringify(mergedOptions), height)
+    const wrapHTML = markmapWrapper(JSON.stringify(root), JSON.stringify(mergedOptions), id, height)
 
     const assetsHTML = [
-        ...persistCSS([
-            { type: 'style', data: template(style, { id }) },
-            ...styles
-        ]),
+        ...persistCSS(styles),
         ...persistJS(scripts, {
             getMarkmap: () => window.markmap,
             root,

@@ -6,9 +6,8 @@ describe("parse frontmatter", () => {
         const data = {}
         expect(parseFrontmatter(data, 'test')).toMatchInlineSnapshot(`
           {
-            "id": "hmm-57098f6bcd",
+            "markmap": {},
             "options": {},
-            "style": "",
           }
         `)
     })
@@ -24,10 +23,10 @@ describe("parse frontmatter", () => {
         expect(parseFrontmatter(data, 'test')).toMatchInlineSnapshot(`
           {
             "id": "my-id",
+            "markmap": {},
             "options": {
               "key": "value",
             },
-            "style": "my-style",
           }
         `)
     })

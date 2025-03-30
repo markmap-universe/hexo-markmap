@@ -58,12 +58,8 @@ Just like you use frontmatter in your Markdown files in Hexo, you can use frontm
 All frontmatter options are optional.
 
 - **`id`** : Used to define the ID of the `markmap-wrap` element.  
-  - If not specified, an unique ID will be generated.
 
-- **`style`**: Defines custom CSS styles for the mindmap.  
-  - You can use the `${id}` placeholder in the `style` field, which will be replaced with the actual `markmap-wrap` ID during rendering. This ensures that each mindmap element on the page has unique styles and behaviors.  
-    > In previous versions, manually setting the mindmap height was necessary. However, the current version automatically calculates the height based on the content, making manual adjustment unnecessary. You can still use the `style` field to customize other aspects, such as fonts, colors, and more.  
-- **`options`** : Correspond to the [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html) in the markmap project. For more details, please refer to [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
+-  **`markmap`**/**`options`** : Correspond to the [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html) in the markmap project. For more details, please refer to [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
 
 
 ### Tag Options
@@ -170,17 +166,6 @@ To upgrade to `hexo-markmap@2`, follow these steps:
 ````markdown
 {% markmap %}
 ---
-id: markmap-example
-style: |
-  #${id} {
-    height: 300px;
-    width: 100%;
-  }
-  @media (min-width: 1280px) {
-    #${id} {
-      height: 600px;
-    }
-  }
 options:
   colorFreezeLevel: 2
 ---
