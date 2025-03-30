@@ -55,10 +55,9 @@ markmap:
 
 所有 frontmatter 选项都是可选的。
 
-
 - **`id`** : 用于定义 `markmap-wrap` 元素的 ID。  
 
-- **`options`** : 对应 markmap 项目中 [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html)。有关更多详细信息，请参阅 [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
+- **`markmap`**/**`options`** : 对应 markmap 项目中 [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html)。有关更多详细信息，请参阅 [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
 
 ### 标签选项
 
@@ -103,6 +102,7 @@ hexo_markmap:
 
 - 可在单个 Markmap 标签中，通过 frontmatter 自定义：
   - CSS 样式（实现自定义高度、宽度、响应式布局等）
+    - 自 v2.0.5 起，不再支持在 frontmatter 中设置样式。但你可以结合 `id` 选项直接在 `<style>` 标签中定义样式。
   - Markmap 的 [JSON Options](https://markmap.js.org/docs/json-options#option-list)
 - 利用 Markmap 内置的 URL Builder 自动生成 CDN 地址
 - 根据语法自动生成相应的 CDN 标签
@@ -153,8 +153,29 @@ hexo_markmap:
       - 如果选择 `custom`，则 `customCDN` 的值将作为 CDN 前缀使用。
 
    - 此外，之前可传入的 `depth` 参数以指定折叠深度已移除，你可以在 frontmatter 中使用 `options` 配置 `initialExpandLevel`。
+3. 更新你的 Markdown 文件中的 `markmap` 标签：
 
-3. 最后，重新生成你的博客。
+  - 现在 `markmap` 标签支持 frontmatter 选项。你可以直接在标签中指定选项，例如：
+    ```markdown
+    {% markmap %}
+    ---
+    markmap:
+      colorFreezeLevel: 2
+    ---
+    # Markdown
+    # Syntax
+    {% endmarkmap %}
+    ```
+
+  - 你仍然可以直接在标签中自定义思维导图的高度，但默认情况下会根据内容进行计算：
+    ```diff
+    - {% markmap 300px %}
+    # Markdown
+    # Syntax
+    {% endmarkmap %}
+    ```
+
+4. 最后，重新生成你的博客。
 
 ## 示例
 

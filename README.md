@@ -64,7 +64,7 @@ All frontmatter options are optional.
 
 ### Tag Options
 
-You can also specify the height of the mindmap directly in the tag, by default it will be calculated based on the content.
+You can also specify the height of the mindmap directly in the tag. By default, it will be calculated based on the content.
 
 ```markdown
 {% markmap 300px %}
@@ -103,6 +103,7 @@ hexo_markmap:
 
 - Customization within a single Markmap tag using frontmatter:
   - CSS styles (custom height, width, responsive layout, etc.)
+    - Since v2.0.5, setting styles in the frontmatter is no longer supported. Instead, you can define them directly within a `<style>` tag by combining it with the `id` option.
   - Markmap's [JSON Options](https://markmap.js.org/docs/json-options#option-list)
 - Automatic CDN URL generation using Markmap's built-in URL builder
 - On-demand CDN resource insertion based on syntax usage
@@ -155,8 +156,28 @@ To upgrade to `hexo-markmap@2`, follow these steps:
       - If you choose `custom`, the `customCDN` value will be used as the CDN prefix.
 
    - Additionally, the previous `depth` parameter for setting fold levels has been removed. Instead, you can use the `initialExpandLevel` option in frontmatter.
+3. Update your `markmap` tags in your Markdown files:
 
-3. Finally, regenerate your blog.
+   - The `markmap` tag now supports frontmatter options. You can specify the options directly in the tag, like this:
+      ```markdown
+      {% markmap %}
+      ---
+      markmap:
+        colorFreezeLevel: 2
+      ---
+      # Markdown
+      # Syntax
+      {% endmarkmap %}
+      ```
+
+   - You can still customize the height of the mindmap directly in the tag, by default it will be calculated based on the content:
+      ```diff
+      - {% markmap 300px %}
+      # Markdown
+      # Syntax
+      {% endmarkmap %}
+      ```
+4. Finally, regenerate your blog.
 
 
 # Example 
