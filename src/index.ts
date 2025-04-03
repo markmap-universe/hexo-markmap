@@ -59,17 +59,12 @@ hexo.extend.tag.register('markmap', function (this: PostSchema, [height]: string
     return wrapHTML.trim()
 }, { ends: true })
 
-const markmapInitDir = path.join(
-    hexo.base_dir,
-    'node_modules', 'hexo-markmap', 'dist', 'markmap-init.global.js'
-)
-
 /**
  * Generate Markmap assets.
  */
 hexo.extend.generator.register('markmap_asset', () => [{
     path: 'js/markmap.js',
-    data: () => fs.readFileSync(markmapInitDir, "utf-8"),
+    data: () => fs.createReadStream(path.resolve(__dirname, './markmap-init.global.js')),
 }, {
     path: 'css/markmap.css',
     data: () => markmapStyle(userConfig.darkThemeCssSelector)
