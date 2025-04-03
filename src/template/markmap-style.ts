@@ -13,7 +13,19 @@ export default (darkThemeCssSelector: string) => /* css */`
   ${darkThemeCssSelector} .markmap-wrap {
     background: #1a1a1a;
   }
-  
+
+  .markmap-wrap.fullscreen {
+    background: #ffffff;
+  }
+
+  .markmap-wrap.fullscreen svg {
+    height: auto !important;
+  }
+
+  ${darkThemeCssSelector} .markmap-wrap.fullscreen {
+    background: #1a1a1a;
+  }
+      
   .markmap-wrap>svg {
     display: block;
     width: 100%;

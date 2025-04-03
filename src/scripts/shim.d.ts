@@ -4,9 +4,8 @@ declare global {
         hexoMarkmap: {
             init: () => void
             resize: {
-                event: Event
-                observer: ResizeObserver
-                observe: (el: Element, func: () => void) => void
+                observe: (el: Element, func: () => void) => void,
+                destroyAll: () => void
             }
         }
     }
