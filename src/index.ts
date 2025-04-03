@@ -1,9 +1,11 @@
 /// <reference types="hexo" />
-import type { PostSchema } from 'hexo/dist/types.d.ts'
+import fs from 'node:fs'
+import path from 'node:path'
 import matter from 'gray-matter'
 import { persistCSS, persistJS } from 'markmap-common'
-import { markmapInit, markmapStyle, markmapWrapper } from '@/template'
+import { markmapStyle, markmapWrapper } from '@/template'
 import { parseFrontmatter, ExtendedMap, getTransformer, parseConfig } from '@/utils'
+import type { PostSchema } from 'hexo/dist/types.d.ts'
 
 const userConfig = parseConfig(hexo.config['hexo_markmap'])
 const transformer = getTransformer()
@@ -57,12 +59,17 @@ hexo.extend.tag.register('markmap', function (this: PostSchema, [height]: string
     return wrapHTML.trim()
 }, { ends: true })
 
+const markmapInitDir = path.join(
+    hexo.base_dir,
+    'node_modules', 'hexo-markmap', 'dist', 'markmap-init.global.js'
+)
+
 /**
  * Generate Markmap assets.
  */
 hexo.extend.generator.register('markmap_asset', () => [{
     path: 'js/markmap.js',
-    data: () => markmapInit(),
+    data: () => fs.readFileSync(markmapInitDir, "utf-8"),
 }, {
     path: 'css/markmap.css',
     data: () => markmapStyle(userConfig.darkThemeCssSelector)

@@ -1,4 +1,6 @@
-export default () => /* javascript */`window.hexoMarkmap = (() => {
+import { debounce } from "radashi"
+
+window.hexoMarkmap = (() => {
   const { Markmap, Toolbar, deriveOptions } = window.markmap
   const resize = {
     event: new Event('resize'),
@@ -17,13 +19,6 @@ export default () => /* javascript */`window.hexoMarkmap = (() => {
       }
     },
   }
-  const debounce = (callback, wait) => {
-    let timeout
-    return function (...args) {
-      clearTimeout(timeout)
-      timeout = setTimeout(() => callback.apply(this, args), wait)
-    }
-  }
   const toolbar = (markmapInstance, { fullscreenElement }) => {
     const toolbar = Toolbar.create(markmapInstance)
     toolbar.setBrand(false)
@@ -31,7 +26,7 @@ export default () => /* javascript */`window.hexoMarkmap = (() => {
       id: 'fullScreen',
       title: 'Full Screen View',
       content: Toolbar.icon('M4 9v-4h4v2h-2v2zM4 11v4h4v-2h-2v-2zM16 9v-4h-4v2h2v2zM16 11v4h-4v-2h2v-2z'),
-      onClick: () => document.fullscreenElement ? document.exitFullscreen() : fullscreenElement.requestFullscreen()
+      onClick: () => document.fullscreenElement ? document.exitFullscreen() : fullscreenElement.requestFullscreen() && markmapInstance.fit()
     })
     toolbar.setItems([...toolbar.items, 'fullScreen'])
     return toolbar.el
@@ -58,10 +53,9 @@ export default () => /* javascript */`window.hexoMarkmap = (() => {
       wrapper.replaceChildren(svg)
       const markmapInstance = Markmap.create(svg, deriveOptions(jsonOptions), root)
       wrapper.appendChild(toolbar(markmapInstance, { fullscreenElement: wrapper }))
-      resize.observe(wrapper, debounce(() => updateMarkmapSize(markmapInstance), 100))
+      resize.observe(wrapper, debounce({ delay: 100 }, () => updateMarkmapSize(markmapInstance)))
     })
   }
   return { init, resize }
 })()
 window.hexoMarkmap.init()
-`

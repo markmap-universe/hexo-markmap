@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "ES2022",
+            "DOM",
+            "DOM.Iterable"
+        ],
+        "noImplicitThis": true
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
