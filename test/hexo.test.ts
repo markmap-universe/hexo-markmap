@@ -34,8 +34,9 @@ describe("Hexo Markmap Plugin", () => {
         `)
     })
 
-    it("should merge frontmatter options with global options", () => {
+    it("should properly handle frontmatter and JSON options", () => {
         const content = `---
+id: test
 markmap:
   color: 'red'
 ---
@@ -45,10 +46,10 @@ markmap:
 
         expect(result).toMatchInlineSnapshot(`
           "<div class="markmap-wrap" 
-                
+                id="test"
                 
               >
-                <script type="application/json">{"content":"Hello World","children":[],"payload":{"tag":"h1","lines":"4,5"}}</script>
+                <script type="application/json">{"content":"Hello World","children":[],"payload":{"tag":"h1","lines":"5,6"}}</script>
                 <script type="application/json">{"color":["red"]}</script>
               </div>"
         `)
