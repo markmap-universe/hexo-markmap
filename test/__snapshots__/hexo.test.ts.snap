@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Hexo Markmap Plugin > should return the correct assets HTML from the filter 1`] = `
+"<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.16.18/dist/katex.min.css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/styles/default.min.css"><script>((getMarkmap) => {
+          window.WebFontConfig = {
+            custom: {
+              families: [
+                "KaTeX_AMS",
+                "KaTeX_Caligraphic:n4,n7",
+                "KaTeX_Fraktur:n4,n7",
+                "KaTeX_Main:n4,n7,i4,i7",
+                "KaTeX_Math:i4,i7",
+                "KaTeX_Script",
+                "KaTeX_SansSerif:n4,n7,i4",
+                "KaTeX_Size1",
+                "KaTeX_Size2",
+                "KaTeX_Size3",
+                "KaTeX_Size4",
+                "KaTeX_Typewriter"
+              ]
+            },
+            active: () => {
+              getMarkmap().refreshHook.call();
+            }
+          };
+        })(() => window.markmap)</script><script src="https://fastly.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" defer></script><link rel="stylesheet" href="/css/markmap.css"><script src="/js/markmap.js"></script>"
+`;
