@@ -24,4 +24,25 @@ describe("Wrapped transformer and its urlBuilder", () => {
         expect(urlBuilder.getFullUrl('d3@7')).toMatchInlineSnapshot(`"https://cdn.example.com/d3@7"`)
     })
 
+    it("should get parsed frontmatter from transformer", () => {
+        const content = `---
+title: Hello World
+markmap:
+  color: 'red'
+---
+# Hello World
+`
+        const { frontmatter } = transformer.transform(content)
+        expect(frontmatter).toMatchInlineSnapshot(`
+          {
+            "markmap": {
+              "color": [
+                "red",
+              ],
+            },
+            "title": "Hello World",
+          }
+        `)
+    })
+
 })
