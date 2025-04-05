@@ -1,7 +1,6 @@
 /// <reference types="hexo" />
 import fs from 'node:fs'
 import path from 'node:path'
-import matter from 'gray-matter'
 import { persistCSS, persistJS } from 'markmap-common'
 import { markmapStyle, markmapWrapper } from '@/template'
 import { parseFrontmatter, ExtendedMap, getTransformer, parseConfig } from '@/utils'
@@ -25,20 +24,17 @@ const pageAssetsMap: ExtendedMap<string, Set<string>> = new ExtendedMap()
 /**
  * Register a tag for Hexo to render Markmap.
  */
-hexo.extend.tag.register('markmap', function (this: PostSchema, [height]: string | undefined[], _content: string) {
+hexo.extend.tag.register('markmap', function (this: PostSchema, [height]: string | undefined[], content: string) {
+    // transform content
+    const { root, features, frontmatter: rawFrontmatter } = transformer.transform(content)
     // parse frontmatter
-    const { data: rawFrontmatter, content } = matter(_content)
     const frontmatter = parseFrontmatter(rawFrontmatter, content)
     const { id, markmap, options } = frontmatter
     const mergedOptions = {
         ...userConfig.globalOptions,
         ...options,
-        ...markmap
+        ...markmap // original property name defined in markmap-lib
     }
-
-
-    // transform content
-    const { root, features } = transformer.transform(content)
     const { styles = [], scripts = [] } = transformer.getUsedAssets(features)
     const wrapHTML = markmapWrapper(JSON.stringify(root), JSON.stringify(mergedOptions), id, height)
 
