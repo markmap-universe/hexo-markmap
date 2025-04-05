@@ -34,6 +34,26 @@ describe("Hexo Markmap Plugin", () => {
         `)
     })
 
+    it("should merge frontmatter options with global options", () => {
+        const content = `---
+markmap:
+  color: 'red'
+---
+# Hello World
+`
+        const result = tagFn.call({ slug: 'test' }, [], content)
+
+        expect(result).toMatchInlineSnapshot(`
+          "<div class="markmap-wrap" 
+                
+                
+              >
+                <script type="application/json">{"content":"Hello World","children":[],"payload":{"tag":"h1","lines":"4,5"}}</script>
+                <script type="application/json">{"color":["red"]}</script>
+              </div>"
+        `)
+    })
+
     it("should return the correct generator", () => {
         type Generator = {
             path: string,

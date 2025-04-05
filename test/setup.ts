@@ -33,7 +33,7 @@ vi.stubGlobal('hexo', {
     },
     config: {
         'hexo_markmap': {
-            color: 'blue',
+            color: ['blue'],
         }
     }
 })
