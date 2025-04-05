@@ -4,7 +4,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
     test: {
-        setupFiles: ['./test/hexo.ts'],
+        setupFiles: ['./test/setup.ts'],
     },
     plugins: [tsconfigPaths()],
     resolve: {

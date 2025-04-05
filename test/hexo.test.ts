@@ -1,25 +1,27 @@
 import { describe, expect, it } from "vitest"
-import { tagRegisterMock, filterRegisterMock, generatorRegisterMock } from "./hexo"
+import { extendMock } from "./setup"
 import "@/index"
 
 type Hexo = typeof hexo
 
-type GetRegisterParams<T extends keyof Hexo["extend"]> =
+type RegisterParams<T extends keyof Hexo["extend"]> =
     Hexo["extend"][T] extends { register: any }
     ? Parameters<Hexo["extend"][T]['register']>
     : never
 
+type RegisterFn<T extends keyof Hexo["extend"]> = RegisterParams<T>[1]
+
 describe("Hexo Markmap Plugin", () => {
     // Extract the registered functions from mocks
-    const tagRegister = tagRegisterMock.mock.calls[0][1] as GetRegisterParams<'tag'>[1]
-    const generatorRegister = generatorRegisterMock.mock.calls[0][1] as GetRegisterParams<'generator'>[1]
-    const filterRegister = filterRegisterMock.mock.calls[0][1] as GetRegisterParams<'filter'>[1]
+    const tagFn = extendMock.tagRegister.mock.calls[0][1] as RegisterFn<'tag'>
+    const generatorFn = extendMock.generatorRegister.mock.calls[0][1] as RegisterFn<'generator'>
+    const filterFn = extendMock.filterRegister.mock.calls[0][1] as RegisterFn<'filter'>
 
     it("should return rendered HTML from the tag", () => {
         const content = "# Hello World"
         const height = "500px"
 
-        const result = tagRegister.call({ slug: 'test' }, [height], content)
+        const result = tagFn.call({ slug: 'test' }, [height], content)
 
         expect(result).toMatchInlineSnapshot(`
           "<div class="markmap-wrap" 
@@ -38,7 +40,7 @@ describe("Hexo Markmap Plugin", () => {
             data: () => string | Buffer,
         }[]
 
-        const result = generatorRegister.call({ path: () => 'test' }, { data: () => Buffer.from('test data') })
+        const result = generatorFn.call({ path: () => 'test' }, { data: () => Buffer.from('test data') })
 
         expect(result).toBeDefined()
         result.forEach((item: Generator[number]) => {
@@ -59,7 +61,7 @@ describe("Hexo Markmap Plugin", () => {
   \`\`\`
             `
             const height = "500px"
-            tagRegister.call({ slug: 'test' }, [height], content)
+            tagFn.call({ slug: 'test' }, [height], content)
         }
         // Test merge assets
         callTagOnSamePage()
@@ -69,7 +71,7 @@ describe("Hexo Markmap Plugin", () => {
             slug: "test",
         }
 
-        filterRegister.call({}, data)
+        filterFn.call({}, data)
 
         expect(data.content).toMatchSnapshot()
   

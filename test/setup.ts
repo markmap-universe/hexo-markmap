@@ -1,8 +1,10 @@
 import { vi } from "vitest"
 
-export const filterRegisterMock = vi.fn()
-export const generatorRegisterMock = vi.fn()
-export const tagRegisterMock = vi.fn()
+export const extendMock = {
+    tagRegister: vi.fn(),
+    filterRegister: vi.fn(),
+    generatorRegister: vi.fn(),
+}
 
 vi.stubEnv('VIEW_VERSION', '0.18.10')
 vi.stubEnv('TOOLBAR_VERSION', '0.18.10')
@@ -10,13 +12,13 @@ vi.stubEnv('TOOLBAR_VERSION', '0.18.10')
 vi.stubGlobal('hexo', {
     extend: {
         tag: {
-            register: tagRegisterMock,
+            register: extendMock.tagRegister,
         },
         filter: {
-            register: filterRegisterMock,
+            register: extendMock.filterRegister,
         },
         generator: {
-            register: generatorRegisterMock,
+            register: extendMock.generatorRegister,
         },
         helper: {
             get(name: string) {
