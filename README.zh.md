@@ -1,11 +1,7 @@
 [**English**](https://github.com/maxchang3/hexo-markmap/blob/2.0.0-beta/README.md)
 
-> 依赖于 [markmap](https://github.com/gera2ld/markmap)，灵感来自 [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap)。
-
 > [!WARNING]
 > 这是 `hexo-markmap@2` 的文档。如果你正在使用 `hexo-markmap@1`，请查看 [这里](https://github.com/markmap-universe/hexo-markmap/tree/legacy)。
->
-> 目前 `hexo-markmap@2` 对 `hexo-markmap@1` 的配置文件**不兼容**。
 >
 > 如果你想升级到 `hexo-markmap@2`，请查看 [这里](#升级到-hexo-markmap-v2)。
 
@@ -13,9 +9,9 @@
 
 # hexo-markmap  <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/v/hexo-markmap"></a> <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/dm/hexo-markmap"></a>
 
-使用 Markmap 在你的博客中使用 Markdown 插入思维导图。
+在你的 Hexo 博客中插入思维导图，使用 [markmap](https://markmap.js.org/)。
 
-# 安装
+## 安装
 
 ```
 pnpm add hexo-markmap -D
@@ -32,7 +28,7 @@ yarn add hexo-markmap -D
 > [!TIP]
 > 试试我们的新 VS Code 扩展 [markmap-universe](https://marketplace.visualstudio.com/items?itemName=maxchang.vscode-markmap-universe)，直接预览你的 `hexo-markmap` 思维导图。
 
-# 使用
+## 使用
 
 ```markdown
 {% markmap %}
@@ -45,7 +41,7 @@ markmap:
 {% endmarkmap %}
 ```
 
-## 独立选项
+### 独立选项
 
 你可以在 `markmap` 标签中自定义每个思维导图。
 
@@ -59,7 +55,7 @@ markmap:
 
 - **`markmap`**/**`options`** : 对应 markmap 项目中 [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html)。有关更多详细信息，请参阅 [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
 
-### 标签选项
+#### 标签选项
 
 你还可以直接在标签中指定思维导图的高度，默认情况下会根据内容进行计算。
 
@@ -72,7 +68,7 @@ markmap:
 
 - **`height`** : 用于指定思维导图的高度。
 
-## 配置
+### 配置
 
 将相应内容追加到 `config.yml` 中。
 
@@ -80,7 +76,7 @@ markmap:
 
 默认情况下即可正常工作。每个选项都有默认值。
 
-### 默认配置
+#### 默认配置
 
 ```yaml
 hexo_markmap:
@@ -96,7 +92,7 @@ hexo_markmap:
 - **`globalOptions`** : 用于为所有思维导图定义全局选项。  
   - 对应于前面提到的 frontmatter 中的 [`options`](#frontmatter-选项)。
 
-# 升级到 `hexo-markmap@2`
+## 升级到 `hexo-markmap@2`
 
 `hexo-markmap@2` 是由 [@coderxi1](https://github.com/coderxi1/) 与 [@maxchang3](https://github.com/maxchang3/) 全新重构的版本。该版本升级至最新的 Markmap，引入了更多自定义选项，具体改进包括：
 
@@ -231,7 +227,7 @@ Note that if blocks and lists appear at the same level, the lists will be ignore
 ````
 </details>
 
-# 贡献者
+## 贡献者
 
 感谢所有的贡献者🥰！
 
@@ -239,4 +235,9 @@ Note that if blocks and lists appear at the same level, the lists will be ignore
   <img src="https://contrib.rocks/image?repo=maxchang3/hexo-markmap" />
 </a>
 
-**感谢 [@coderxi1](https://github.com/coderxi1/) 对 v2 版本的构想与最初实现！**
+## Credits
+
+- 如果没有 [markmap](https://markmap.js.org/)，这个项目不可能存在。
+- 最初受到了 [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap) 的启发。
+- 感谢 [@coderxi1](https://github.com/coderxi1/) 对最初 2.0 版本的构思和实现！
+

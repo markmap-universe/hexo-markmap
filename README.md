@@ -1,21 +1,17 @@
 [**简体中文**](https://github.com/maxchang3/hexo-markmap/blob/2.0.0-beta/README.zh.md)
 
-> Depend on [markmap](https://github.com/gera2ld/markmap). Inspired by [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap).
-
 > [!WARNING]
-> This is the documentation for `hexo-markmap@2`. If you are using `hexo-markmap@1`, please check [here](https://github.com/markmap-universe/hexo-markmap/tree/legacy).
->
-> The configuration files of `hexo-markmap@2` are **incompatible** with `hexo-markmap@1`.
->
+> This is the documentation for `hexo-markmap@2`. If you use `hexo-markmap@1`, please check [here](https://github.com/markmap-universe/hexo-markmap/tree/legacy)
+> 
 > If you want to upgrade to `hexo-markmap@2`, please check [here](#upgrade-to-hexo-markmap-v2).
 
 <img src="https://raw.githubusercontent.com/markmap-universe/logo/master/hexo-markmap-logo.png" alt="Hexo logo" width="100" height="100" align="right" />
 
 # hexo-markmap <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/v/hexo-markmap"></a> <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/dm/hexo-markmap"></a>
 
-Insert mindmap in your hexo blog by Markmap.
+Insert a mindmap into your Hexo blog using [markmap](https://markmap.js.org/).
 
-# Install
+## Install
 
 ```
 pnpm add hexo-markmap -D
@@ -34,7 +30,7 @@ yarn add hexo-markmap --dev
 > [!TIP]
 > Try our new VS Code extension, [markmap-universe](https://marketplace.visualstudio.com/items?itemName=maxchang.vscode-markmap-universe), to directly preview your `hexo-markmap` mindmaps.
 
-# Usage
+## Usage
 
 ```markdown
 {% markmap %}
@@ -47,11 +43,11 @@ options:
 {% endmarkmap %}
 ```
 
-## Inline Options
+### Inline Options
 
 You can customize each mindmap individually in the `markmap` tag.
 
-### Frontmatter Options
+#### Frontmatter Options
 
 Just like you use frontmatter in your Markdown files in Hexo, you can use frontmatter in the `markmap` tag to customize your mindmap!
 
@@ -62,7 +58,7 @@ All frontmatter options are optional.
 -  **`markmap`**/**`options`** : Correspond to the [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html) in the markmap project. For more details, please refer to [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
 
 
-### Tag Options
+#### Tag Options
 
 You can also specify the height of the mindmap directly in the tag. By default, it will be calculated based on the content.
 
@@ -73,7 +69,7 @@ You can also specify the height of the mindmap directly in the tag. By default, 
 {% endmarkmap %}
 ```
 
-## Config
+### Config
 
 Add your options to `config.yml`.
 
@@ -81,7 +77,7 @@ Convention over configuration, if you don't need any of the following features, 
 
 By default, it works well. Each option has a default value.
 
-### Default options
+#### Default options
 
 ```yaml
 hexo_markmap:
@@ -97,7 +93,7 @@ hexo_markmap:
 - **`globalOptions`** : Used to define global options for all mindmaps.    
   - Correspond to the [`options`](#frontmatter-options) in the frontmatter.
 
-# Upgrade to `hexo-markmap` v2
+## Upgrade to `hexo-markmap` v2
 
 `hexo-markmap@2` is a completely refactored version by [@coderxi1](https://github.com/coderxi1/) and [@maxchang3](https://github.com/maxchang3/). This version upgrades to the latest Markmap and introduces more customization options, including:
 
@@ -181,7 +177,7 @@ To upgrade to `hexo-markmap@2`, follow these steps:
 4. Finally, regenerate your blog.
 
 
-# Example 
+## Example 
 
 <details>
 
@@ -236,7 +232,7 @@ Note that if blocks and lists appear at the same level, the lists will be ignore
 
 </details>
 
-# Contributors
+## Contributors
 
 Thanks to all contributors🥰!
 
@@ -244,4 +240,8 @@ Thanks to all contributors🥰!
   <img src="https://contrib.rocks/image?repo=maxchang3/hexo-markmap" />
 </a>
 
-**Thanks to [@coderxi1](https://github.com/coderxi1/) for the conception and initial implementation of version 2!**
+## Credits
+
+- This project would not have been possible without [markmap](https://markmap.js.org/).
+- Originally inspired by [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap).
+- Thanks to [@coderxi1](https://github.com/coderxi1/) for conceiving and implementing the initial version 2!
