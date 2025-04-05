@@ -62,7 +62,7 @@ All frontmatter options are optional.
 > **Difference between `markmap` and `options`**
 > 
 > - **`markmap` (from markmap-lib)** 
->   [Preprocesses](https://github.com/markmap/markmap/blob/master/packages/markmap-lib/src/plugins/frontmatter/index.ts#L41) JSON options (e.g., converting strings to arrays or numbers) and overrides the legacy `options`.
+>   Will be [preprocessed](https://github.com/markmap/markmap/blob/master/packages/markmap-lib/src/plugins/frontmatter/index.ts#L41) (e.g., converting strings to arrays or numbers) and overrides the legacy `options`.
 >   - For example, `color: 'red'` will be converted to `color: ['red']`, only the latter is valid in `markmap-view`.
 >   - ✅ Recommended for consistent use with `markmap`.
 > 
