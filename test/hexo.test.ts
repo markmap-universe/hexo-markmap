@@ -61,14 +61,15 @@ markmap:
             data: () => string | Buffer,
         }[]
 
-        const result = generatorFn.call({ path: () => 'test' }, { data: () => Buffer.from('test data') })
+        const result: Generator = generatorFn({})
 
         expect(result).toBeDefined()
-        result.forEach((item: Generator[number]) => {
+
+        for (const item of result) {
             expect(item).toHaveProperty('path')
             expect(item).toHaveProperty('data')
             expect(item.data).toBeInstanceOf(Function)
-        })
+        }
     })
 
     it("should return the correct assets HTML from the filter", () => {
@@ -95,6 +96,6 @@ markmap:
         filterFn.call({}, data)
 
         expect(data.content).toMatchSnapshot()
-  
+
     })
 })
