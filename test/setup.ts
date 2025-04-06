@@ -22,11 +22,8 @@ vi.stubGlobal('hexo', {
         },
         helper: {
             get(name: string) {
-                if (name === "js") {
-                    return vi.fn((path: string) => `<script src="${path}"></script>`)
-                } else if (name === "css") {
-                    return vi.fn((path: string) => `<link rel="stylesheet" href="${path}">`)
-                }
+                if (name === "js") return vi.fn((path: string) => `<script src="${path}"></script>`)
+                if (name === "css") return vi.fn((path: string) => `<link rel="stylesheet" href="${path}">`)
                 return undefined
             }
         }
