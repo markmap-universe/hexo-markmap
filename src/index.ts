@@ -28,7 +28,7 @@ hexo.extend.tag.register('markmap', function (this: PostSchema, [height]: string
     // transform content
     const { root, features, frontmatter: rawFrontmatter } = transformer.transform(content)
     // parse frontmatter
-    const frontmatter = parseFrontmatter(rawFrontmatter, content)
+    const frontmatter = parseFrontmatter(rawFrontmatter)
     const { id, markmap, options } = frontmatter
     const mergedOptions = {
         ...userConfig.globalOptions,

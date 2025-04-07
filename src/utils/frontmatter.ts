@@ -13,7 +13,7 @@ const frontmatterSchema = z.object({
  * @param data The frontmatter data to parse.
  * @param identifier The identifier to generate a default id.
  */
-export const parseFrontmatter = (data: Record<string, any> = {}, identifier: string) => {
+export const parseFrontmatter = (data: Record<string, any> = {}) => {
     const parsedData = frontmatterSchema.safeParse(data)
     if (!parsedData.success) {
         const validationError = fromError(parsedData.error)

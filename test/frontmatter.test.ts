@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest"
 describe("parse frontmatter", () => {
     it("should return the parsed frontmatter with the default values", () => {
         const data = {}
-        expect(parseFrontmatter(data, 'test')).toMatchInlineSnapshot(`
+        expect(parseFrontmatter(data)).toMatchInlineSnapshot(`
           {
             "markmap": {},
             "options": {},
@@ -20,7 +20,7 @@ describe("parse frontmatter", () => {
                 key: 'value'
             }
         }
-        expect(parseFrontmatter(data, 'test')).toMatchInlineSnapshot(`
+        expect(parseFrontmatter(data)).toMatchInlineSnapshot(`
           {
             "id": "my-id",
             "markmap": {},
