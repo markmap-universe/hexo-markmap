@@ -1,4 +1,4 @@
-[**English**](https://github.com/maxchang3/hexo-markmap/blob/2.0.0-beta/README.md)
+[**English**](./README.md)
 
 > [!WARNING]
 > 这是 `hexo-markmap@2` 的文档。如果你正在使用 `hexo-markmap@1`，请查看 [这里](https://github.com/markmap-universe/hexo-markmap/tree/legacy)。
@@ -53,7 +53,7 @@ markmap:
 
 - **`id`**：用于定义 `markmap-wrap` 元素的 ID。  
 
-- **`markmap`**/**`options`**：对应 markmap 项目中的 [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html)。有关更多详细信息，请参考 [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list)。
+- **`markmap`**：对应 markmap 项目中的 [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html)。有关更多详细信息，请参考 [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list)。
   - 别名：**`options`**（向后兼容）
 
 <details>

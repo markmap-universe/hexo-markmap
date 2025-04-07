@@ -1,4 +1,4 @@
-[**简体中文**](https://github.com/maxchang3/hexo-markmap/blob/2.0.0-beta/README.zh.md)
+[**简体中文**](./README.zh.md)
 
 > [!WARNING]
 > This is the documentation for `hexo-markmap@2`. If you use `hexo-markmap@1`, please check [here](https://github.com/markmap-universe/hexo-markmap/tree/legacy)
