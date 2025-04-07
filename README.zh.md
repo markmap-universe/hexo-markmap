@@ -196,7 +196,7 @@ hexo_markmap:
 ````markdown
 {% markmap %}
 ---
-options:
+markmap:
   colorFreezeLevel: 2
 ---
 

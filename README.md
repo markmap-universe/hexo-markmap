@@ -200,7 +200,7 @@ To upgrade to `hexo-markmap@2`, follow these steps:
 ````markdown
 {% markmap %}
 ---
-options:
+markmap:
   colorFreezeLevel: 2
 ---
 
