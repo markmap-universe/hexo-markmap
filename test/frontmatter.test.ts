@@ -15,18 +15,17 @@ describe("parse frontmatter", () => {
     it("should return the parsed frontmatter with the provided values", () => {
         const data = {
             id: 'my-id',
-            style: 'my-style',
-            options: {
+            markmap: {
                 key: 'value'
             }
         }
         expect(parseFrontmatter(data)).toMatchInlineSnapshot(`
           {
             "id": "my-id",
-            "markmap": {},
-            "options": {
+            "markmap": {
               "key": "value",
             },
+            "options": {},
           }
         `)
     })
