@@ -35,7 +35,7 @@ yarn add hexo-markmap --dev
 ```markdown
 {% markmap %}
 ---
-options:
+markmap:
   colorFreezeLevel: 2
 ---
 # Markdown
@@ -45,7 +45,7 @@ options:
 
 ### Inline Options
 
-You can customize each mindmap individually in the `markmap` tag.
+You can customize each mindmap individually in the markmap tag (`{% markmap %} ... {% endmarkmap %}`).
 
 #### Frontmatter Options
 
@@ -56,23 +56,6 @@ All frontmatter options are optional.
 - **`id`** : Used to define the ID of the `markmap-wrap` element.  
 
 - **`markmap`** : Correspond to the [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html) in the markmap project. For more details, please refer to [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
-  - alias: **`options`** (for backward compatibility)
-
-
-<details>
-
-<summary>Difference between <code>markmap</code> and <code>options</code></summary>
-
-- **`markmap` (from markmap-lib)** 
-  Will be [preprocessed](https://github.com/markmap/markmap/blob/master/packages/markmap-lib/src/plugins/frontmatter/index.ts#L41) (converting strings to arrays or numbers) and overrides the legacy `options`.
-  - E.g., `color: 'red'` will be converted to `color: ['red']`, only the latter is valid in `markmap-view`.
-  - ✅ Recommended for consistent use with `markmap`.
-
-- **`options` (from markmap-universe)** Passed directly to markmap-view.  
-  - ❌ Not recommended, maintained only for backward compatibility.
-
-</details>
-
 
 #### Tag Options
 
@@ -107,7 +90,7 @@ hexo_markmap:
   - If set to `custom`, the `customCDN` value will be used as the CDN prefix.
 - **`customCDN`** : Defines a custom CDN URL for Markmap. This must be a valid URL.
 - **`globalOptions`** : Used to define global options for all mindmaps.    
-  - Correspond to the [`options`](#frontmatter-options) in the frontmatter.
+  - Correspond to the [Frontmatter Options](#frontmatter-options) above.
 
 ## Upgrade to `hexo-markmap` v2
 
@@ -151,7 +134,7 @@ To upgrade to `hexo-markmap@2`, follow these steps:
       ```
       - The new version no longer supports `pjax` compatibility;
       - KaTeX and Prism.js are now automatically detected and generate corresponding CDN tags;
-      - You can disable `pan` and `zoom` in the frontmatter `options` to achieve the `lockView` effect.
+      - By setting both `pan` and `zoom` in the `markmap` frontmatter to `false`, you can achieve the same effect as `lockView`.
 
    - `CDN` configuration logic has also changed:
       ```diff

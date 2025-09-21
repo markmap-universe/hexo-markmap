@@ -3,7 +3,7 @@
 > [!WARNING]
 > 这是 `hexo-markmap@2` 的文档。如果你正在使用 `hexo-markmap@1`，请查看 [这里](https://github.com/markmap-universe/hexo-markmap/tree/legacy)。
 >
-> 如果你想升级到 `hexo-markmap@2`，请查看 [这里](#升级到-hexo-markmap-v2)。
+> 如果你想升级到 `hexo-markmap@2`，请查看 [这里](#升级到-hexo-markmap2)。
 
 <img src="https://raw.githubusercontent.com/markmap-universe/logo/master/hexo-markmap-logo.png" alt="Hexo logo" width="100" height="100" align="right" />
 
@@ -41,11 +41,11 @@ markmap:
 {% endmarkmap %}
 ```
 
-### 独立选项
+### 行内选项
 
-你可以在 `markmap` 标签中自定义每个思维导图。
+你可以在 markmap 标签（`{% markmap %} ... {% endmarkmap %}`）中自定义每个思维导图。
 
-### Frontmatter 选项
+#### Frontmatter 选项
 
 就像你在 Hexo 中的 Markdown 文件中使用 frontmatter 一样，你可以在 `markmap` 标签中使用 frontmatter 来自定义你的思维导图！
 
@@ -54,19 +54,8 @@ markmap:
 - **`id`**：用于定义 `markmap-wrap` 元素的 ID。  
 
 - **`markmap`**：对应 markmap 项目中的 [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html)。有关更多详细信息，请参考 [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list)。
-  - 别名：**`options`**（向后兼容）
 
 <details>
-
-<summary><code>markmap</code> 和 <code>options</code> 的区别</summary>
-
-- **`markmap`（来自 markmap-lib）**  
- 会被[预处理](https://github.com/markmap/markmap/blob/master/packages/markmap-lib/src/plugins/frontmatter/index.ts#L41)（将字符串转换为数组或数字），并优先覆盖 `options`。  
-  - 例如，`color: 'red'` 会被转换为 `color: ['red']`，只有后者在 `markmap-view` 中有效。  
-  - ✅ 推荐使用，以保持与 `markmap` 一致。
-
-- **`options`（来自 markmap-universe）** 会被直接传递给 markmap-view。  
-  - ❌ 不推荐使用，仅为向后兼容而保留。
 
 </details>
 
@@ -105,7 +94,7 @@ hexo_markmap:
   - 如果设置为 `custom`，则 `customCDN` 的值将被用作 CDN 的前缀。
 - **`customCDN`** : 为 Markmap 定义自定义 CDN URL。这必须是一个有效的 URL。
 - **`globalOptions`** : 用于为所有思维导图定义全局选项。  
-  - 对应于前面提到的 frontmatter 中的 [`options`](#frontmatter-选项)。
+  - 对应上面的 [Frontmatter 选项](#frontmatter-选项)。
 
 ## 升级到 `hexo-markmap@2`
 
@@ -147,7 +136,7 @@ hexo_markmap:
       ```
       - 当前版本已放弃对 `pjax` 的兼容性；
       - KaTeX 与 Prism.js 现可自动检测并生成相应的 CDN 标签；
-      - 通过 frontmatter 中的 `options` 设置 `pan` 与 `zoom` 为 `false` 即可实现 `lockView` 效果。
+      - 同时将 frontmatter 中 `markmap` 的 `pan` 和 `zoom` 设为 `false`，即可达到与 `lockView` 相同的效果。
 
    - `CDN` 配置逻辑也有所调整：
       ```diff
