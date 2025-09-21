@@ -34,11 +34,11 @@ export const checkOldConfig = (config: Record<string, any> = {}): Record<string,
     console.warn(`${WARN_PREFIX} Deprecated configuration options detected. These options will be ignored:`, deprecatedKeys)
 
     if ('userCDN' in config) {
-        console.warn(`${WARN_PREFIX} The userCDN option is deprecated. Please set the CDN option to 'custom' and use the \`customCDN\` option instead.`)
+        console.warn(`${WARN_PREFIX} The \`userCDN\` option is deprecated. Please set the CDN option to \`custom\` and use the \`customCDN\` option instead.`)
     }
 
     if ('lockView' in config) {
-        console.warn(`${WARN_PREFIX} The lockView option is deprecated and will be ignored.`)
+        console.warn(`${WARN_PREFIX} The \`lockView\` option is deprecated and will be ignored.`)
     }
 
     return Object.fromEntries(
