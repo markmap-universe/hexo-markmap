@@ -82,7 +82,6 @@ By default, it works well. Each option has a default value.
 hexo_markmap:
   darkThemeCssSelector: '.dark'
   CDN: 'fastly' 
-  customCDN: 'https://fastly.jsdelivr.net/npm/'
 ```
 
 - **`darkThemeCssSelector`** : Used to specify the CSS selector for the dark theme.  

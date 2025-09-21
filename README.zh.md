@@ -86,7 +86,6 @@ markmap:
 hexo_markmap:
   darkThemeCssSelector: '.dark'
   CDN: 'fastly'
-  customCDN: 'https://fastly.jsdelivr.net/npm/'
 ```
 
 - **`darkThemeCssSelector`** : 用于指定暗黑主题的CSS选择器。
